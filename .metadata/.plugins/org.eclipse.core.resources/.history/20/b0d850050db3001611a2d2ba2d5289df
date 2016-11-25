@@ -30,8 +30,8 @@ public class CheckService {
 						while (!found) {
 							int c = 1;
 							if (!pause && !cols.isEmpty() && !rows.isEmpty() && !(xm || xmyp || xmym || xp || xpym || xpyp || ym)) {
-//								checker = columns[cols.get(index)]
-//								xm = (checker == columns[columNo - c].getTeam(fallDepth)) ? true : false;
+								checker = columns[cols.get(index)]
+								xm = (checker == columns[columNo - c].getTeam(fallDepth)) ? true : false;
 							}
 							Thread.sleep(16);
 						}
