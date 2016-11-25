@@ -1,0 +1,19 @@
+1478513068908	Rename type 'Logic'
+1478514570481	Rename method 'set'
+1478516870885	Copy compilation unit
+1478537524167	Rename type 'GlowRectangle'
+1478538935379	Rename local variable 'gR'
+1478546880242	Rename method 'initGlowPane'
+1478557239941	Copy compilation unit
+1478557291422	Delete element
+1478557300938	Rename resource 'pawn32x.png'
+1478557309734	Rename resource 'truepawn32x.png'
+1478557948456	Delete element
+1478557953080	Copy compilation unit
+1478683193754	Copy compilation unit
+1478782894415	Copy compilation unit
+1478784113434	Rename type 'Tower'
+1478784127097	Rename resource 'truetower.png'
+1478784133773	Rename resource 'truetowersel.png'
+1478784141018	Rename resource 'falsetowersel.png'
+1478784159282	Rename resource 'falsetower.png'

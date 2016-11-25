@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="493.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controls">
+   <children>
+      <Button fx:id="matteAnButton" layoutX="47.0" layoutY="393.0" mnemonicParsing="false" onAction="#matteAn" text="an" />
+      <Button fx:id="matteAusButton" layoutX="116.0" layoutY="393.0" mnemonicParsing="false" onAction="#matteAus" text="aus" />
+      <Label layoutX="61.0" layoutY="355.0" text="Heizmatte">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="616.0" layoutY="79.0" text="Status">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="587.0" layoutY="138.0" text="aktuelle Temperatur" textAlignment="CENTER" />
+      <Label fx:id="aktTemp1" layoutX="623.0" layoutY="163.0" text="temp1" textAlignment="CENTER" />
+      <Label fx:id="aktTemp2" layoutX="624.0" layoutY="189.0" text="temp2" textAlignment="CENTER" />
+      <Label layoutX="599.0" layoutY="221.0" text="Luftfeuchtigkeit" />
+      <Label fx:id="aktHydr" layoutX="620.0" layoutY="247.0" text="aktHydr" />
+      <TextField fx:id="minTempTF" layoutX="282.0" layoutY="393.0" prefHeight="25.0" prefWidth="49.0" />
+      <Label layoutX="249.0" layoutY="397.0" text="min" />
+      <Label layoutX="248.0" layoutY="437.0" text="max" />
+      <TextField fx:id="maxTempTF" layoutX="282.0" layoutY="433.0" prefHeight="25.0" prefWidth="49.0" />
+      <Label layoutX="263.0" layoutY="355.0" text="Optimaltemperatur">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="speichern" layoutX="553.0" layoutY="445.0" mnemonicParsing="false" onAction="#speichern" text="Speichern" />
+      <Button fx:id="schliessen" layoutX="632.0" layoutY="445.0" mnemonicParsing="false" onAction="#schliessen" text="Schließen" />
+      <Label fx:id="minWertLabel" layoutX="395.0" layoutY="397.0" text="minWert" />
+      <Label fx:id="maxWertLabel" layoutX="394.0" layoutY="437.0" text="maxWert" />
+      <Label layoutX="254.0" layoutY="19.0" text="Temperatura Restrictor">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="okMinWert" layoutX="346.0" layoutY="393.0" mnemonicParsing="false" onAction="#setMinTemp" text="OK" />
+      <Button fx:id="okMaxWert" layoutX="346.0" layoutY="433.0" mnemonicParsing="false" onAction="#setMaxTemp" text="OK" />
+      <Button fx:id="diagramm" layoutX="605.0" layoutY="314.0" mnemonicParsing="false" onAction="#updateWerte" text="Diagramm" />
+      <LineChart fx:id="verlauf" createSymbols="false" layoutX="57.0" layoutY="79.0" legendVisible="false" prefHeight="250.0" prefWidth="500.0">
+        <xAxis>
+          <CategoryAxis label="Zeit" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Temperatur in °C" side="LEFT" tickUnit="1.0" upperBound="40.0" />
+        </yAxis>
+      </LineChart>
+      <Circle fx:id="hydrDot" fill="#00d73d" layoutX="682.0" layoutY="258.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="matteStatusDot" fill="#00d73d" layoutX="97.0" layoutY="446.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="temp2Dot" fill="#00d73d" layoutX="682.0" layoutY="198.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="temp1Dot" fill="#00d73d" layoutX="682.0" layoutY="172.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

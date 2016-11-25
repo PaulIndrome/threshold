@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>AJAX Einfuehrung</title>	
+		
+		<script type="text/javascript">
+			function showDim(d){
+				console.log("test: " +d);
+				var xmlhttp;
+				if (d == "")
+				{
+					//Löschen der Felder
+					document.getElementById("id").value="";
+					document.getElementById("bez").value="";
+					document.getElementById("grav").value="";
+					document.getElementById("steps").value="";
+					document.getElementById("force").value="";
+					document.getElementById("warn").value="";
+					return;
+				}
+			//Ajax ab hier, XMLHttpRequest ist ein Grundbaustein der AJAX
+			if (window.XMLHttpRequest){
+				xmlhttp=new XMLHttpRequest();
+			}
+			else{
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			//wird immer aufgerufen, wenn sich die readyState ändert
+			xmlhttp.onreadystatechange=function()
+			{
+				console.log(xmlhttp.readyState +" "+ xmlhttp.status);
+				if (xmlhttp.readyState==4 && xmlhttp.status==200){
+					var xmlDoc1=xmlhttp.responseXML;
+					var xid = xmlDoc1.getElementsByTagName("id")[0].firstChild.nodeValue;
+					var xbez = xmlDoc1.getElementsByTagName("designation")[0].firstChild.nodeValue;
+					var xgrav = xmlDoc1.getElementsByTagName("gravitation")[0].firstChild.nodeValue;
+					var xsteps = xmlDoc1.getElementsByTagName("steps")[0].firstChild.nodeValue;
+					var xforce = xmlDoc1.getElementsByTagName("force")[0].firstChild.nodeValue;
+					var xwarn1 = xmlDoc1.getElementsByTagName("warning1")[0].firstChild.nodeValue;
+					var xwarn2 = xmlDoc1.getElementsByTagName("warning2")[0].firstChild.nodeValue;
+					
+					document.getElementById("id").value=xid;
+					document.getElementById("bez").value=xbez;
+					document.getElementById("grav").value=xgrav;
+					document.getElementById("steps").value=xsteps;
+					document.getElementById("force").value=xforce;
+					document.getElementById("warn1").value=xwarn1;
+					document.getElementById("warn2").value=xwarn2;
+				}
+			};
+			xmlhttp.open("GET","../../xml/"+ d +".xml",true);
+			xmlhttp.send();
+			}
+		</script>		
+	</head>
+	<body>
+		<p> <a href="../../index.html">Zurück</a> zum Index.</p>
+		
+		<div id="nav">
+			<form action="">
+				<select name="Personen" onchange="showDim(this.value)">
+					<option value="">Dimensionsbrecher</option>
+					<option value="p1">Alpha</option>
+					<option value="p2">Beta</option>
+					<option value="p3">Gamma</option>
+					<option value="p4">Delta</option>
+				</select>
+			</form>			
+		</div>
+		<div id="content">
+		<p>Data of dimension:</p>
+			<table id="tabdim">
+				<tr><td>ID:</td><td><input type="text" id="id" size="50"/></td></tr>
+				<tr><td>Designation:</td><td><input type="text" id="bez" size="50"/></td></tr>
+				<tr><td>Gravitation:</td><td><input type="text" id="grav" size="50"/></td></tr>
+				<tr><td>Steps-Sideways:</td><td><input type="text" id="steps" size="50"/></td></tr>
+				<tr><td>Main Force:</td><td><input type="text" id="force" size="50"/></td></tr>
+				<tr><td>Warning_1:</td><td><input type="text" id="warn1" size="50"/></td></tr>
+				<tr><td>Warning_2:</td><td><input type="text" id="warn2" size="50"/></td></tr>
+			</table>
+		</div>
+	
+	
+	
+	</body>
+</html>

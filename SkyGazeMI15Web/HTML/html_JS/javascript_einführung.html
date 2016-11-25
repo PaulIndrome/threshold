@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>javascript rechner</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">			
+	</head>
+	<body>
+		
+	<p> <a href="../../index.html">Zurück</a> zum Index.</p>
+	
+	<script type="text/javascript">
+		var input = window.prompt('Berechnung eingeben', '');
+		alert(typeof input); //Rückgabe des Datentyps der Eingabe mit typeof
+		//Zerlegen des Eingabe-Strings in mehrere Teilzeichenketten in einem Array
+		var operation=input.split(' '); //Parameter der Methode ist das Trennzeichen, nach dem gesucht wird, um die Einzelteile zu zerlegen
+		alert(operation[0]+" "+operation[1]+" "+operation[2]);
+		
+		//ersetzen von Zeichen mit Methode .replace (Parameter sind 1.zu ersetzendes Zeichen, 2. Ersatzzeichen)
+		var z1=operation[0].replace(/,/,".");
+		var z2=operation[2].replace(/,/,".");
+		
+		//Datentyp wandeln, liefert NaN (not a number), wenn keine Zahl
+		var op1=parseFloat(z1);
+		var op2=parseFloat(z2);
+		
+		alert("Input numbers:  " + op1 + "  " +op2);
+		
+		//NaN kann nicht direkt mit NaN verglichen werden, also absichern
+		if(isNaN(op1) && typeof op1 == "number"){
+			alert("Operator 1 is not a number");
+		}
+		else if(isNaN(op2) && typeof op2 == "number"){
+			alert("Operator 2 is not a number");
+		}
+		else if((operation[1] != "+") && (operation[1] != "-") && (operation[1] != "*") && (operation[1] != "/")){
+			alert("Invalid operation instruction");
+		}
+		else {
+			var result;
+			switch (operation[1]){
+				case "+":	result = op1 + op2;
+							break;
+				case "-":	result = op1 - op2;
+							break;
+				case "*":	result = op1 * op2;
+							break;
+				case "/":	result = op1 / op2; 
+							break; //wird alles IM BROWSER ausgeführt
+				default:	result = "???";
+							break;
+			}
+			alert("Result: " + op1 + " " + operation[1] + " " + op2 + " = " + result);
+		}
+		
+	</script>
+	
+	
+	
+	
+	
+	</body>
+</html>

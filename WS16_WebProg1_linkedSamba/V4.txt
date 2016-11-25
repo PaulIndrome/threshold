@@ -1,0 +1,4 @@
+mit setGlobal On werden aus allen Indizes eines übergebenen POST-Arrays automatisch globale Variablen mit demselben Namen erstellt
+(in HSMW ist setGlobal off)
+
+

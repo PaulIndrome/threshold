@@ -1,0 +1,4 @@
+Modell-View-Controller
+Modell		- Applikationsdaten: Persistenzschicht (Datenmodell)
+View 		- Präsentation der Applikationsdaten: Präsentationsschicht
+Controller	- Programmlogik: Anwendungsschicht  

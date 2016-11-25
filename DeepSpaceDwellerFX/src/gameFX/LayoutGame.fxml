@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameFX.GameController">
+   <children>
+      <ImageView blendMode="MULTIPLY" fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="res/DeepSpaceDwellerBG.png" />
+         </image></ImageView>
+      <Button fx:id="btnConnX" blendMode="MULTIPLY" layoutX="43.0" layoutY="220.0" mnemonicParsing="false" onAction="#travelToSystemsX" prefHeight="39.0" prefWidth="193.0" text="Button" wrapText="true">
+         <font>
+            <Font name="Consolas Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnConnY" blendMode="MULTIPLY" layoutX="43.0" layoutY="297.0" mnemonicParsing="false" onAction="#travelToSystemsY" prefHeight="39.0" prefWidth="193.0" text="Button" wrapText="true">
+         <font>
+            <Font name="Consolas Bold" size="12.0" />
+         </font></Button>
+      <Label layoutX="308.0" layoutY="297.0" text="Größe" textFill="#00ff1a">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblGroessePlanet" layoutX="309.0" layoutY="314.0" prefHeight="17.0" prefWidth="240.0" text="----------" textFill="#00ff1a">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="308.0" layoutY="358.0" text="Geschichte" textFill="#00ff1a">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblHistoryPlanet" alignment="TOP_LEFT" layoutX="308.0" layoutY="379.0" prefHeight="158.0" prefWidth="240.0" text="------------" textAlignment="JUSTIFY" textFill="#00ff1a" wrapText="true">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font>
+      </Label>
+      <Button blendMode="MULTIPLY" layoutX="429.0" layoutY="220.0" mnemonicParsing="false" onAction="#scanPlanet" text="Planet scannen.">
+         <font>
+            <Font name="Consolas Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblGameStatus" alignment="CENTER" layoutX="37.0" layoutY="393.0" prefHeight="150.0" prefWidth="206.0" text="Status" textFill="#00ff1a" wrapText="true">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font></Label>
+      <Button blendMode="MULTIPLY" layoutX="51.0" layoutY="74.0" mnemonicParsing="false" onAction="#loadInitialGameSystems" prefHeight="52.0" prefWidth="180.0" text="Start">
+         <font>
+            <Font name="Consolas Bold" size="18.0" />
+         </font></Button>
+      <RadioButton fx:id="rbtnPlanetA" layoutX="308.0" layoutY="196.0" mnemonicParsing="false" text="RadioButton">
+         <toggleGroup>
+            <ToggleGroup fx:id="togglePlanets" />
+         </toggleGroup>
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rbtnPlanetB" layoutX="308.0" layoutY="228.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$togglePlanets">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font></RadioButton>
+      <Label alignment="CENTER" layoutX="311.0" layoutY="74.0" prefHeight="32.0" prefWidth="233.0" text="Deep Space Dweller">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

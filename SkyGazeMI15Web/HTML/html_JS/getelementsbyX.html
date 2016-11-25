@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>javascript getelements</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<script>
+			function demo(){
+				document.getElementById("t1").innerHTML = "Less text. Better.";
+				document.getElementsByName("t2")[0].innerHTML = "Well done.";
+				document.getElementsByName("t2")[1].innerHTML = "Well done, too.";
+				document.getElementsByTagName("li")[2].innerHTML = "He can also completely falter.";
+			}
+		</script>			
+	</head>
+	<body>
+		
+	<p> <a href="../../index.html">Zurück</a> zum Index.</p>
+	
+	<button onclick="demo()">Change</button>
+	
+	<p id="t1">So much text.</p>
+	
+	<p name="t2">What can man do against</p>
+	<p name="t2">this kind of senseless evil?</p>
+	
+	<ul>
+		<li>He can fight.</li>
+		<li>He can win or lose.</li>
+		<li>But he can believe.</li>
+	</ul>
+	</body>
+</html>

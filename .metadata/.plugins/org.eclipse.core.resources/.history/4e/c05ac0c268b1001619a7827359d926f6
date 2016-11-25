@@ -1,0 +1,55 @@
+package Pr_05_package;
+
+import vorgaben.praktikum5.Cell;
+import vorgaben.praktikum5.CellAccessDictionary;
+
+public class SepChaining implements CellAccessDictionary {
+
+	private int size;
+	private Cell[] dates;
+
+	@Override
+	public boolean delete(String value) {
+		for(Cell c : dates){
+			if(c.getKey() == value){
+				c.setKey(null);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public void initialize(int size) {
+		this.size = size;
+		dates = new Cell[size];
+	}
+
+	@Override
+	public void insert(String key, String value) {
+		int keyHash = reducedHashcode(key);
+		Cell c = new Cell();
+		if(!delete(value)){
+			dates[keyHash] = c;
+			c.setKey(key);
+			c.setInfo(value);
+		} else {
+			
+		}
+	}
+
+	@Override
+	public String read(String arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Cell[] getCells() {
+		return dates;
+	}
+
+	private int reducedHashcode(String s) {
+		return Math.abs(s.hashCode()) % size;
+	}
+}

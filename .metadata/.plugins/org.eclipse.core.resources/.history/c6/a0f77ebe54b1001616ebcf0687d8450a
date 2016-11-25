@@ -1,0 +1,28 @@
+package stackimplementations;
+
+public class CRStack {
+
+	private CircleRow first;
+	
+	public CRStack(){
+		first = null;
+	}
+	
+	public CRStack(CircleRow first){
+		this.first = first;
+	}
+	
+	public void push(CircleRow next){
+		CircleRow temp = first;
+		while(temp.hasNext()){
+			temp = temp.getNext();
+		}
+		temp.setNext(next);
+	}
+	
+	public void pop(){
+		CircleRow temp = first;
+		first = first.getNext();
+	}
+	
+}

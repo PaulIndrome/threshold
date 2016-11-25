@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>tables styles test site</title>			
+	</head>
+	<style>
+		col {background-color: #C4B2B2;}
+		colgroup {background-color: #A8A1A9;}
+	</style>
+	<body>
+		
+	<p> <a href="../../index.html">Zurück</a> zum Index.</p>
+		
+	<!--<table> aus Zeilen und Spalten
+		<tr> table row leitet neue Zeile ein
+		<td> table data leitet neue Datenzelle ein
+		<th> table header leitet neue Kopfzelle ein
+		</table>-->	
+	<h3>table mit th, tr und td</h3>
+	<table border="1">
+		<tr><th>Judge</th><th>Head 1</th><th>Head 2</th></tr>
+		<tr><td>Queen</td><td>OFF WITH HIS HEAD!</td><td>OFF WITH THIS ONE, TOO!</td></tr>
+		<tr><td>King</td><td>Off with the head, by order of the king</td><td>...but you heard what she said.</td></tr>
+		<tr><td>Alice</td><td>What's going on?</td><td>You're all mad!</td></tr>
+	</table>
+	<hr>
+	<!--thead = Kopfbereich
+		tbody = Körper-/Datenbereiche
+		tfoot = Fußbereich 	-->
+	<h3>table mit thead tbody und tfoot</h3>
+	<table border="2">
+		<thead>
+			<tr><th>Judge</th><th>Card 1</th><th>Card 2</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>Queen</td><td>OFF WITH HIS HEAD!</td><td>OFF WITH THIS ONE, TOO!</td></tr>
+			<tr><td>King</td><td>Off with the head, by order of the king</td><td>...but you heard what she said.</td></tr>
+			<tr><td>Alice</td><td>What's going on?</td><td>You're all mad!</td></tr>
+		</tbody>
+		<tfoot>
+			<tr><td>Gesamt:</td><td>Off.</td><td>Off, too.</td></tr>
+		</tfoot>
+	</table>
+	<hr>
+	<h3>table mit Spaltengruppen</h3>
+		<!--colgroup = definiert eine Spaltengruppe
+			col = definiert einzelne Spalte	
+			nützlich zur gezielten Formatierung von Spalten mit CSS-->
+		<table border="3">
+			<colgroup>
+			<col>
+			<col>
+			<col>
+			</colgroup>
+			<tr><td>Queen</td><td>OFF WITH HIS HEAD!</td><td>OFF WITH THIS ONE, TOO!</td></tr>
+			<tr><td>King</td><td>Off with the head, by order of the king</td><td>...but you heard what she said.</td></tr>
+			<tr><td>Alice</td><td>What's going on?</td><td>You're all mad!</td></tr>
+		</table>
+	<br>
+		<table border="4">
+			<colgroup span="2">
+			</colgroup>
+			<tr><td>Queen</td><td>OFF WITH HIS HEAD!</td><td>OFF WITH THIS ONE, TOO!</td></tr>
+			<tr><td>King</td><td>Off with the head, by order of the king</td><td>...but you heard what she said.</td></tr>
+			<tr><td>Alice</td><td>What's going on?</td><td>You're all mad!</td></tr>
+		</table>
+		<hr>
+	<h3>table mit verbundenen Zellen</h3>
+		<!-- colspan="X" Zelle erstreckt sich über X Spalten
+			 rowspan="Y" Zelle erstreckt sich über Y Zeilen-->
+		<table border="5">
+			<colgroup>
+			<col span="1" style="background-color: white">
+			<col style="background-color: #C4B2B2">
+			<col span="2" style="background-color: white">
+			</colgroup>
+			<tr><td rowspan="3">Cut off the head?</td><td>Queen</td><td colspan="2">OFF WITH ALL THE HEADS!</td></tr>
+			<tr><td>King</td><td>Off with the head, by order of the king</td><td>...but you heard what she said.</td></tr>
+			<tr><td>Alice</td><td>What's going on?</td><td>You're all mad!</td></tr>
+			<tr><td colspan="4">In summary: Lewis Carroll was stark ravin' daft!</td></tr>
+		</table>
+	<hr>
+	
+			 
+	</body>
+</html>

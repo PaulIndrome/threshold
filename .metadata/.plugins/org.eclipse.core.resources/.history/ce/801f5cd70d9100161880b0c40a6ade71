@@ -1,0 +1,4 @@
+require() erfordert ZWINGEND Vorhandensein von Dateien
+include() arbeitet auch weiter, wenn einige Dateien nicht vorhanden sind
+
+

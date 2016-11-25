@@ -1,0 +1,53 @@
+package ColumnBasedGame;
+
+import java.util.ArrayList;
+import java.util.Map;
+
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.scene.shape.Circle;
+
+public class CheckService {
+
+	private static GameColumn[] columns = ColumnGame.getColumns();
+	private static Map<Integer, Integer> colRow = new Map<Integer, Integer>();
+	
+	private static Service<Void> check;
+	private static boolean pause;
+	private static boolean found = false;
+	
+
+	public CheckService() {
+		pause = false;
+		check = new Service<Void>() {
+			@Override
+			protected Task<Void> createTask() {
+				return new Task<Void>() {
+					protected Void call() throws Exception {
+						while (!found) {
+							if (!pause) {
+								for (int i = 0; i < circles.size(); i++) {
+									Circle c = circles.get(i);
+									if (c.getCenterY()+c.getRadius()+1 < fallDepths.get(i)) {
+										c.setCenterY(c.getCenterY() + c.getRadius()+1);
+									} else {
+										removeCircle(i);
+										pause = (circles.isEmpty());
+									}
+								}
+							}
+							Thread.sleep(16);
+						}
+						return null;
+					}
+				};
+			}
+		};
+		check.start();
+	}
+
+	public static void check(int col, int row){
+		
+	}
+
+}

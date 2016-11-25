@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>tables styles test site</title>			
+	</head>
+
+	
+	<body>	
+	<p> <a href="../../index.html">Zurück</a> zum Index.</p>
+		
+	<form name="Who-r-u" action="../../php/formerfassung2.php" method="get" autocomplete="on">
+		<label for="tf1">What do you say?</label>
+		<input type="text" name="tf1" id="tf1" size="30" maxlength="25"/><br><br>
+		<label for="tf2">What CAN you say?</label>
+		<input type="text" name="tf2" id="tf2" size="32" 
+		value="what WOULD you say?" onfocus="if(this.value=='what WOULD you say?'){this.value='';}"/><br><br>
+		<label for="tf3">WHO R U?</label>
+		<input type="text" name="tf3" id="tf3" size="36" readonly="readonly" value="You are Unable."/><br><br>
+		<label for="tf4">Unable! Unable!</label>
+		<input type="text" name="tf4" id="tf4" size="40" disabled="disabled" value="Unable! Unable!"/><br><br>
+		<label for="tf5">Can't even see!</label>
+		<input type="password" name="tf5" id="tf5" size="48"/><br><br>
+		<input type="submit" value="Answer this way." name="answer"/>
+		<input type="reset" value="Unsure, rethink." name="rethink"/>
+	</form>
+	<br>
+	<hr>
+	<br>
+	<form name="queen-hurricane" action="../../php/formerfassung2.php" method="get">
+		<label for"ta1">How is the Queen of Hearts like a hurricane?</label>
+		<textarea rows="2" name="ta1" id="ta1" cols="20" style="resize:none"></textarea><br><br>
+		<label for="ta2">In every way.</label>
+		<textarea rows="2" name="ta2" id="ta2" style="width=122; overflow:hidden;"></textarea><br><br>
+		<label for="ta3">But the hurricane doesn't try to be.</label>
+		<textarea rows="2" name="ta3" id="ta3" style="width:122" onfocus="if(this.value=='This will disappear.'){this.value='';}">This will disappear.</textarea><br><br>
+		<input type="hidden" name="hidden" value="Hidden messages!"><br><br>
+		<hr>
+		<br>
+		<label for="combo1">Quick! The mushrooms!</label>
+		<input type="text" name="combo1" id="combo1" 
+		value="Witch pocket had the right mushroom?" list="pockets" style="width:320px;"/>
+		<datalist id="pockets">
+			<option label="right" value="Right pocket?">
+			<option label="left" value="Left pocket?">
+			<option label="both" value="Just eat both??">
+		</datalist>
+				
+	<br><br>
+	<hr>
+	<br>
+		<input type="submit" value="Answer this way." name="answer"/>
+		<input type="reset" value="Unsure, rethink." name="rethink"/>
+		<input type="button" value="What does this do?" name="mushroom" 
+			onclick="myfunction()"/>
+			<br><br>
+		<input type="file" name="cardpick" size="33"/>
+		
+		<br><br>
+		<button type="button" value="Go mad!" style="width:auto; height=auto; text-align:center;">
+			<img src="../../bilder/cheshirecat.png" alt="GO MAD!"><p>Go mad!</p></button>
+	</form>
+	<br>
+	<hr>
+	<br>
+	<form name="rabbits" action="../../php/formerfassung2.php" method="get">
+		<p>Which rabbit should I follow? < input type radio ></p>
+		<input type="radio" value="white" name="whichrabbit" checked="checked"/>white rabbit
+		<input type="radio" value="black" name="whichrabbit"/>black rabbit
+		<input type="radio" value="yellow" name="whichrabbit"/>yellow rabbit
+		<br><br>
+		If I could split myself into two... < fieldset > < input type checkbox > (only the last to be checked is sent)
+		<fieldset style="width:auto">
+			<legend>I would follow the </legend>
+		<input type="checkbox" value="white" name="rabbits"/>white rabbit
+		<input type="checkbox" value="black" name="rabbits"/>black rabbit
+		<input type="checkbox" value="yellow" name="rabbits"/>yellow rabbit
+		</fieldset>
+		<br>
+		<p>Or should I follow other animals as well? < input type checkbox ></p>
+		<input type="checkbox" value="dodo" name="dodo"/>the dodo?
+		<input type="checkbox" value="walrus" name="walrus"/>the walrus?
+		<input type="checkbox" value="tweedles" name="tweedles"/>tweedledum and tweedledee?
+		<br><br>
+		<input type="submit" value="Answer this way." name="answer"/>
+		<input type="reset" value="Unsure, rethink." name="rethink"/>
+	</form>
+	<br>
+	<hr>
+	<br>
+	<form name="datumzeit">
+		<input type="date" name="datum"/> input type date <br>
+		<input type="month" name="datum"/> input type month <br>
+		<input type="week" name="datum"/> input type week <br>
+		<input type="datetime-local" name="datum"/> input type datetime-local <br>
+		<input type="time" name="zeit"/> input type time
+	</form> 
+	<br>
+	<hr>
+	<br>	
+	<hr>
+	<form name="selections" action="../../php/selectionserfassung.php" method="get">
+		<h3>Selections < select ></h3>
+		<select name="auswahl1" size="1" style="width:200px;">
+			<option value="single-1">single-1</option>
+			<option value="single-2">single-2</option>
+			<option value="single-3">single-3</option>
+		</select>
+		<br><br>
+			<select name="auswahl2[]" size="3" style="width:200px;" multiple="multiple">
+			<option value="multiple1-1">multiple1-1</option>
+			<option value="multiple1-2">multiple1-2</option>
+			<option value="multiple1-3">multiple1-3</option>
+			<option value="multiple1-4">multiple1-4</option>
+		</select>
+		<br><br>
+		<select name="auswahl3[]" size="8" style="width:300px;" multiple="multiple">
+			<optgroup label="Good morning??">
+				<option value="multiple2-1">multiple2-1</option>
+				<option value="multiple2-2">multiple2-2</option>
+				<option value="multiple2-3">multiple2-3</option>
+			</optgroup>
+			<optgroup label="Jurassic morning">
+				<option value="multiple2-4">multiple2-4</option>
+				<option value="multiple2-5">multiple2-5</option>
+				<option value="multiple2-6">multiple2-6</option>
+				<option value="multiple2-7">multiple2-7</option>
+			</optgroup>
+		</select>
+		<br><br>
+		<input type="submit" value="indigo ray" name="selectionsubmit"/>
+		</form>
+	<br>
+	<hr>
+	<br>
+		<h4>parsing a sum with < form oninput > < input type number > < output ></h4>
+		<form oninput="ergebnis.value=parseFloat(zahl1.value)+parseFloat(zahl2.value)">
+			<input type="number" id="zahl1" size="10" min="-50" max="50" step="any" value="0">
+			+
+			<input type="number" id="zahl2" size="10" min="-50" max="50" step="any" value="0">
+			=
+			<output name="ergebnis" for="zahl1 zahl2">&nbsp;</output>
+		</form>
+	<br>
+	<hr>
+	<br>
+		<h4>color picker with < input type color></h4>	
+		<form>
+			<p>Which color will the apocalypse be?</p>
+			<input type="color" id="coloroftheapocalypse" name="cp" value="#787878">
+			<br>
+			<p>You chose <b><span id="apocalypsecolor"></span></b></p>
+			<script type="text/javascript">
+				col = document.getElementById("coloroftheapocalypse"); //der colorpicker wird als Element "col" bezeichnet
+				fw = document.getElementById("apocalypsecolor"); //die span Anweisung mit der ID "apocalypsecolor" wird mit "fw" bezeichnet
+				//der listener hört auf das input (ok) Ereignis im colorpicker
+				col.addEventListener("input", function(){ //anonyme Funktion, weil kein Name
+					fw.innerHTML = col.value; //innerHTML schreibt IN die HTML-Anweisung span mit der entsprechenden id (hier:fw) den Wert col.value rein
+					document.body.style.background = col.value;
+				});
+			</script>
+		</form>
+	<br>
+	<hr>
+	<br>
+		<h4>color picker for division</h4>
+		<div id="cdivision" style="background-color:white; height:100px; border:solid 1px black; width:200px;"> </div>
+		<form>
+			<p>choose your division color</p>
+			<input type="color" id="divcolor" name"dc" value="#ffffff"><br><br>
+				<textarea id="area51" rows="5"> Blablablabla</textarea>
+				<p>the color of your division will be <b><span id="divcolorspan">#ffffff</span></b></p>
+			<script type="text/javascript">
+				divc = document.getElementById("divcolor");
+				divctext = document.getElementById("divcolorspan");
+				divid = document.getElementById("cdivision");
+				divc.addEventListener("input", function(){
+					divctext.innerHTML = divc.value;
+					divid.style.background = divc.value;
+					document.getElementById("area51").style.background = divc.value;
+				});
+			</script>
+		</form>	
+	<br>
+	<hr>
+	<br>
+		
+	</body>
+</html>

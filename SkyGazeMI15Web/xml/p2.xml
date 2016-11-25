@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dimension>
+	<id>2</id>
+	<designation>Beta-Damino DD-8</designation>
+	<gravitation>2.3 Erden</gravitation>
+	<steps>1.8 * 10^8105</steps>
+	<force>rotational gravitation</force>
+	<warning1>personal matter stabilizer required</warning1>
+	<warning2> - </warning2>
+</dimension>

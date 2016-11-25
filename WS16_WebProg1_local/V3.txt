@@ -1,0 +1,3 @@
+Zustandslos = Client und Server kennen sich nach abgeschlossener Request-Response Abwicklung nicht mehr
+
+besitzt ein FormularElement kein Attribut name="", wird sein Inhalt nicht mitgesendet

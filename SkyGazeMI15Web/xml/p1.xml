@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dimension>
+	<id>1</id>
+	<designation>Alpha-Naura B2-L</designation>
+	<gravitation>0.5 Erde</gravitation>
+	<steps>3.5 * 10^977</steps>
+	<force>Desaturated Magic</force>
+	<warning1>acidic composition of most liquids</warning1>
+	<warning2> - </warning2>
+</dimension>

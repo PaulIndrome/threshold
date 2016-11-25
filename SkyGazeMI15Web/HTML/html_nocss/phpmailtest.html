@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>Formerfassung UND Ausgabe (klein)</title>			
+	</head>
+	<body>	
+	<p> <a href="../index.html">Zurück</a> zum Index.</p>
+	<hr>
+	
+		<form name="mailform" action="../../php/phpemail.php" method="post">
+			<table border="1">
+				<tr>
+					<td><label for="empfaenger">Name:</label></td>
+					<td><input type="text" name="empfaenger"></td>
+				</tr>
+				<tr>
+					<td><label for="email">E-Mail:</label></td>
+					<td><input type="email" name="mail"></td>
+				</tr>
+				<tr>
+					<td><label for="betreff">Betreff:</label></td>
+					<td><input type="text" name="betreff"></td>
+				</tr>
+				<tr>
+					<td><label for="nachricht">Nachricht:</label></td>
+					<td><textarea name="nachricht" cols="20"></textarea></td>
+				</tr>
+				<tr>
+					<td>Senden:</td>
+					<td><input type="submit" value="Senden"></td>
+				</tr>
+			</table>
+			
+		</form>	
+	
+	</body>
+</html>

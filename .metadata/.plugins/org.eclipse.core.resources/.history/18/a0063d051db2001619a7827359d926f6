@@ -1,0 +1,42 @@
+<?php
+
+class ImageObject {
+	# properties, Eigenschaften (Felder)
+	public $filename = NULL;	# original Dateiname
+	public $mimetype = NULL;	# Multipurpose Internet Mail Extension
+	public $size = NULL;		# Dateigröße (bytes)
+	public $file = NULL;		# Dateiname im DATA-Ordner (08154711)
+	public $thumb = NULL;		# Voreschaubild
+	public $metafile = NULL;	# Metadaten XML
+	public $userdata = NULL;	# nutzergenerierte Daten
+	private $error = NULL;		# Fehlerstatus	
+	
+	#Methoden
+	#Konstruktor
+	public function __construct($file, $filename){ 	#ab PhP 5 Konstruktor durch zwei Unterstriche definiert	
+		$this->thumb = $file.EXT_THUMB;
+		$this->metafile = $file.EXT_META;
+		$this->file = $file;
+		$this->filename = $filename;
+	}
+	
+	public function create(){
+		
+	}
+	
+	public function read(){
+		
+	}
+	
+	public function update(){
+		
+	}
+	
+	public function delete(){
+		
+	}
+	
+}
+
+
+?>

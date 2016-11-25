@@ -1,0 +1,5 @@
+Merken: php.net/manual/de (en)
+	-> PHP Handbuch
+	
+$trimmed = file('somefile.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMTPY_LINES);
+													  ^-- ODER-Verknüpfung innerhalb eines Funktionsaufrufs

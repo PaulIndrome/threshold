@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SkyProd_web&apos; to &apos;WS16_WebProg1&apos;" description="Rename resource &apos;SkyProd_web&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/SkyProd_web" name="WS16_WebProg1" stamp="1476943897390" updateReferences="true"/>
+</session>

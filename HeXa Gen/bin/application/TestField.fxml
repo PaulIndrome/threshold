@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+
+
+<AnchorPane prefHeight="326.0" prefWidth="455.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="application.GameController">
+   <children>
+      <Circle fill="#b9b9b9" layoutX="213.0" layoutY="86.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#b9b9b9" layoutX="213.0" layoutY="152.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#b9b9b9" layoutX="213.0" layoutY="218.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#b9b9b9" layoutX="272.0" layoutY="123.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#b9b9b9" layoutX="272.0" layoutY="188.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#b9b9b9" layoutX="155.0" layoutY="120.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#b9b9b9" layoutX="155.0" layoutY="185.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="FigurPosition" fill="DODGERBLUE" layoutX="400.0" layoutY="102.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

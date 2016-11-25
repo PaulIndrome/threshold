@@ -1,0 +1,44 @@
+package stackimplementations;
+
+import javafx.scene.shape.Circle;
+
+public class CircleRow {
+
+	private int row;
+	private Circle circle;
+	private CircleRow next;
+	
+	public CircleRow(){
+		this.row = -1;
+		this.circle = null;
+		this.next = null;
+	}
+	
+	public CircleRow(int row, Circle circle){
+		this.row = row;
+		this.circle = circle;
+	}
+	
+	public void setNext(CircleRow cr){
+		this.next = cr;
+	}
+	
+	public boolean hasNext(){
+		return next != null;
+	}
+
+	public CircleRow getNext() {
+		return next;
+	}
+	
+	public int getRow(){
+		if(row == -1)
+			throw new IllegalArgumentException("CircleRow with negative row location found.");
+		return row;
+	}
+	
+	public Circle getCircle(){
+		return circle;
+	}
+	
+}

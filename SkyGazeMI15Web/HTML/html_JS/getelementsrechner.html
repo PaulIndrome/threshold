@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>javascript getelementsrechner</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<script>
+			function rechnen(){
+				//alert("test");
+				var z1 = document.getElementById("z1");
+				var z2 = document.getElementById("z2");
+				var fz1 = parseFloat(z1.value);
+				var fz2 = parseFloat(z2.value);
+				//alert("Zahlen:" + z1.value + " " + z2.value);
+				//alert("Floats:" + fz1 + " " + fz2);
+				document.getElementsByName("zahl1")[0].innerHTML = fz1;
+				document.getElementsByName("zahl2")[0].innerHTML = fz2;
+				
+				var result;
+				var operand = document.getElementsByName("operation");
+				var rechenart;
+				
+				for(var i = 0;i<operand.length;i++){
+					if (operand[i].checked){
+						rechenart = operand[i].value;
+						//alert("Rechenart: " + rechenart);
+					}
+					else
+						continue;
+				}								
+				
+				switch(rechenart){
+					case "+":	result = fz1 + fz2;
+								break;
+					case "-":	result = fz1 - fz2;
+								break;
+					case "*":	result = fz1 * fz2;
+								break;
+					case "/":	result = fz1 / fz2; 
+								break; //wird alles IM BROWSER ausgeführt
+					default:	result = "???";
+								break;
+				}
+				
+				//alert("Ergebnis: " + result);
+				
+				document.getElementById("result").innerHTML = result;
+			}
+		</script>			
+	</head>
+	<body>
+	<form name="rechnung" action="getelementsrechner.html">
+		<table>
+			<tr><td>Zahl 1:</td><td colspan=2><input type="number" id="z1" name="userinput"></td></tr>
+			<tr><td>Zahl 2:</td><td colspan=2><input type="number" id="z2" name="userinput"></td></tr>
+			<tr><td>Rechenoperation:</td><td colspan=2>
+										<input type="radio" name="operation" id="+" value="+">Addition<br>
+										<input type="radio" name="operation" id="-" value="-">Subtraktion<br>
+										<input type="radio" name="operation" id="*" value="*">Multiplikation<br>
+										<input type="radio" name="operation" id="/" value="/">Division</td><br></tr>
+										
+			<tr><td>Ergebnis:</td><td colspan=2 id="result">Ergebnis</td></tr>
+			<tr><td>Formular:</td><td><input type="button" onclick="rechnen()" value="Berechnen"></td><td><button type="reset">Löschen</button></td></tr>
+		</table>
+		
+		<p name="zahl1">Zahl1</p>
+		<p name="zahl2">Zahl2</p>
+		
+	</form>
+	
+	
+	
+
+	</body>
+</html>

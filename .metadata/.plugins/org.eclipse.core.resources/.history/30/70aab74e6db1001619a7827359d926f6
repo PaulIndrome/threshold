@@ -1,0 +1,76 @@
+package Pr_05_package;
+
+import vorgaben.praktikum5.Cell;
+import vorgaben.praktikum5.CellAccessDictionary;
+
+public class SepChaining implements CellAccessDictionary {
+
+	private int size;
+	private Cell[] dates;
+
+	@Override
+	public boolean delete(String key) {
+		Cell c1 = dates[reducedHashcode(key)];
+		Cell c2, c3;
+		while(c1 != null){
+			c2 = c1.getNext();
+			c3 = c2.getNext();
+			if (c1.getKey() == key){
+				c1 = c2;
+				return true;
+			} else if (c2.getKey() == key){
+				c1.setNext(c3);
+				return true;
+			} else {
+				c1 = c1.getNext();
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public void initialize(int size) {
+		this.size = size;
+		dates = new Cell[size];
+	}
+
+	@Override
+	public void insert(String key, String info) {
+		int keyHash = reducedHashcode(key);
+		Cell cNew = new Cell();
+		if (dates[keyHash] == null) {
+			cNew.setKey(key);
+			cNew.setInfo(info);
+			dates[keyHash] = cNew;
+		} else {
+			for (Cell c : dates) {
+				while(c.getKey()!=key && c.hasNext()){
+					c = c.getNext();
+				}
+				
+			}
+		}
+	}
+
+	@Override
+	public String read(String key) {
+		Cell c = dates[reducedHashcode(key)];
+		while(c != null){
+			if(c.getKey() == key){
+				return c.getInfo();
+			} else {
+				c = c.getNext();
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Cell[] getCells() {
+		return dates;
+	}
+
+	private int reducedHashcode(String s) {
+		return Math.abs(s.hashCode()) % size;
+	}
+}

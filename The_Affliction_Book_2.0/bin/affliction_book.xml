@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<book>
+
+<!-- the flourish is a UTF-8 ascii text decoration to separate the chapters, different flourishes can be made and easily implemented to select at random, some of these show up as ????? on eclipse console -->
+
+<flourish>░▒▓██▓▒░</flourish>
+<flourish>_.-*'*-._</flourish>
+<flourish>test</flourish>
+
+
+
+<chapter 
+	title="Introduction" 
+	maintext="In a nameless land far away lives a nameless tribe, caring for and fearing a nameless god.
+	#This god is a fragile creature of cruelty. It is quick to anger and slow to forgive. 
+	#For all its inhumanity, however, its influence benefits the growth of crops on fields that lay barren for years and the flow of water in riverbeds run dry for generations.
+	The strained symbiosis between the tribe and its deity bears as much fruit on the fields as it does famine in the minds of those in its grasp. 
+	#As with every cult or religion, and as with every interdependence for the sake of survival, a caste of sycophantic demagogues groveling at the god-creature's feet and claiming infalibility has formed.
+	The daily life of the tribesmen now is a struggle to keep both their deity and its priests content and provided for. 
+	Most of the crops that grow and most of the water that flows is given to the priests' caste. And anything that might threaten this exploitative status quo is quickly and harshly disposed of.
+	
+	##Now, the god-creature has been growing sick, threatening the symbiotic survival of the tribe and the priests. 
+	##You are a young tribesman, rent from his sleep by screams in the streets. In seconds, wooden floorboards creak under your feet as you get dressed. 
+	The screms outside grow louder and you can hear the priest caste's clicking sounds approach beneath them. 
+	You toss the leather satchel, stocked for a long journey, over your shoulder and make for the door.
+	Before your hands grab the handle, the door bursts open and a group of priests, aided by the yelling and grabbing mob drag you outside and through the streets toward the village center.
+	#There, on top of a wooden stage, a bald-headed man with red eyes and jagged dark lines across his face raises a finger, #pointing directly at you."
+	>
+	<choice
+		score="0"
+		text="Start game1."
+		appendix="This is where your story begins..."
+		nextchapter="1"
+	></choice>
+	<choice
+		score="0"
+		text="Start game2."
+		appendix="This is where your story begins..."
+		nextchapter="1"
+	></choice>
+	<choice
+		score="0"
+		text="Start game3."
+		appendix="This is where your story begins..."
+		nextchapter="1"
+	></choice>
+></chapter>
+	
+<chapter
+	title="The Accusation"
+	maintext="With spittle and brimstone raining down from the dais, every word squeezes out of the high priest's mouth like the detritus of a strangled mountain. 
+	#&quot;You share the same affliction as our god! Therefore it is YOUR fault HE is dying!
+	The same marks our god bears are upon you! It is YOUR fault HE is dying!
+	You are hereby BANISHED on pain of death until you return with a cure!
+	LEAVE US, FILTH!&quot;"
+	>
+	<choice
+		score="3"
+		text="Walk away quietly."
+		appendix="Knowing that there is no chance to convince anyone against the high priest's conviction, you slowly turn around and start walking."
+		nextchapter="2"
+	></choice>
+	<choice
+		score="2"
+		text="Try to reason."
+		appendix="You try to reason with the villagers. But even though in the beginning some do listen, eventually the high priest's rage and venom convinces even your friends of your guilt. Denounced and defeated, you turn away from the mob and start walking."
+		nextchapter="2"
+	></choice>
+	<choice
+		score="-2"
+		text="Scream back at the priest."
+		appendix="With the anger of being falsely accused slowly rising to the surface, you raise your voice against the high priest. His booming conviction, however, surpasses your rashly voiced misgivings. The mob of villagers surrounding you and the priest quickly chooses its side and you have no choice but to turn around and walk away quickly."
+		nextchapter="2"
+	></choice>
+</chapter>
+
+<chapter
+	title="The First Trial"
+	maintext="As you come closer to the village gate, accompanied by menacing eyes and onerous profanity, an old woman blocks your path. Her wrinkled hands are clenched around two stones the size of fists. Slow moving tears wander the deep trenches of her face contorted in anger and desperation.
+	Her voice is a croak from a dying throat. It will probably be the last time she would speak this loudly and clearly.
+	#&quot;You! Murderer! My only grandchild lies dead in its cradle because of you!&quot;
+	#She spits dry air and inhales into desperate lungs.
+	#&quot;How could you DO this to us? To your own village!? My daughter speaks of ending herself! You..!&quot;
+	#Before your thoughts collect enough to process what is happening, the old woman has raised her stone-bearing hands and lunged forward. Her intention manifesting in a lifetime's reflexes of defending what's dearest to her, she starts bringing the rocks down on you."
+	>
+	<choice
+		score="2"
+		text="Defend passively and run."
+		appendix="You try to catch the old woman's punches as best you can without causing her harm. She tires fast but manages to leave you with badly bruised arms and shoulders as you walk away silently from her exhausted body."
+		nextchapter="3"
+	></choice>
+	<choice
+		score="-2"
+		text="Defend making her stay down."
+		appendix="You try to catch the old woman's punches as best you can. She tires fast and you take the best chance you get to drive your fist into her abdomen. With a painful exhale her body collapses and lies still. You keep moving down the road without looking back."
+		nextchapter="3"
+	></choice>
+	<choice
+		score="-5"
+		text="Defend aggressively."
+		appendix="You try to catch the old woman's punches as best you can. Anticipating the first opening your fist flies forward, connecting with her jaw just on the side of her chin. Unconscious within split seconds her right hand, clenched tightly around the stone, finds your unprotected face. Holding your bleeding and throbbing temple, you walk away hurriedly from the body on the ground."
+		nextchapter="3"
+	></choice>
+</chapter>
+
+<chapter
+	title="The good Samaritan"
+	maintext="Outside the gate, the dim light of dawn shines on a desolate plain of grey sand and rare patches of brown grass, stabbing into the air like daggers. Strewn across the wasteland before you are the remnants of factories and skyscrapers, acting as tombstones for an age long past. 
+	#The direction you are facing lies the neighbouring village at a day's travel away. Shouldering your satchel again, you take the first step without looking back. 
+	Soon falling tired and heavy, your footsteps carry you over the shallow dunes and past empty doorways leading into empty air. 
+	Bridges constructed from metal debris lead you across deep chasms filled with discarded mechanical behemoths whose aperture eyes seem to follow you. Against the low horizon silhouettes of rhombus-shaped structures light up from time to time with a faintly shifting, eerie glow. Slowly the landscape changes from sands and dunes to rocks and boulders.
+	#Long after the voices of anger that chased you from your home have faded behind you, you see the village. A singular spire of stone rises from its dark pallisades in the distance, a mere hour of walking away.
+	#As you stop to take water from your satchel, your eyes scan your surroundings. A short distance away, an almost unmoving body lies on the rough ground. It is a man in the torn and tattered remains of a uniform you don't recognize. A small, dry pool of blood has formed under his nose, creating a strong contrast to his pale skin and light grey beard. His arms and legs are unmoving and only his chest rises and falls with shallow breathing.
+	#With the water still in your hand, you suddenly feel alien and out of place, unable to take your eyes off the half-dead stranger."
+	>
+	<choice
+		score="-2"
+		text="Leave him."
+		appendix="You close the lid of your flask of water and walk away from the body on the ground. Unable to afford either compassion with a dead man or pity on a stranger in need, you set your eyes back on the spire in the distance. You are sure that neither you nor anyone else would've been able to help."
+		nextchapter="4"
+	></choice>
+	<choice
+		score="-5"
+		text="Take his possessions."
+		appendix="You close the lid of your flask of water and walk towards the body on the ground. Slowly you kneel beside him and start searching for anything of use beneath the uniform's cloth. The man groans in barely conscious agony and your hands reflexively withdraw. After a couple of seconds, his breathing evens out again and you resume your search. 
+		#Suddenly, the man turns his body around and grabs your throat. In a kneejerk reaction, you push away from him with both hands pressing on his chest. His grip fails and you fall away from him as he begins coughing blood. With panic in his eyes, he holds his heaving chest with one hand and stretches the other toward you in a wordless plea for his life. 
+		After a couple of seconds of shock, however, you witness his body go limp. Spatters of blood cover the ground in front of his face. 
+		#Having found nothing but death in the man's possession you grab your satchel and start walking again."
+		nextchapter="4"
+	></choice>
+	<choice
+		score="4"
+		text="Try to help him."
+		appendix="Keeping the lid of your flask of water opened, you slowly approach the man lying on the ground. You try to wake him by carefully moving his body and speaking to him, yet it takes long moments before so much as a croak escapes the man's throat. You help him sit up against a nearby rock. 
+		Shaking from weakness and dehydration he silently takes from your water and looks at you with eyes already bereft of life. He swallows hard and finally barely manages to find his voice. It comes out raw and faint.
+		#&quot;Thank you, ... afflicted child.&quot;
+		#Before you can ask the man what he meant by that, his eyes lose focus and his body slackens against the rock. A slender stream of blood oozes from his open mouth and he is dead where he sits. You close the stranger's eyes for his final rest, get up, close the lid on your flask of water and resume your journey."
+		nextchapter="4"
+	></choice>
+</chapter>
+
+<chapter
+	title="chapter 4"
+	maintext="chapter 4' maintext"
+	>
+	<choice
+		score="2"
+		text="chapter 4 choice 1"
+		appendix="chapter 4 choice 1's appendix"
+		nextchapter="5"
+	></choice>
+	<choice
+		score="-3"
+		text="chapter 4 choice 2"
+		appendix="chapter 4 choice 2's appendix"
+		nextchapter="5"
+	></choice>
+	<choice
+		score="1"
+		text="chapter 4 choice 3"
+		appendix="chapter 4 choice 3's appendix"
+		nextchapter="5"
+	></choice>
+</chapter>
+
+<chapter
+	title="chapter 5"
+	maintext="chapter 5' maintext"
+	>
+	<choice
+		score="2"
+		text="chapter 5 choice 1"
+		appendix="chapter 5 choice 1's appendix"
+		nextchapter="6"
+	></choice>
+	<choice
+		score="-3"
+		text="chapter 5 choice 2"
+		appendix="chapter 5 choice 2's appendix"
+		nextchapter="6"
+	></choice>
+	<choice
+		score="1"
+		text="chapter 5 choice 3"
+		appendix="chapter 5 choice 3's appendix"
+		nextchapter="6"
+	></choice>
+</chapter>
+
+<chapter
+	title="chapter 6"
+	maintext="chapter 6' maintext"
+	>
+	<choice
+		score="2"
+		text="chapter 6 choice 1"
+		appendix="chapter 6 choice 1's appendix"
+		nextchapter="7"
+	></choice>
+	<choice
+		score="-3"
+		text="chapter 6 choice 2"
+		appendix="chapter 6 choice 2's appendix"
+		nextchapter="7"
+	></choice>
+	<choice
+		score="1"
+		text="chapter 6 choice 3"
+		appendix="chapter 6 choice 3's appendix"
+		nextchapter="7"
+	></choice>
+</chapter>
+
+<!-- around 16 chapters and three different endings are planned and easily implementable -->
+
+
+<!-- the final chapters contain texts depending on which penultimate chapter has been reached (i.e. 12 -> 12f) -->
+
+
+<chapter
+	title="final text of chapter 3"
+	maintext="Thank you for playing a demo version of The Affliction Book.
+	#The story is not over and is still being written.
+	#
+	#Credits:
+	#Code, Graphics, Writing: Fabian Schocke
+	#This is a second semester project for &quot;Introduction to Programming II&quot;
+	#at Hochschule Mittweida, University of Applied Sciences.
+	#August 2016"
+	></chapter>
+
+<chapter
+	title="final text of chapter 12"
+	maintext="final maintext of chapter 12, including credits"
+	></chapter>
+<chapter
+	title="final text of chapter 15"
+	maintext="final maintext of chapter 15, including credits"
+	></chapter>
+<chapter
+	title="final text of chapter 16"
+	maintext="final maintext of chapter 16, including credits"
+	></chapter>
+
+
+<!-- template chapter
+<chapter
+	title="title"
+	maintext="maintext"
+	>
+	<choice
+		score="x"
+		text="text"
+		appendix="appendix"
+		nextchapter="X+x"
+	></choice>
+	<choice
+		score="x"
+		text="text"
+		appendix="appendix"
+		nextchapter="X+x"
+	></choice>
+	<choice
+		score="x"
+		text="text"
+		appendix="appendix"
+		nextchapter="X+x"
+	></choice>
+</chapter>
+	-->
+
+</book>

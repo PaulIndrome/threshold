@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameFX.EditorController">
+   <children>
+      <Button fx:id="btnSave" layoutX="761.0" layoutY="633.0" mnemonicParsing="false" onAction="#saveSystems" text="System speichern" />
+      <Button fx:id="btnClear" layoutX="622.0" layoutY="633.0" mnemonicParsing="false" onAction="#clearAll" text="Alle Einträge Löschen" />
+      <Label layoutX="441.0" layoutY="25.0" prefHeight="78.0" prefWidth="526.0" text="Um ein neues System zu erstellen, einfach die gewünschten Namen und Parameter in die einzelnen Felder eingeben. Zum Abschließen des Vorgangs &quot;System speichern&quot; drücken. Das System wird dann als Name.sdatei gespeichert. Um ein System zu bearbeiten, den Namen des Systems in das Namensfeld eintragen und auf &quot;System laden&quot; drücken." wrapText="true" />
+      <Label layoutX="28.0" layoutY="60.0" text="Systemname" />
+      <TextField fx:id="txfSysName" layoutX="109.0" layoutY="56.0" prefHeight="25.0" prefWidth="260.0" />
+      <Label layoutX="109.0" layoutY="117.0" text="Verbunden mit" />
+      <Label layoutX="52.0" layoutY="190.0" text="Planet 1" />
+      <Label layoutX="53.0" layoutY="222.0" text="Name" />
+      <TextField fx:id="txfNamePlanet1" layoutX="112.0" layoutY="218.0" prefHeight="25.0" prefWidth="260.0" />
+      <Label layoutX="53.0" layoutY="268.0" text="Größe" />
+      <TextField fx:id="txfGroessePlanet1" layoutX="112.0" layoutY="264.0" />
+      <Label layoutX="43.0" layoutY="404.0" text="Scan-Text" />
+      <TextArea fx:id="txaHistoryPlanet1" layoutX="111.0" layoutY="312.0" prefHeight="259.0" prefWidth="354.0" wrapText="true" />
+      <Label layoutX="550.0" layoutY="190.0" text="Planet 2" />
+      <Label layoutX="551.0" layoutY="222.0" text="Name" />
+      <TextField fx:id="txfNamePlanet2" layoutX="613.0" layoutY="218.0" prefHeight="25.0" prefWidth="260.0" />
+      <Label layoutX="550.0" layoutY="268.0" text="Größe" />
+      <TextField fx:id="txfGroessePlanet2" layoutX="612.0" layoutY="264.0" />
+      <Label layoutX="546.0" layoutY="404.0" text="Scan-Text" />
+      <TextArea fx:id="txaHistoryPlanet2" layoutX="613.0" layoutY="312.0" prefHeight="259.0" prefWidth="354.0" wrapText="true" />
+      <Label layoutX="211.0" layoutY="117.0" text="System X:" />
+      <Label layoutX="212.0" layoutY="153.0" text="System Y:" />
+      <TextField fx:id="txfSysConnX" layoutX="297.0" layoutY="113.0" prefHeight="25.0" prefWidth="260.0" />
+      <TextField fx:id="txfSysConnY" layoutX="297.0" layoutY="149.0" prefHeight="25.0" prefWidth="260.0" />
+      <Label fx:id="lblStatus" layoutX="47.0" layoutY="637.0" prefHeight="17.0" prefWidth="550.0" text="Status" />
+      <Button fx:id="btnLoad" layoutX="880.0" layoutY="633.0" mnemonicParsing="false" onAction="#loadSystem" text="System laden" />
+   </children>
+</AnchorPane>

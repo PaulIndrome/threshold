@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Formular</title>
+	</head>
+	<body>
+		<form name="f" method="post" action="formprocessor.php" enctype="multipart/form-data" >
+			<input type="text" name="name" /> Name <br>
+			<input type="email" name="E-Mail" /> E-Mail	<br>
+			<hr>
+			<p>
+				Größe
+			</p>
+			<input type="radio" name="size" value="klein" /> klein <br>
+			<input type="radio" name="size" value="mittel" checked /> mittel <br>
+			<input type="radio" name="size" value="groß"/> groß <br>
+			<hr>
+			<p>
+				Favoriten (Mehrfachauswahl mit STRG+Klick)
+			</p>
+			<select name="fav[]" size="5" multiple >
+				<!-- name-attribut mit eckigen Klammern bedeutet Inhalt wird als eigenes Array übermittelt -->
+				<option>Justus Jonas</option>
+				<option>Peter Shaw</option>
+				<option>Bob Andrews</option>
+				<option>Alfred Hitchcock</option>
+				<option>Kommissar Reinaulds</option>
+				<option>Skinny Norris</option>
+			</select>
+			<hr>
+			<input type="checkbox" name="checker[]" value="Box 1" /> Checkbox 1 <br>
+			<input type="checkbox" name="checker[]" value="Box 2"/> Checkbox 1 <br>
+			<hr>
+			<input type="file" name="file" accept="image/*" />
+			<input type="submit" name="submit" value="absenden" />
+		</form>
+	</body>
+</html>

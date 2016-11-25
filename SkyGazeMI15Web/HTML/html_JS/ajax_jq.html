@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>AJAX JQuery</title>	
+
+		<script type="text/javascript" src="../../bibos/jquery-2.1.4.min.js"></script>		
+		<script type="text/javascript">
+			function showDim(d){
+				console.log("test: " +d);
+				var xmlhttp;
+				if (d == "")
+				{
+					//Löschen der Felder
+					document.getElementById("id").value="";
+					document.getElementById("bez").value="";
+					document.getElementById("grav").value="";
+					document.getElementById("steps").value="";
+					document.getElementById("force").value="";
+					document.getElementById("warn").value="";
+					return;
+				}
+				
+				//Ajax ----------------------------------------------
+				$.ajax({
+					type: "GET",
+					url: "../../xml/"+ d + ".xml",
+					dataType: "xml",
+					contentType: "application/xml",
+					success: function(dimensions){
+						
+						console.log(dimensions);
+						
+						//Zugriff auf einzelne Dimensionen
+						$("#id").val($(dimensions).find("dimension").find("id").text());
+						$("#bez").val($(dimensions).find("dimension").find("designation").text());
+						$("#grav").val($(dimensions).find("dimension").find("gravitation").text());
+						$("#steps").val($(dimensions).find("dimension").find("steps").text());
+						$("#force").val($(dimensions).find("dimension").find("force").text());
+						$("#warn1").val($(dimensions).find("dimension").find("warning1").text());
+						$("#warn2").val($(dimensions).find("dimension").find("warning2").text());
+						},
+						//suche in den XML Dateien, 
+						error: function(XMLHttpRequest){alert("error");}
+				});
+			}
+			
+		</script>		
+	</head>
+	<body>
+		<p> <a href="../../index.html">Zurück</a> zum Index.</p>
+		
+		<div id="nav">
+			<form action="">
+				<select name="dimensions" onchange="showDim(this.value)">
+					<option value="">Dimensionsbrecher</option>
+					<option value="p1">Alpha</option>
+					<option value="p2">Beta</option>
+					<option value="p3">Gamma</option>
+					<option value="p4">Delta</option>
+				</select>
+			</form>			
+		</div>
+		<div id="content">
+		<p>Data of dimension:</p>
+			<table id="dimensions">
+				<tr><td>ID:</td><td><input type="text" id="id" size="50"/></td></tr>
+				<tr><td>Designation:</td><td><input type="text" id="bez" size="50"/></td></tr>
+				<tr><td>Gravitation:</td><td><input type="text" id="grav" size="50"/></td></tr>
+				<tr><td>Steps-Sideways:</td><td><input type="text" id="steps" size="50"/></td></tr>
+				<tr><td>Main Force:</td><td><input type="text" id="force" size="50"/></td></tr>
+				<tr><td>Warning_1:</td><td><input type="text" id="warn1" size="50"/></td></tr>
+				<tr><td>Warning_2:</td><td><input type="text" id="warn2" size="50"/></td></tr>
+			</table>
+		</div>
+	
+	
+	
+	</body>
+</html>
