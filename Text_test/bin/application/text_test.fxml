@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <ScrollPane fx:id="TextWindow" hbarPolicy="NEVER" layoutX="374.0" layoutY="16.0" prefHeight="688.0" prefWidth="532.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="374.0" AnchorPane.rightAnchor="374.0" AnchorPane.topAnchor="16.0">
+         <content>
+            <Label fx:id="TextLabel" alignment="TOP_LEFT" lineSpacing="2.0" prefHeight="686.0" prefWidth="530.0" text="Label" />
+         </content></ScrollPane>
+      <Button fx:id="btnschreibwas" layoutX="157.0" layoutY="348.0" mnemonicParsing="false" onAction="#schreibmalwas" text="schreibwas" />
+   </children>
+</AnchorPane>

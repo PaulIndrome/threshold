@@ -1,0 +1,54 @@
+@FXML
+	private static Popup FontDrop = new Popup();
+
+
+FontDrop.setAutoHide(true);
+		FontDrop.getContent().get(0).setOnMouseClicked(e -> {
+			textarea.setFont(FontList
+					.get(((ListView<String>) FontDrop.getContent().get(0)).getSelectionModel().getSelectedIndex()));
+		});
+
+//		((Slider) FontDrop.getContent().get(0)).valueProperty().addListener(new ChangeListener<Number>() {
+//			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+//				if (((Slider) FontDrop.getContent().get(0)).getValue() % 4 == 0)
+//					textarea.setFont(textarea.getFont().font(((Slider) FontDrop.getContent().get(0)).getValue()));
+//
+//			}
+//		});
+
+		// FontSizeSlider.valueProperty().addListener(new
+		// ChangeListener<Number>() {
+		// public void changed(ObservableValue<? extends Number> ov,
+		// Number old_val, Number new_val) {
+		// if(FontSizeSlider.getValue()%4 == 0)
+		// textarea.setFont(textarea.getFont().font(FontSizeSlider.getValue()));
+		//
+		// }
+		// });
+		
+		
+		
+		
+		
+private Service<Void> appendService = new Service<Void>() {
+		@Override
+		protected Task<Void> createTask() {
+			return new Task<Void>() {
+				protected Void call() throws Exception {
+					while (!isCancelled()) {
+						String appender = "";
+						if (run) {
+							appender = String.valueOf((char) (new Random().nextInt(26) + 'a'));
+							if (!popup.getSelectedFont().equals(textarea.getFont()))
+								textarea.setFont(popup.getSelectedFont());
+							textarea.appendText(appender);
+							Thread.sleep(100);
+						} else {
+							Thread.sleep(100);
+						}
+					}
+					return null;
+				}
+			};
+		}
+	};

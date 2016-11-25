@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+   <children>
+      <Pane fx:id="schriftfeld" layoutX="40.0" layoutY="31.0" maxHeight="480.0" maxWidth="640.0" prefHeight="158.0" prefWidth="480.0" style="-fx-background-color: #DDD;" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="31.0" />
+      <AnchorPane id="ButtonPane" layoutX="25.0" layoutY="200.0" maxHeight="50.0" maxWidth="530.0" prefHeight="50.0" prefWidth="530.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+         <children>
+            <TextField fx:id="usertext" layoutX="96.0" layoutY="10.0" text="Hello World!" AnchorPane.bottomAnchor="15.0" />
+            <ColorPicker fx:id="worldcolor" layoutY="10.0" maxWidth="100.0" AnchorPane.bottomAnchor="15.0" />
+            <Button layoutX="448.0" mnemonicParsing="false" onMouseClicked="#onWipeOut" text="Wipeout!" AnchorPane.bottomAnchor="15.0" />
+            <Button layoutX="324.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#onButtonPress" text="Never stop clicking!" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" />
+            <MenuButton fx:id="stepCount" contentDisplay="TOP" layoutX="254.0" layoutY="10.0" maxHeight="25.0" maxWidth="65.0" mnemonicParsing="false" popupSide="TOP" prefHeight="25.0" prefWidth="65.0" text="10">
+               <items>
+                  <MenuItem fx:id="steps1" mnemonicParsing="false" onAction="#steps1Set" text="1" />
+                  <MenuItem fx:id="steps10" mnemonicParsing="false" onAction="#steps10Set" text="10" />
+                  <MenuItem fx:id="steps25" mnemonicParsing="false" onAction="#steps25Set" text="25" />
+                  <MenuItem fx:id="steps50" mnemonicParsing="false" onAction="#steps50Set" text="50" />
+               </items>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+      <MenuBar layoutY="2.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="close" mnemonicParsing="false" onAction="#closeApp" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="help" mnemonicParsing="false" onAction="#thereIsNoHelp" text="Help me!" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

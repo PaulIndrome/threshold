@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<book>
+	<flourish flourish1="░▒▓██▓▒░"></flourish>
+	<chapter id="0" title="Introduction"
+		maintext="chapter 0 MAINTEXT &#xA;This should be in a new line" cover="covers//cover_00b.gif"
+		mapstep="maps//map_00.gif">
+		<choice id="0a" score="0" text="text1" appendix="appendix 0a"
+			nextchapter="1"></choice>
+		<choice id="0b" score="0" text="text2" appendix="appendix 0b"
+			nextchapter="1"></choice>
+		<choice id="0c" score="0" text="text3" appendix="appendix 0c"
+			nextchapter="1"></choice>
+		>
+	</chapter>
+
+	<chapter id="1" title="The Accusation" maintext="chapter 1 MAINTEXT"
+		cover="covers//cover_01.gif" mapstep="maps//map_01.gif">
+		<choice id="1a" score="1" text="Walk away quietly." appendix="appendix 1a"
+			nextchapter="2"></choice>
+		<choice id="1b" score="2" text="Try to reason." appendix="appendix 1b"
+			nextchapter="2"></choice>
+		<choice id="1c" score="-2" text="Scream back at the priest."
+			appendix="appendix 1c" nextchapter="2"></choice>
+	</chapter>
+
+	<chapter id="2" title="The First Trial" maintext="chapter 2 MAINTEXT"
+		cover="covers//cover_02.gif" mapstep="maps//map_01.gif">
+		<choice id="2a" score="2" text="Defend passively and run."
+			appendix="appendix 2a" nextchapter="3"></choice>
+		<choice id="2b" score="-1" text="Defend making her stay down."
+			appendix="appendix 2b" nextchapter="3"></choice>
+		<choice id="2c" score="-4" text="Defend aggressively."
+			appendix="appendix 2c" nextchapter="3"></choice>
+	</chapter>
+</book>

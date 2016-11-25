@@ -1,0 +1,83 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+@font-face {
+    src: url('../../material/TribunADFStd-Regular.otf');
+}
+
+@font-face {
+	 src: url('../../material/TribunADFStd-Bold.otf');
+}
+
+.maintext .content {
+	-fx-background-color: #c7b299;
+}
+
+.maintext .scroll-bar:vertical .track{
+	-fx-background-color: #c7b299;
+	-fx-border-color: #c7b299;
+	-fx-background-radius: 0.0;
+	-fx-border-radius: 0.0;
+}
+
+.maintext .scroll-bar:vertical .increment-button ,
+.maintext .scroll-bar:vertical .decrement-button {
+	-fx-background-color:#c7b299;
+	-fx-background-radius: 0.0em;
+	-fx-padding:0.0 0.0 0.0 0.0;
+}
+
+.maintext .scroll-bar .increment-arrow,
+.maintext .scroll-bar .decrement-arrow{
+	-fx-shape: " ";
+	-fx-padding: 0.0;
+}
+
+
+.maintext .scroll-bar:vertical .thumb {
+	-fx-background-color: #998675;
+	-fx-background-insets: 2.0, 0.0, 0.0;
+	-fx-background-radius: 0.0em;
+}
+
+.maintext {
+	-fx-padding: 0.0 0.0 100.0 0.0;
+	-fx-text-fill: #362f2d;
+	-fx-background-color: #c7b299;
+}
+
+.coverview {
+	-fx-background-fills: #FF0000 ;
+}
+
+.coverpane {
+	-fx-alignment: center ;
+	-fx-border-insets: -2.0;
+	-fx-border-width: 2.0;
+	-fx-border-color: #151211 ;
+}
+
+.mappane {
+	-fx-alignment: center ;
+	-fx-border-insets: -2.0;
+	-fx-border-width: 2.0;
+	-fx-border-color: #261f1d ;
+}
+
+.buttonskip {
+	-fx-alternative-row-fill-visible: true;
+	-fx-wrap-text: true;
+	-fx-background-image: url(../../material/buttons_light.gif);
+	-fx-font: 16.0px "Tribun ADF Std";
+	-fx-wrap-text: true;
+	-fx-font-weight: bold;
+	-fx-text-fill: #261f1d;
+}
+
+.buttonsChoice {
+	-fx-alternative-row-fill-visible: true;
+	-fx-wrap-text: true;
+	-fx-background-image: url(../../material/buttons_light_mirror.gif);
+	-fx-font: 16.0px "Tribun ADF Std";
+	-fx-wrap-text: true;
+	-fx-font-weight: bold;
+	-fx-text-fill: #261f1d;
+}
