@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Character"/>
 <fullyQualifiedTypeName name="java.lang.Short"/>
 <fullyQualifiedTypeName name="org.omg.PortableInterceptor.SYSTEM_EXCEPTION"/>
 <fullyQualifiedTypeName name="javafx.event.EventTarget"/>
@@ -54,10 +53,11 @@
 <fullyQualifiedTypeName name="ColumnBasedGame.ColumnGame"/>
 <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
 <fullyQualifiedTypeName name="ColumnBasedGame.GamePiece"/>
-<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="vorgaben.praktikum5.SepChainingTester"/>
 <fullyQualifiedTypeName name="de.beiri22.attestation.Testat"/>
 <fullyQualifiedTypeName name="de.beiri22.attestation.praktika.Praktika"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
 </qualifiedTypeNameHistroy>

@@ -42,8 +42,7 @@ public class ColumnGame {
 		}
 
 		new FallService();
-		//new CheckService(width, height);
-		
+		new CheckService();
 		Scene scene = new Scene(root);
 		secondary.setScene(scene);
 		secondary.show();
