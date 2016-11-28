@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Affliction_book_PreJeremailBackup&apos;" deleteContents="false" description="Delete resource &apos;Affliction_book_PreJeremailBackup&apos;" element1="/Affliction_book_PreJeremailBackup" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1472156263461"/>
+</session>
