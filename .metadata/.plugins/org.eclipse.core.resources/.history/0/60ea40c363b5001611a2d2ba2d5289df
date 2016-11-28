@@ -10,24 +10,14 @@ public class SepChaining implements CellAccessDictionary {
 
 	@Override
 	public boolean delete(String key) {
-		int hashKey = reducedHashcode(key);
 		if(this.read(key) == null){
 			return false;
 		} else {
-			if(dates[hashKey].getKey() == key){
-				dates[hashKey] = dates[hashKey].getNext();
-				return true;
-			} else {
-				Cell current = dates[hashKey].getNext();
-				Cell prevCell = dates[hashKey];
-				while(current.hasNext() && current.getKey()!=key){
-					prevCell = current;
-					current = current.getNext();
-				}
-				prevCell.setNext(current.getNext());
-				return true;
-			}
+			Cell c1 = dates[reducedHashcode(key)];
+			
 		}
+		
+		
 	}
 
 	@Override

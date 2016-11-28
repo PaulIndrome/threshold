@@ -23,9 +23,8 @@ public class SepChaining implements CellAccessDictionary {
 				while(current.hasNext() && current.getKey()!=key){
 					prevCell = current;
 					current = current.getNext();
+					
 				}
-				prevCell.setNext(current.getNext());
-				return true;
 			}
 		}
 	}

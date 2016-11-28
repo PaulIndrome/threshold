@@ -16,18 +16,17 @@ public class SepChaining implements CellAccessDictionary {
 		} else {
 			if(dates[hashKey].getKey() == key){
 				dates[hashKey] = dates[hashKey].getNext();
-				return true;
-			} else {
-				Cell current = dates[hashKey].getNext();
-				Cell prevCell = dates[hashKey];
-				while(current.hasNext() && current.getKey()!=key){
-					prevCell = current;
-					current = current.getNext();
+			}
+			Cell c1 = dates[hashKey];
+			Cell c2 = dates[hashKey].getNext();
+			while(c1.hasNext()){
+				if(c2. == key){
+					c1 = c1.getNext();
 				}
-				prevCell.setNext(current.getNext());
-				return true;
 			}
 		}
+		
+		
 	}
 
 	@Override
