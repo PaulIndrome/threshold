@@ -1,0 +1,9 @@
+package ColumnGameV2;
+
+public class ColumnStarter {
+
+	public ColumnStarter(){
+		
+	}
+	
+}

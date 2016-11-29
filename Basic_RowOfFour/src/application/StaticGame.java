@@ -29,7 +29,7 @@ public class StaticGame {
 
 		for (int a = 0; a < width; a++) {
 			for (int b = 0; b < height; b++) {
-				new PutButton(columnWidth, rowHeight, xCoord, 0, a, root, rectArray);
+				new PutButton0(columnWidth, rowHeight, xCoord, 0, a, root, rectArray);
 				if (a % 2 != 0) {
 					rectArray[a][b] = new GameRectangle(columnWidth, rowHeight, xCoord, yCoord, a, root, Color.RED);
 				} else {

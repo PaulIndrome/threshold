@@ -1,0 +1,32 @@
+package ColumnGameV2;
+
+import ColumnBasedGame.CheckService;
+import ColumnBasedGame.ColumnGame;
+import ColumnBasedGame.GamePiece;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+public class ColumnControl {
+
+	public ColumnControl(){
+		
+	}
+	
+	public void createPutButton(double colWidth, double rowHeight, double xPos, int columNo, int height, AnchorPane parent){
+		this.columNo = columNo;
+		this.row = height;
+		icon = new Rectangle(xPos, 0, colWidth, rowHeight);
+		icon.setFill(Color.TRANSPARENT);
+		icon.setOnMouseClicked(e -> {
+			if (row > 0) {
+				CheckService.put(this.columNo, row);
+				ColumnGame.getColumn(this.columNo).pushPiece(new GamePiece(this.columNo, row));
+				row--;
+				ColumnGame.switchTeam();
+			}
+		});
+		parent.getChildren().add(icon);
+	}
+	
+}

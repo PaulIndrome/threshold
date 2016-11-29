@@ -1,0 +1,69 @@
+package ColumnBasedGame;
+
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+public class ColumnModel {
+
+	private AnchorPane root = new AnchorPane();
+	
+	private int currentTeam;
+	private int[][] teams;
+	private Delta[] deltas;
+	
+	private int width;
+	private int height;
+	private int streak;
+	
+	private double margin;
+	private double colWidth;
+	private double rowHeight;
+
+	public ColumnModel(int width, int height, int streak){
+		//set basic parameters
+		this.width = width;
+		this.height = height;
+		this.streak = streak;
+		this.teams = new int[width][height+1];
+		
+		//MATHS!! to discern width and height of single rectangle
+		this.colWidth = 1280 / width;
+		this.rowHeight = 800 / height;
+		
+		//set attributes of game window
+		margin = ((1280 % colWidth) / width) + 4;
+		double widthSet = (colWidth * width) + ((width - 1) * margin);
+		double heightSet = (rowHeight) * height;
+		root.setPrefSize(widthSet, heightSet + 2 * rowHeight);
+		root.setMaxSize(widthSet, heightSet + 2 * rowHeight);
+		root.setMinSize(widthSet, heightSet + 2 * rowHeight);
+		
+	}
+	
+	public void initialize(){
+		
+		for(int x = 0; x<width;x++){
+			for(int y = 0; y<height;y++){
+				Rectangle r = new Rectangle(x*(colWidth+margin), 2 * rowHeight + (y * rowHeight), colWidth, rowHeight);
+				r.setFill(Color.TRANSPARENT);
+				if(x%2==0){
+					r.setStroke(Color.BLUE);
+				} else {
+					r.setStroke(Color.RED);
+				}
+				r.setMouseTransparent(true);
+				root.getChildren().add(r);
+			}
+		}
+		
+		//make a scene!
+		Scene columnScene = new Scene(root);
+		Stage columnStage = new Stage();
+		columnStage.setScene(columnScene);
+		columnStage.show();
+	}
+	
+}

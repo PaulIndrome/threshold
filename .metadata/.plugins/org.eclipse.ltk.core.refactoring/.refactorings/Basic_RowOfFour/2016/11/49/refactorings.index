@@ -2,3 +2,16 @@
 1480337094300	Rename field 'row'
 1480338284534	Delete element
 1480340734372	Rename method 'check'
+1480437664346	Rename local variable 'scene'
+1480439883202	Rename type 'PutButton'
+1480440134143	Rename local variable 'rowHeight2'
+1480446300853	Copy compilation unit
+1480446397254	Copy compilation unit
+1480446405942	Delete element
+1480446426658	Move compilation units
+1480446436168	Copy compilation unit
+1480446448970	Move compilation unit
+1480450839724	Delete element
+1480450854802	Delete element
+1480451338240	Rename field 'circlePane'
+1480452108183	Rename package 'ColumnGameV2'

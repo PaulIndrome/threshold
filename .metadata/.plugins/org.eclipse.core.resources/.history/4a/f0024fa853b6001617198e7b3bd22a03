@@ -1,0 +1,35 @@
+package ColumnBasedGame;
+
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class ColumnModel {
+
+	private int currentTeam;
+	private int[][] teams;
+	private int width;
+	private int height;
+	private int streak;
+	private Delta[] deltas;
+	private double colWidth;
+	private double rowHeight;
+
+	public ColumnModel(int width, int height, int streak){
+		this.width = width;
+		this.height = height;
+		this.streak = streak;
+	}
+	
+	public void initialize(){
+		AnchorPane root = new AnchorPane();
+		
+		
+		
+		Scene columnScene = new Scene(root);
+		Stage columnStage = new Stage();
+		columnStage.setScene(columnScene);
+		columnStage.show();
+	}
+	
+}

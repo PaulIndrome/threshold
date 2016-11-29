@@ -1,0 +1,43 @@
+package ColumnGameV2;
+
+import ColumnBasedGame.CheckService;
+import ColumnBasedGame.ColumnGame;
+import ColumnBasedGame.GamePiece;
+import javafx.scene.Group;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+public class ColumnControl {
+	
+	private Group controlGroup;
+	private int[] fallheights;
+
+	public ColumnControl(AnchorPane parent, int[] fallheights){
+		this.fallheights = fallheights;
+		controlGroup = new Group();
+		parent.getChildren().add(controlGroup);
+	}
+	
+	public Group getControlGroup(){
+		return controlGroup;
+	}
+	
+	public void generateButtons(int width, int height, double colWidth, double rowHeight, double margin){
+		for (int x = 0; x < width; x++) {
+			//new PutButtonRedo(colWidth, rowHeight, x * (colWidth + margin), x, height, controlGroup);
+			Rectangle icon = new Rectangle(x*(colWidth+margin), 0, colWidth, (rowHeight*2)+rowHeight*height);
+			icon.setFill(Color.TRANSPARENT);
+			icon.setOnMouseClicked(e -> {
+				if (fallheights[x] > 0) {
+					CheckService.put(this.columNo, row);
+					ColumnGame.getColumn(this.columNo).pushPiece(new GamePiece(this.columNo, row));
+					row--;
+					ColumnGame.switchTeam();
+				}
+			});
+			controlGroup.getChildren().add(icon);
+		}
+	}
+	
+}
