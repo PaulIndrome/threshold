@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syncparticipants>
+<participant displayName="Git (Basic_Chess, ...WebProg1_local)" id="org.eclipse.egit.ui.modelCompareParticipant" secondary_id="1480085667091">
+<data forceFetch="false" root="false">
+<org.eclipse.team.ui.MODEL_PARTICIPANT_SETTINGS org.eclipse.team.ui.MODEL_PARTICIPANT_DESCRIPTION="Basic_Chess, ...WebProg1_local" startupAction="none">
+<org.eclipse.team.ui.MODEL_PARTICIPANT_REFRESH_SCHEDULE org.eclipse.team.ui.CTX_REFRESHSCHEDULE_ENABLED="false" org.eclipse.team.ui.CTX_REFRESHSCHEDULE_INTERVAL="3600" org.eclipse.team.ui.CTX_REFRESHSCHEDULE_RUNONCE="false"/>
+<org.eclipse.team.ui.MODEL_PARTICIPANT_MAPPINGS modelProviderId="org.eclipse.core.resources.modelProvider">
+<mappings>
+<resources resourcePath="/HeXa Gen" resourceType="4"/>
+<resources resourcePath="/WS16_AlgorithmenDatenstrukturen" resourceType="4"/>
+<resources resourcePath="/HeXaGen" resourceType="4"/>
+<resources resourcePath="/Basic_Memory" resourceType="4"/>
+<resources resourcePath="/SkyGazeMI15Web" resourceType="4"/>
+<resources resourcePath="/GS2016_01" resourceType="4"/>
+<resources resourcePath="/WS16_WebProg1_linkedSamba" resourceType="4"/>
+<resources resourcePath="/The_Affliction_Book_2.0" resourceType="4"/>
+<resources resourcePath="/DiagrammTest" resourceType="4"/>
+<resources resourcePath="/GS2016_exercise_01" resourceType="4"/>
+<resources resourcePath="/Basic_Chess" resourceType="4"/>
+<resources resourcePath="/WS16_WebProg1_local" resourceType="4"/>
+<resources resourcePath="/HexDump" resourceType="4"/>
+<resources resourcePath="/GS2016_02" resourceType="4"/>
+<resources resourcePath="/Basic_RowOfFour" resourceType="4"/>
+</mappings>
+</org.eclipse.team.ui.MODEL_PARTICIPANT_MAPPINGS>
+</org.eclipse.team.ui.MODEL_PARTICIPANT_SETTINGS>
+</data>
+</participant>
+</syncparticipants>

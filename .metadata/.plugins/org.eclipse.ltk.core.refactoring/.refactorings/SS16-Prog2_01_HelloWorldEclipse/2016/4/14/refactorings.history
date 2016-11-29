@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;hello_world&apos; to &apos;Weiterführende Programmierung SoSe2016/src&apos;&#x0D;&#x0A;- Original project: &apos;HelloWorld&apos;&#x0D;&#x0A;- Destination element: &apos;Weiterführende Programmierung SoSe2016/src&apos;&#x0D;&#x0A;- Original element: &apos;HelloWorld/src/hello_world&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=Weiterführende Programmierung SoSe2016/src" element1="/src&lt;hello_world" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1459867579836" version="1.0"/>
+</session>
