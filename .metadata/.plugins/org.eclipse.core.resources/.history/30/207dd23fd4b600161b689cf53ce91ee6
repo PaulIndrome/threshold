@@ -1,0 +1,90 @@
+<?php
+
+class ImageObject {
+	# properties, Eigenschaften (Felder)
+	public $filename = NULL;	# original Dateiname
+	public $mimetype = NULL;	# Multipurpose Internet Mail Extension
+	public $size = NULL;		# Dateigröße (bytes)
+	public $file = NULL;		# Dateiname im DATA-Ordner (08154711)
+	public $thumb = NULL;		# Voreschaubild
+	public $metafile = NULL;	# Metadaten XML
+	public $userdata = NULL;	# nutzergenerierte Daten
+	private $error = NULL;		# Fehlerstatus	
+	
+	public $keywords = NULL;
+	public $description = NULL;
+	public $owner = NULL;
+	public $ip = NULL;
+	public $date = NULL;
+	
+	#Methoden
+	#Konstruktor
+	public function __construct($file, $filename){ 	#ab PhP 5 Konstruktor durch zwei Unterstriche definiert	
+		$this->thumb = $file.EXT_THUMB;
+		$this->metafile = $file.EXT_META;
+		$this->file = $file;
+		$this->filename = $filename;
+		
+		$this->size = $params['upload']['size'];
+		$this->mimetype = $params['upload']['mimetype'];
+		
+		$this->keywords = preg_replace(<*>, "", $params['upload']['keywords']);
+		$this->description = preg_replace(<*>, "", $params['upload']['description']);
+		$this->owner = preg_replace(<*>, "", $params['upload']['owner']);
+		
+		
+	}
+	
+	#private Methoden
+	#erzeugt Vorschau
+	private function createThumb(){
+		
+	}
+	
+	# erzeugt XML
+	private function createXML(){
+		#SAX Parser
+		#Wurzel-Element erzeugen
+		$xmldoc = simplexml_load_string('<image />'); #SAX Parser ezeugt automatisch öffnendes und schließendes Element
+		# Kindelemente erzeugen
+		$systemdata = $xmldoc->addChild('systemdata');
+		$systemdata->addChild('filename', $this->filename);
+		$size = $xmldoc->addChild('size', $this->size);
+		$mimetype = $xmldoc->addChild('mimetype', $this->mimetype);
+		
+		$userdata = $xmldoc->addChild('userdata');
+		$userdata->addChild('keywords', $this->keywords);
+		$userdata->addChild('description', $this->description);
+		$userdata->addChild('owner', $this->owner);
+		$userdata->addChild('ip', $this->ip);
+		$userdata->addChild('date', $this->date);
+		
+		#...
+		# TODO
+		# XML schreiben
+		$xmldoc->asXML($this->metafile);
+		
+	}
+	
+	#erzeugt Vorschau und Metadaten-Datei (XML)
+	public function create(){
+		$this->createThumb();
+		$this->createXML();
+	}
+	
+	public function read(){
+		
+	}
+	
+	public function update(){
+		
+	}
+	
+	public function delete(){
+		
+	}
+	
+}
+
+
+?>

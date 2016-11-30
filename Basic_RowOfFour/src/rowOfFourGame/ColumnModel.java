@@ -1,7 +1,6 @@
 package rowOfFourGame;
 
-import ColumnBasedGame.Delta;
-import ColumnBasedGame.FallService;
+import rowOfFourGame.Delta;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -146,7 +145,7 @@ public class ColumnModel {
 			if (xm.matches() + xp.matches() >= streak - 1 || xmyp.matches() + xpym.matches() >= streak - 1
 					|| xmym.matches() + xpyp.matches() >= streak - 1 || ym.matches() >= streak - 1) {
 				System.out.println("We have a winner!");
-				FallService.pause();
+				//view.pause();
 			} else {
 			}
 			for (Delta d : deltas) {
