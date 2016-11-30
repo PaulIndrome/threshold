@@ -66,7 +66,7 @@ public class ColumnModel {
 	}
 
 	public void initialize() {
-		System.out.println(players);
+		System.out.println(players + " " + mode[1]);
 		// initialize fallheights
 		for (int f = 0; f < fallheights.length; f++) {
 			fallheights[f] = height;
@@ -113,26 +113,36 @@ public class ColumnModel {
 	// the check() method effectively puts pieces in the game and handles all
 	// changes in data following the addition
 	public void check(int col) {
+		int actualCol = col;
+		if (mode[1]) {
+			double range = Math.random() * (width / 10);
+			double negPos = (Math.random() >= 0.49) ? 1 : -1;
+			actualCol = (int) (col + ((Math.random() * range)*negPos));
+			while (actualCol < 0 || actualCol > width || !(fallheights[actualCol]>0)) {
+				actualCol = (int) (col + ((Math.random() * range)*negPos));
+			}
+			System.out.println(actualCol);
+		}
 		// first check if a piece can be placed in the column
-		if (fallheights[col] > 0) {
+		if (fallheights[actualCol] > 0) {
 			// establish which row the piece will land in
-			int row = fallheights[col];
+			int row = fallheights[actualCol];
 
 			// update the fallheight at given column
-			teams[col][row] = currentTeam;
-			fallheights[col]--;
+			teams[actualCol][row] = currentTeam;
+			fallheights[actualCol]--;
 
 			// generate and provide data necessary to update view with new piece
 			double radius = (colWidth < rowHeight) ? colWidth / 2 - 1 : rowHeight / 2 - 1;
 			Color color = teamColors[currentTeam - 1];
-			view.addCircle(color, radius, col * (colWidth + margin) + (colWidth / 2), (2 * rowHeight) + row * rowHeight,
+			view.addCircle(color, radius, actualCol * (colWidth + margin) + (colWidth / 2), (2 * rowHeight) + row * rowHeight,
 					root);
 
 			// check each direction (delta) in team array
 			for (Delta d : deltas) {
 				try {
 					for (int c = 1; c < streak; c++) {
-						if (teams[col + (d.colD() * c)][row + (d.rowD() * c)] == currentTeam) {
+						if (teams[actualCol + (d.colD() * c)][row + (d.rowD() * c)] == currentTeam) {
 							d.match();
 							continue;
 						} else {
@@ -145,7 +155,7 @@ public class ColumnModel {
 			if (xm.matches() + xp.matches() >= streak - 1 || xmyp.matches() + xpym.matches() >= streak - 1
 					|| xmym.matches() + xpyp.matches() >= streak - 1 || ym.matches() >= streak - 1) {
 				System.out.println("We have a winner!");
-				//view.pause();
+				// view.pause();
 			} else {
 			}
 			for (Delta d : deltas) {
@@ -156,17 +166,17 @@ public class ColumnModel {
 	}
 
 	public void switchTeam() {
+		// should work for any number of players
 		if (!mode[0]) {
 			if (currentTeam == players) {
 				currentTeam = 1;
 			} else {
 				currentTeam += 1;
 			}
-		} else {
+		} else if (mode[0]) {
 			currentTeam = (int) (Math.random() * players + 1);
 			while (currentTeam > 4) {
 				currentTeam = (int) (Math.random() * players + 1);
-				System.out.println("We even here?");
 			}
 		}
 	}

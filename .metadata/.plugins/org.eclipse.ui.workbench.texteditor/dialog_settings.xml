@@ -2,20 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="GetUniformLoc" key="selection"/>
+		<item value="Find" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
-		<item value="true" key="wrap"/>
+		<item value="false" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="getuniformloc"/>
-			<item value="update"/>
-			<item value="View."/>
-			<item value="ciR"/>
-			<item value="ciL"/>
-			<item value="&gt;= 8"/>
-			<item value=" col &gt;= 8 || row &gt;= 8 || row &gt;= 8 || row &gt;= 8 ||"/>
-			<item value="N"/>
+			<item value="Find"/>
 		</list>
 		<list key="replacehistory">
 			<item value="ciL"/>

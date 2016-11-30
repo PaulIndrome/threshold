@@ -24,7 +24,9 @@ public class GameStartController {
 	@FXML
 	private Button ColumnGameButton;
 	@FXML
-	private CheckBox randomModeCheck;
+	private CheckBox randomTeamCheck;
+	@FXML
+	private CheckBox randomColumnCheck;
 
 	private static int width;
 	private static int height;
@@ -35,7 +37,8 @@ public class GameStartController {
 	private static GameRectangle[][] rectArray;
 
 	public void initialize() {
-		randomModeCheck.setTooltip(new Tooltip("Play with randomized teams."));
+		randomTeamCheck.setTooltip(new Tooltip("Play with randomized teams."));
+		randomColumnCheck.setTooltip(new Tooltip("Your piece MIGHT land somewhere else."));
 		widthField.setTooltip(new Tooltip("Maximum width = 100"));
 		heightField.setTooltip(new Tooltip("Maximum height = 100"));
 		playersField.setTooltip(new Tooltip("Maximum players = 4"));
@@ -48,11 +51,17 @@ public class GameStartController {
 		players = Integer.parseInt(playersField.getText());
 
 
-		randomModeCheck.selectedProperty().addListener(new ChangeListener<Boolean>() {
+		randomTeamCheck.selectedProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
 					mode[0] = newValue.booleanValue();
-					System.out.println("Random mode = " + mode[0]);
+			}
+		});
+		
+		randomColumnCheck.selectedProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+					mode[1] = newValue.booleanValue();
 			}
 		});
 		
