@@ -1,15 +1,48 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<movements>
-	<alpha>
-		<a 
-			0="0j0j5s"
-			1="0j0j0s"
-			2="0j0j1s">
-		</a>
-		<d
-			0="3j3j4s"
-			1="3j3j3s"
-			2="3j3j2s">
-		</d>
-	</alpha>
-</movements>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Movements>
+
+<A>
+<0>
+0,false,0,false,0,false
+</0>
+<1>
+1,false,1,false,1,false
+</1>
+<2>
+1,false,1,false,1,false
+</2>
+<3>
+1,false,1,false,1,false
+</3>
+<4>
+1,false,1,false,1,false
+</4>
+<5>
+1,false,1,false,1,false
+</5>
+</A>
+
+
+<B>
+<0>
+0,true,0,true,0,true
+</0>
+<1>
+-1
+</1>
+<2>
+-1
+</2>
+<3>
+1,true,1,true,1,true
+</3>
+<4>
+-1
+</4>
+<5>
+-1
+</5>
+</B>
+
+</Movements>
