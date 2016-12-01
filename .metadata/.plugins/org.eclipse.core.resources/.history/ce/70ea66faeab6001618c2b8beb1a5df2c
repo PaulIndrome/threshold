@@ -1,0 +1,38 @@
+package Pr_06_package;
+
+import vorgaben.praktikum5.Cell;
+import vorgaben.praktikum6.CellAccessDictionary;
+
+public class LinProbing implements CellAccessDictionary {
+
+	private Cell[] dates;
+	private int size;
+
+	@Override
+	public void initialize(int arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void insert(String arg0, String arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public String read(String arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Cell[] getCells() {
+		return dates;
+	}
+
+	private int reducedHashcode(String s) {
+		return Math.abs(s.hashCode()) % size;
+	}
+
+}
