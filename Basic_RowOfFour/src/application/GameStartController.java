@@ -34,7 +34,6 @@ public class GameStartController {
 	private static int players;
 	private boolean[] mode = new boolean[]{false,false,false,false};
 	private static boolean currentTeam = true;
-	private static GameRectangle[][] rectArray;
 
 	public void initialize() {
 		randomTeamCheck.setTooltip(new Tooltip("Play with randomized teams."));
@@ -125,13 +124,5 @@ public class GameStartController {
 
 	public static int getHeight() {
 		return height;
-	}
-	
-	public static void setRectArray(GameRectangle[][] rectArray){
-		GameStartController.rectArray = rectArray;
-	}
-	
-	public static GameRectangle[][] getRectArray(){
-		return GameStartController.rectArray;
 	}
 }
