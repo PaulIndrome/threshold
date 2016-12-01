@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;application.ParalleltesterController&apos; to &apos;MainController&apos;&#x0D;&#x0A;- Original project: &apos;The_Affliction_Book_2.0&apos;&#x0D;&#x0A;- Original element: &apos;application.ParalleltesterController&apos;&#x0D;&#x0A;- Renamed element: &apos;application.MainController&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ParalleltesterController&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;application{ParalleltesterController.java[ParalleltesterController" matchStrategy="1" name="MainController" qualified="false" references="true" similarDeclarations="false" stamp="1473809559628" textual="false" version="1.0"/>
-</session>

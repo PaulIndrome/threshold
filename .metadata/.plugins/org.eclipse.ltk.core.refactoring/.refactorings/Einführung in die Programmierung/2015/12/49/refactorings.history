@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename compilation unit &apos;praktikum08.Wuerfeln.java&apos; to &apos;Wuerfel.java&apos;&#x0D;&#x0A;- Original project: &apos;Einführung in die Programmierung&apos;&#x0D;&#x0A;- Original element: &apos;praktikum08.Wuerfeln.java&apos;&#x0D;&#x0A;- Renamed element: &apos;praktikum08.Wuerfel.java&apos;" description="Rename compilation unit &apos;Wuerfeln.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;praktikum08{Wuerfeln.java" name="Wuerfel.java" references="false" stamp="1449050504995" version="1.0"/>
-</session>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;Keyboard.java&apos; to &apos;Weiterführende Programmierung SoSe2016/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;Einführung in die Programmierung&apos;&#x0D;&#x0A;- Destination element: &apos;Weiterführende Programmierung SoSe2016/src/(default package)&apos;&#x0D;&#x0A;- Original element: &apos;praktikum03.Keyboard.java&apos;" description="Copy compilation unit" destination="=Weiterführende Programmierung SoSe2016/src&lt;" element1="/src&lt;praktikum03{Keyboard.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1459500453207" units="1" version="1.0"/>
-</session>

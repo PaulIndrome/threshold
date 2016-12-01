@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;SkyProd_web/index.html&apos; to &apos;test.html&apos;" description="Rename resource &apos;index.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="index.html" name="test.html" stamp="1476858390855" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;SkyProd_web/test.html&apos; to &apos;test.php&apos;" description="Rename resource &apos;test.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="test.html" name="test.php" stamp="1476858400794" updateReferences="true"/>
-</session>
