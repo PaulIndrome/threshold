@@ -50,7 +50,7 @@ public class ColumnModel {
 		this.mode = mode;
 
 		// MATHS!! to discern width and height of single rectangle
-		this.colWidth = 1280 / width;
+		this.colWidth = 800 / width;
 		this.rowHeight = 800 / height;
 
 		// set attributes of game window
