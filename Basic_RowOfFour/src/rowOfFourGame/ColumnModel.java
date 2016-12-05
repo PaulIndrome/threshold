@@ -1,10 +1,8 @@
 package rowOfFourGame;
 
-import rowOfFourGame.Delta;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class ColumnModel {
@@ -29,6 +27,8 @@ public class ColumnModel {
 	private double margin;
 	private double colWidth;
 	private double rowHeight;
+	private double widthSet;
+	private double heightSet;
 
 	private Delta xm;
 	private Delta xmyp;
@@ -44,7 +44,7 @@ public class ColumnModel {
 		this.height = height;
 		this.streak = streak;
 		this.players = players;
-		this.teams = new int[width][height + 1];
+		this.teams = new int[width][height+1];
 		this.fallheights = new int[width];
 		this.currentTeam = 1;
 		this.mode = mode;
@@ -55,18 +55,17 @@ public class ColumnModel {
 
 		// set attributes of game window
 		margin = ((1280 % colWidth) / width) + 4;
-		double widthSet = (colWidth * width) + ((width - 1) * margin);
-		double heightSet = (rowHeight) * height;
-		root.setPrefSize(widthSet, heightSet + 2 * rowHeight);
-		root.setMaxSize(widthSet, heightSet + 2 * rowHeight);
-		root.setMinSize(widthSet, heightSet + 2 * rowHeight);
+		 widthSet = (colWidth * width) + ((width - 1) * margin);
+		 heightSet = (rowHeight) * height;
+		root.setPrefSize(widthSet, 20+heightSet);
+		root.setMaxSize(widthSet, 20+heightSet);
+		root.setMinSize(widthSet, 20+heightSet);
 
 		initialize();
 
 	}
 
 	public void initialize() {
-		System.out.println(players + " " + mode[1]);
 		// initialize fallheights
 		for (int f = 0; f < fallheights.length; f++) {
 			fallheights[f] = height;
@@ -75,23 +74,11 @@ public class ColumnModel {
 		// initialize control and view
 		control = new ColumnControl(root, this);
 		view = new ColumnView();
+		view.addGroups(root);
 
 		// populate the window with rectangles and "buttons"
 		control.generateButtons(width, height, colWidth, rowHeight, margin);
-		for (int x = 0; x < width; x++) {
-			for (int y = 0; y < height; y++) {
-				Rectangle r = new Rectangle(x * (colWidth + margin), 2 * rowHeight + (y * rowHeight), colWidth,
-						rowHeight);
-				r.setFill(Color.TRANSPARENT);
-				if (x % 2 == 0) {
-					r.setStroke(Color.DARKGREY);
-				} else {
-					r.setStroke(Color.GREY);
-				}
-				r.setMouseTransparent(true);
-				root.getChildren().add(r);
-			}
-		}
+		view.generateColumns(width, height, colWidth, rowHeight, margin);
 
 		// generate the deltas
 		xm = new Delta(-1, 0);
@@ -114,6 +101,7 @@ public class ColumnModel {
 	// changes in data following the addition
 	public void check(int col) {
 		int actualCol = col;
+		//if mode randomColumn active, calculate random row in vicinity
 		if (mode[1]) {
 			double range = Math.random() * (width / 10);
 			double negPos = (Math.random() >= 0.49) ? 1 : -1;
@@ -121,8 +109,7 @@ public class ColumnModel {
 			while (actualCol < 0 || actualCol > width || !(fallheights[actualCol]>0)) {
 				actualCol = (int) (col + ((Math.random() * range)*negPos));
 			}
-			System.out.println(actualCol);
-		}
+   		}
 		// first check if a piece can be placed in the column
 		if (fallheights[actualCol] > 0) {
 			// establish which row the piece will land in
@@ -135,7 +122,7 @@ public class ColumnModel {
 			// generate and provide data necessary to update view with new piece
 			double radius = (colWidth < rowHeight) ? colWidth / 2 - 1 : rowHeight / 2 - 1;
 			Color color = teamColors[currentTeam - 1];
-			view.addCircle(color, radius, actualCol * (colWidth + margin) + (colWidth / 2), (2 * rowHeight) + row * rowHeight,
+			view.addCircle(color, radius, actualCol * (colWidth + margin) + (colWidth / 2), 20 + row * rowHeight,
 					root);
 
 			// check each direction (delta) in team array
@@ -155,7 +142,12 @@ public class ColumnModel {
 			if (xm.matches() + xp.matches() >= streak - 1 || xmyp.matches() + xpym.matches() >= streak - 1
 					|| xmym.matches() + xpyp.matches() >= streak - 1 || ym.matches() >= streak - 1) {
 				System.out.println("We have a winner!");
-				// view.pause();
+				teams = new int[width][height+1];
+				currentTeam = 1;
+				for(int f : fallheights){
+					f = height;
+				}
+				view.win(currentTeam, widthSet, heightSet);
 			} else {
 			}
 			for (Delta d : deltas) {
@@ -173,14 +165,16 @@ public class ColumnModel {
 			} else {
 				currentTeam += 1;
 			}
-		} else if (mode[0]) {
+		}
+		//if randomTeam mode active calculate a random team
+		else if (mode[0]) {
 			currentTeam = (int) (Math.random() * players + 1);
 			while (currentTeam > 4) {
 				currentTeam = (int) (Math.random() * players + 1);
 			}
 		}
 	}
-
+	
 	public int getCurrentTeam() {
 		return currentTeam;
 	}
