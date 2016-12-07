@@ -44,7 +44,7 @@ public class ColumnModel {
 		this.height = height;
 		this.streak = streak;
 		this.players = players;
-		this.teams = new int[width][height+1];
+		this.teams = new int[width][height + 1];
 		this.fallheights = new int[width];
 		this.currentTeam = 1;
 		this.mode = mode;
@@ -55,11 +55,11 @@ public class ColumnModel {
 
 		// set attributes of game window
 		margin = ((1280 % colWidth) / width) + 4;
-		 widthSet = (colWidth * width) + ((width - 1) * margin);
-		 heightSet = (rowHeight) * height;
-		root.setPrefSize(widthSet, 20+heightSet);
-		root.setMaxSize(widthSet, 20+heightSet);
-		root.setMinSize(widthSet, 20+heightSet);
+		widthSet = (colWidth * width) + ((width - 1) * margin);
+		heightSet = (rowHeight) * height;
+		root.setPrefSize(widthSet, 20 + heightSet);
+		root.setMaxSize(widthSet, 20 + heightSet);
+		root.setMinSize(widthSet, 20 + heightSet);
 
 		initialize();
 
@@ -101,15 +101,15 @@ public class ColumnModel {
 	// changes in data following the addition
 	public void check(int col) {
 		int actualCol = col;
-		//if mode randomColumn active, calculate random row in vicinity
+		// if mode randomColumn active, calculate random row in vicinity
 		if (mode[1]) {
 			double range = Math.random() * (width / 10);
 			double negPos = (Math.random() >= 0.49) ? 1 : -1;
-			actualCol = (int) (col + ((Math.random() * range)*negPos));
-			while (actualCol < 0 || actualCol > width || !(fallheights[actualCol]>0)) {
-				actualCol = (int) (col + ((Math.random() * range)*negPos));
+			actualCol = (int) (col + ((Math.random() * range) * negPos));
+			while (actualCol < 0 || actualCol > width || !(fallheights[actualCol] > 0)) {
+				actualCol = (int) (col + ((Math.random() * range) * negPos));
 			}
-   		}
+		}
 		// first check if a piece can be placed in the column
 		if (fallheights[actualCol] > 0) {
 			// establish which row the piece will land in
@@ -122,8 +122,7 @@ public class ColumnModel {
 			// generate and provide data necessary to update view with new piece
 			double radius = (colWidth < rowHeight) ? colWidth / 2 - 1 : rowHeight / 2 - 1;
 			Color color = teamColors[currentTeam - 1];
-			view.addCircle(color, radius, actualCol * (colWidth + margin) + (colWidth / 2), 20 + row * rowHeight,
-					root);
+			view.addCircle(color, radius, actualCol * (colWidth + margin) + (colWidth / 2), 20 + row * rowHeight, root);
 
 			// check each direction (delta) in team array
 			for (Delta d : deltas) {
@@ -139,21 +138,25 @@ public class ColumnModel {
 				} catch (IndexOutOfBoundsException e) {
 				}
 			}
+
+			// check mirroring deltas if the sum of their matches concludes to a
+			// win streak
+			// checked for streak length - 1 as the checked piece belongs to
+			// matched team
 			if (xm.matches() + xp.matches() >= streak - 1 || xmyp.matches() + xpym.matches() >= streak - 1
 					|| xmym.matches() + xpyp.matches() >= streak - 1 || ym.matches() >= streak - 1) {
 				System.out.println("We have a winner!");
-				teams = new int[width][height+1];
-				currentTeam = 1;
-				for(int f : fallheights){
-					f = height;
-				}
+				teams = new int[width][height + 1];
 				view.win(currentTeam, widthSet, heightSet);
+				currentTeam = 1;
+				clearDeltas();
+				for (int f = 0; f < fallheights.length; f++) {
+					fallheights[f] = height;
+				}
 			} else {
+				clearDeltas();
+				switchTeam();
 			}
-			for (Delta d : deltas) {
-				d.clear();
-			}
-			switchTeam();
 		}
 	}
 
@@ -166,7 +169,7 @@ public class ColumnModel {
 				currentTeam += 1;
 			}
 		}
-		//if randomTeam mode active calculate a random team
+		// if randomTeam mode active calculate a random team
 		else if (mode[0]) {
 			currentTeam = (int) (Math.random() * players + 1);
 			while (currentTeam > 4) {
@@ -174,7 +177,7 @@ public class ColumnModel {
 			}
 		}
 	}
-	
+
 	public int getCurrentTeam() {
 		return currentTeam;
 	}
@@ -205,6 +208,12 @@ public class ColumnModel {
 
 	public double getRowHeight() {
 		return rowHeight;
+	}
+	
+	public void clearDeltas(){
+		for (Delta d : deltas) {
+			d.clear();
+		}
 	}
 
 }

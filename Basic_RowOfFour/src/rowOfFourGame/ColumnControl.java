@@ -32,4 +32,12 @@ public class ColumnControl {
 		}
 	}
 	
+	public void disableButtons(){
+		controlGroup.setDisable(true);
+	}
+	
+	public void enableButtons(){
+		controlGroup.setDisable(false);
+	}
+	
 }
