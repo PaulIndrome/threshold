@@ -39,9 +39,6 @@ public class ColumnView {
 									c = circles.get(i);
 									if (c.getCenterY() + c.getRadius() + 1 < fallDepths.get(i)) {
 										c.setCenterY(c.getCenterY() + c.getRadius() + 1);
-										// setCenterX and Thread sleep of 100ms
-										// makes for retro look
-										// c.setCenterX(-1 * c.getCenterX()+10);
 									} else {
 										removeCircle(i);
 										pause = (circles.isEmpty());
@@ -69,11 +66,9 @@ public class ColumnView {
 
 	public void addGroups(AnchorPane parent) {
 		parent.getChildren().addAll(circleGroup, columnGroup);
-		circleGroup.toFront();
-		columnGroup.toBack();
 	}
 
-	public void addCircle(Color color, double radius, double xPos, double fallDepth, AnchorPane parent) {
+	public void addCircle(Color color, double radius, double xPos, double fallDepth) {
 		Circle circle = new Circle(xPos, 0, radius, color);
 		circle.setMouseTransparent(true);
 		circleGroup.getChildren().add(circle);
@@ -94,24 +89,16 @@ public class ColumnView {
 				}
 				r.setMouseTransparent(true);
 				columnGroup.getChildren().add(r);
-				r.toBack();
 			}
 		}
 	}
 
-	public void win(int team, double widthSet, double heightSet) {
-		AnchorPane root = null;
-		FXMLLoader load = null;
-		try {
-			load = new FXMLLoader(getClass().getResource("/application/WinIcon.fxml"));
-			root = load.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		WinControl wc = load.getController();
-		wc.createWin(team, circleGroup);
-		circleGroup.getChildren().add(root);
-		root.toFront();
+	public void untransparentColumns(){
+		columnGroup.setMouseTransparent(false);
+	}
+	
+	public void transparentColumns(){
+		columnGroup.setMouseTransparent(true);
 	}
 
 }

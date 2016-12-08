@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
+import rowOfFourGame.ColumnControl;
 import rowOfFourGame.ColumnModel;
 
 public class GameStartController {
@@ -99,7 +100,7 @@ public class GameStartController {
 	}
 	
 	public void startColumnGame(){
-		new ColumnModel(width, height, streak, players, mode);
+		new ColumnControl(width, height, streak, players, mode);
 	}
 
 	public void exit() {

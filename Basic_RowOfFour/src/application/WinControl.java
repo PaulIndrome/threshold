@@ -22,10 +22,7 @@ public class WinControl {
 
 	}
 
-	public void createWin(int team, Group circleGroup) {
-
-		this.circleGroup = circleGroup;
-
+	public void createWin(int team) {
 		switch (team) {
 		case 1:
 			winCircle.setFill(Color.GOLD);
@@ -53,6 +50,10 @@ public class WinControl {
 
 	public void close() {
 		circleGroup.getScene().getWindow().hide();
+	}
+	
+	public Circle getCircle(){
+		return winCircle;
 	}
 
 }

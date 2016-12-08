@@ -9,7 +9,7 @@ public class ColumnModel {
 
 	private AnchorPane root = new AnchorPane();
 
-	ColumnControl control;
+	//ColumnControl control;
 	ColumnView view;
 
 	private int currentTeam;
@@ -72,12 +72,12 @@ public class ColumnModel {
 		}
 
 		// initialize control and view
-		control = new ColumnControl(root, this);
+		//control = new ColumnControl(root, this);
 		view = new ColumnView();
 		view.addGroups(root);
 
 		// populate the window with rectangles and "buttons"
-		control.generateButtons(width, height, colWidth, rowHeight, margin);
+		//control.generateButtons(width, height, colWidth, rowHeight, margin);
 		view.generateColumns(width, height, colWidth, rowHeight, margin);
 
 		// generate the deltas
@@ -99,7 +99,7 @@ public class ColumnModel {
 
 	// the check() method effectively puts pieces in the game and handles all
 	// changes in data following the addition
-	public void check(int col) {
+	public int check(int col) {
 		int actualCol = col;
 		// if mode randomColumn active, calculate random row in vicinity
 		if (mode[1]) {
@@ -122,7 +122,7 @@ public class ColumnModel {
 			// generate and provide data necessary to update view with new piece
 			double radius = (colWidth < rowHeight) ? colWidth / 2 - 1 : rowHeight / 2 - 1;
 			Color color = teamColors[currentTeam - 1];
-			view.addCircle(color, radius, actualCol * (colWidth + margin) + (colWidth / 2), 20 + row * rowHeight, root);
+			view.addCircle(color, radius, actualCol * (colWidth + margin) + (colWidth / 2), 20 + row * rowHeight);
 
 			// check each direction (delta) in team array
 			for (Delta d : deltas) {
@@ -146,18 +146,22 @@ public class ColumnModel {
 			if (xm.matches() + xp.matches() >= streak - 1 || xmyp.matches() + xpym.matches() >= streak - 1
 					|| xmym.matches() + xpyp.matches() >= streak - 1 || ym.matches() >= streak - 1) {
 				System.out.println("We have a winner!");
+				int winningTeam = currentTeam;
 				teams = new int[width][height + 1];
-				view.win(currentTeam, widthSet, heightSet);
+				//view.win(currentTeam, widthSet, heightSet);
 				currentTeam = 1;
 				clearDeltas();
 				for (int f = 0; f < fallheights.length; f++) {
 					fallheights[f] = height;
 				}
+				return winningTeam;
 			} else {
 				clearDeltas();
 				switchTeam();
+				return -1;
 			}
 		}
+		return -1;
 	}
 
 	public void switchTeam() {
@@ -176,6 +180,10 @@ public class ColumnModel {
 				currentTeam = (int) (Math.random() * players + 1);
 			}
 		}
+	}
+	
+	public AnchorPane getRoot(){
+		return root;
 	}
 
 	public int getCurrentTeam() {
@@ -214,6 +222,14 @@ public class ColumnModel {
 		for (Delta d : deltas) {
 			d.clear();
 		}
+	}
+	
+	public double getWidthSet(){
+		return widthSet;
+	}
+	
+	public double getHeightSet(){
+		return heightSet;
 	}
 
 }
