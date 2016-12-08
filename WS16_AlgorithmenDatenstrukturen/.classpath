@@ -7,6 +7,7 @@
 	<classpathentry kind="src" path="Pr_04"/>
 	<classpathentry kind="src" path="Pr_05"/>
 	<classpathentry kind="src" path="Pr_06"/>
+	<classpathentry kind="src" path="Pr_07"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="lib" path="C:/Users/Paul Indrome/Desktop/AlgDat.jar"/>
 	<classpathentry kind="output" path="bin"/>
