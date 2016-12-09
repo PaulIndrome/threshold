@@ -25,10 +25,10 @@ public class WinControl {
 	public void createWin(int team) {
 		switch (team) {
 		case 1:
-			winCircle.setFill(Color.GOLD);
+			winCircle.setFill(Color.RED);
 			break;
 		case 2:
-			winCircle.setFill(Color.BLUEVIOLET);
+			winCircle.setFill(Color.BLUE);
 			break;
 		case 3:
 			winCircle.setFill(Color.CYAN);

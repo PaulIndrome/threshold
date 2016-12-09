@@ -9,7 +9,6 @@ public class ColumnModel {
 
 	private AnchorPane root = new AnchorPane();
 
-	//ColumnControl control;
 	ColumnView view;
 
 	private int currentTeam;
@@ -17,7 +16,7 @@ public class ColumnModel {
 	private Delta[] deltas;
 	private int[] fallheights;
 	private boolean[] mode;
-	private Color[] teamColors = new Color[] { Color.GOLD, Color.BLUEVIOLET, Color.CYAN, Color.FORESTGREEN };
+	private Color[] teamColors = new Color[] { Color.RED, Color.BLUE, Color.CYAN, Color.FORESTGREEN };
 
 	private int width;
 	private int height;
@@ -120,9 +119,10 @@ public class ColumnModel {
 			fallheights[actualCol]--;
 
 			// generate and provide data necessary to update view with new piece
+			double fallHeight = 20 + row * rowHeight;
 			double radius = (colWidth < rowHeight) ? colWidth / 2 - 1 : rowHeight / 2 - 1;
 			Color color = teamColors[currentTeam - 1];
-			view.addCircle(color, radius, actualCol * (colWidth + margin) + (colWidth / 2), 20 + row * rowHeight);
+			view.addCircle(color, radius, actualCol * (colWidth + margin) + (colWidth / 2), fallHeight);
 
 			// check each direction (delta) in team array
 			for (Delta d : deltas) {

@@ -1,8 +1,11 @@
 package rowOfFourGame;
 
+import java.awt.event.MouseAdapter;
 import java.io.IOException;
 
 import application.WinControl;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -14,12 +17,20 @@ public class ColumnControl {
 
 	private Group controlGroup;
 	private ColumnModel model;
+	private ChangeListener<Boolean> hoverListen;
+	
 
 	public ColumnControl(int width, int height, int streak, int players, boolean[] mode) {
 		controlGroup = new Group();
 		this.model = new ColumnModel(width, height, streak, players, mode);
 		model.getRoot().getChildren().add(controlGroup);
 		generateButtons(width, height, model.getColWidth(), model.getRowHeight(), model.getMargin());
+		hoverListen = new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+				//model.calcHover()
+			}
+		};
 	}
 
 	public Group getControlGroup() {
@@ -37,6 +48,7 @@ public class ColumnControl {
 					win(winner, model.getWidthSet(),model.getHeightSet());
 				}
 			});
+			
 			controlGroup.getChildren().add(icon);
 		}
 	}

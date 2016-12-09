@@ -1,14 +1,10 @@
 package rowOfFourGame;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-import application.WinControl;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -23,8 +19,11 @@ public class ColumnView {
 	private ArrayList<Double> fallDepths = new ArrayList<Double>();
 	private boolean isCancelled;
 	private boolean pause;
+	//circleIncrement should be radius plus radius/4
+	private double circleIncrement;
 
 	public ColumnView() {
+		circleIncrement = -1;
 		isCancelled = false;
 		pause = false;
 		fall = new Service<Void>() {
@@ -37,12 +36,14 @@ public class ColumnView {
 							if (!pause) {
 								for (int i = 0; i < circles.size(); i++) {
 									c = circles.get(i);
-									if (c.getCenterY() + c.getRadius() + 1 < fallDepths.get(i)) {
-										c.setCenterY(c.getCenterY() + c.getRadius() + 1);
-									} else {
+									if(c.getCenterY()+circleIncrement > fallDepths.get(i)){
+										c.setCenterY(fallDepths.get(i)-c.getRadius());
 										removeCircle(i);
 										pause = (circles.isEmpty());
 									}
+									else {
+										c.setCenterY(c.getCenterY() + circleIncrement);
+									} 
 								}
 							}
 							Thread.sleep(16);
@@ -69,6 +70,7 @@ public class ColumnView {
 	}
 
 	public void addCircle(Color color, double radius, double xPos, double fallDepth) {
+		if(circleIncrement==-1) circleIncrement = radius*1.25;
 		Circle circle = new Circle(xPos, 0, radius, color);
 		circle.setMouseTransparent(true);
 		circleGroup.getChildren().add(circle);
@@ -93,12 +95,16 @@ public class ColumnView {
 		}
 	}
 
-	public void untransparentColumns(){
+	public void untransparentColumns() {
 		columnGroup.setMouseTransparent(false);
 	}
-	
-	public void transparentColumns(){
+
+	public void transparentColumns() {
 		columnGroup.setMouseTransparent(true);
+	}
+	
+	public void hoverCircle(int col){
+		
 	}
 
 }
