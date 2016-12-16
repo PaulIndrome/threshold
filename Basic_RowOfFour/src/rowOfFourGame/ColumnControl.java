@@ -1,11 +1,8 @@
 package rowOfFourGame;
 
-import java.awt.event.MouseAdapter;
 import java.io.IOException;
 
 import application.WinControl;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -17,24 +14,12 @@ public class ColumnControl {
 
 	private Group controlGroup;
 	private ColumnModel model;
-	private ChangeListener<Boolean> hoverListen;
-	
 
 	public ColumnControl(int width, int height, int streak, int players, boolean[] mode) {
 		controlGroup = new Group();
 		this.model = new ColumnModel(width, height, streak, players, mode);
 		model.getRoot().getChildren().add(controlGroup);
 		generateButtons(width, height, model.getColWidth(), model.getRowHeight(), model.getMargin());
-		hoverListen = new ChangeListener<Boolean>() {
-			@Override
-			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-				//model.calcHover()
-			}
-		};
-	}
-
-	public Group getControlGroup() {
-		return controlGroup;
 	}
 
 	public void generateButtons(int width, int height, double colWidth, double rowHeight, double margin) {
@@ -45,10 +30,14 @@ public class ColumnControl {
 			icon.setOnMouseClicked(e -> {
 				int winner = model.check(col);
 				if (winner != -1) {
-					win(winner, model.getWidthSet(),model.getHeightSet());
+					win(winner, model.getWidthSet(), model.getHeightSet());
 				}
+				model.calcHover(col, true);
 			});
-			
+			icon.setOnMouseEntered(e -> {
+				model.calcHover(col, true);
+			});
+
 			controlGroup.getChildren().add(icon);
 		}
 	}
@@ -78,13 +67,16 @@ public class ColumnControl {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		WinControl wc = load.getController();
 		root.setTranslateX(widthSet / 2 - wc.getCircle().getRadius());
 		wc.createWin(team);
 		disableButtons();
 		controlGroup.getChildren().add(root);
 		root.toFront();
+	}
+
+	public Group getControlGroup() {
+		return controlGroup;
 	}
 
 }

@@ -1,6 +1,5 @@
 package application;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -49,7 +48,7 @@ public class WinControl {
 	}
 
 	public void close() {
-		circleGroup.getScene().getWindow().hide();
+		circleGroup.getParent().getScene().getWindow().hide();
 	}
 	
 	public Circle getCircle(){

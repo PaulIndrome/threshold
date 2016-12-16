@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeType;
 
 public class ColumnView {
 
@@ -21,6 +22,7 @@ public class ColumnView {
 	private boolean pause;
 	//circleIncrement should be radius plus radius/4
 	private double circleIncrement;
+	private Circle hoverCircle;
 
 	public ColumnView() {
 		circleIncrement = -1;
@@ -68,6 +70,14 @@ public class ColumnView {
 	public void addGroups(AnchorPane parent) {
 		parent.getChildren().addAll(circleGroup, columnGroup);
 	}
+	
+	public void generateHover(double radius){
+		hoverCircle = new Circle(0,0, radius, Color.TRANSPARENT);
+		hoverCircle.setStrokeType(StrokeType.INSIDE);
+		hoverCircle.setStrokeWidth(2);
+		hoverCircle.setMouseTransparent(true);
+		circleGroup.getChildren().add(hoverCircle);
+	}
 
 	public void addCircle(Color color, double radius, double xPos, double fallDepth) {
 		if(circleIncrement==-1) circleIncrement = radius*1.25;
@@ -103,8 +113,14 @@ public class ColumnView {
 		columnGroup.setMouseTransparent(true);
 	}
 	
-	public void hoverCircle(int col){
-		
+	public void hoverCircle(Color color, double xPos, double fallDepth){
+		hoverCircle.setCenterX(xPos);
+		hoverCircle.setCenterY(fallDepth-hoverCircle.getRadius());
+		hoverCircle.setStroke(color);
+	}	
+	
+	public void clearHover(){
+		hoverCircle.setStroke(Color.TRANSPARENT);
 	}
 
 }

@@ -43,14 +43,18 @@ public class ColumnModel {
 		this.height = height;
 		this.streak = streak;
 		this.players = players;
-		this.teams = new int[width][height + 1];
-		this.fallheights = new int[width];
-		this.currentTeam = 1;
 		this.mode = mode;
 
 		// MATHS!! to discern width and height of single rectangle
-		this.colWidth = 800 / width;
-		this.rowHeight = 800 / height;
+		//this.colWidth = 800 / width;
+		//this.rowHeight = 800 / height;
+		if(800/width < 800/height){
+			this.colWidth = 800/width;
+			this.rowHeight = colWidth;
+		} else {
+			this.rowHeight = 800/height;
+			this.colWidth = rowHeight;
+		}
 
 		// set attributes of game window
 		margin = ((1280 % colWidth) / width) + 4;
@@ -65,18 +69,23 @@ public class ColumnModel {
 	}
 
 	public void initialize() {
+		// basic parameters
+		this.currentTeam = 1;
+		this.teams = new int[width][height + 1];
+		this.fallheights = new int[width];
+
 		// initialize fallheights
 		for (int f = 0; f < fallheights.length; f++) {
 			fallheights[f] = height;
 		}
 
-		// initialize control and view
-		//control = new ColumnControl(root, this);
+		// initialize view
 		view = new ColumnView();
 		view.addGroups(root);
+		double radius = (colWidth < rowHeight) ? colWidth / 2 - 1 : rowHeight / 2 - 1;
+		view.generateHover(radius);
 
 		// populate the window with rectangles and "buttons"
-		//control.generateButtons(width, height, colWidth, rowHeight, margin);
 		view.generateColumns(width, height, colWidth, rowHeight, margin);
 
 		// generate the deltas
@@ -148,7 +157,6 @@ public class ColumnModel {
 				System.out.println("We have a winner!");
 				int winningTeam = currentTeam;
 				teams = new int[width][height + 1];
-				//view.win(currentTeam, widthSet, heightSet);
 				currentTeam = 1;
 				clearDeltas();
 				for (int f = 0; f < fallheights.length; f++) {
@@ -181,8 +189,8 @@ public class ColumnModel {
 			}
 		}
 	}
-	
-	public AnchorPane getRoot(){
+
+	public AnchorPane getRoot() {
 		return root;
 	}
 
@@ -217,19 +225,33 @@ public class ColumnModel {
 	public double getRowHeight() {
 		return rowHeight;
 	}
-	
-	public void clearDeltas(){
+
+	public void clearDeltas() {
 		for (Delta d : deltas) {
 			d.clear();
 		}
 	}
-	
-	public double getWidthSet(){
+
+	public double getWidthSet() {
 		return widthSet;
 	}
-	
-	public double getHeightSet(){
+
+	public double getHeightSet() {
 		return heightSet;
+	}
+
+	public void calcHover(int col, boolean b) {
+		//calculate information necessary to color and position the hoverCircle
+		if (fallheights[col] > 0) {
+			if(b){
+			int row = fallheights[col];
+			double fallHeight = 20 + row * rowHeight;
+			Color color = mode[0] ? Color.GREY : teamColors[currentTeam - 1];
+			view.hoverCircle(color, col * (colWidth + margin) + (colWidth / 2), fallHeight);
+			} else {
+				view.clearHover();
+			}
+		}
 	}
 
 }
