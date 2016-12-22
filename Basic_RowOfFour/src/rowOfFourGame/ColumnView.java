@@ -2,9 +2,12 @@ package rowOfFourGame;
 
 import java.util.ArrayList;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -20,9 +23,22 @@ public class ColumnView {
 	private ArrayList<Double> fallDepths = new ArrayList<Double>();
 	private boolean isCancelled;
 	private boolean pause;
-	//circleIncrement should be radius plus radius/4
+	
+	private boolean idleHover = false;
+	
+	private Rectangle idleSpawner = new Rectangle();
+	
+	private int someonewon = -1;
+	// circleIncrement should be radius plus radius/4
 	private double circleIncrement;
 	private Circle hoverCircle;
+	private Rectangle winRectangle;
+
+	private double radius;
+	private double widthSet;
+	private double heightSet;
+
+	private long lastTime = System.currentTimeMillis();
 
 	public ColumnView() {
 		circleIncrement = -1;
@@ -38,14 +54,13 @@ public class ColumnView {
 							if (!pause) {
 								for (int i = 0; i < circles.size(); i++) {
 									c = circles.get(i);
-									if(c.getCenterY()+circleIncrement > fallDepths.get(i)){
-										c.setCenterY(fallDepths.get(i)-c.getRadius());
+									if (c.getCenterY() + circleIncrement > fallDepths.get(i)) {
+										c.setCenterY(fallDepths.get(i) - c.getRadius());
 										removeCircle(i);
 										pause = (circles.isEmpty());
-									}
-									else {
+									} else {
 										c.setCenterY(c.getCenterY() + circleIncrement);
-									} 
+									}
 								}
 							}
 							Thread.sleep(16);
@@ -70,23 +85,28 @@ public class ColumnView {
 	public void addGroups(AnchorPane parent) {
 		parent.getChildren().addAll(circleGroup, columnGroup);
 	}
-	
-	public void generateHover(double radius){
-		hoverCircle = new Circle(0,0, radius, Color.TRANSPARENT);
+
+	public void generateHover() {
+		hoverCircle = new Circle(0, 0, radius, Color.TRANSPARENT);
 		hoverCircle.setStrokeType(StrokeType.INSIDE);
 		hoverCircle.setStrokeWidth(2);
 		hoverCircle.setMouseTransparent(true);
 		circleGroup.getChildren().add(hoverCircle);
 	}
 
-	public void addCircle(Color color, double radius, double xPos, double fallDepth) {
-		if(circleIncrement==-1) circleIncrement = radius*1.25;
+	public void addCircle(Color color, double xPos, double fallDepth) {
+		if(color.equals(Color.GREY)){
+			System.out.println("idleCircle added");
+		}
+		if (circleIncrement == -1)
+			circleIncrement = radius * 1.25;
 		Circle circle = new Circle(xPos, 0, radius, color);
 		circle.setMouseTransparent(true);
 		circleGroup.getChildren().add(circle);
 		circles.add(circle);
 		fallDepths.add(fallDepth);
 		pause = false;
+		System.out.println("Circle of color " + color + " added");
 	}
 
 	public void generateColumns(int width, int height, double colWidth, double rowHeight, double margin) {
@@ -103,6 +123,9 @@ public class ColumnView {
 				columnGroup.getChildren().add(r);
 			}
 		}
+		winRectangle = new Rectangle(widthSet, 20);
+		winRectangle.setFill(Color.WHITE);
+		columnGroup.getChildren().add(winRectangle);
 	}
 
 	public void untransparentColumns() {
@@ -112,15 +135,55 @@ public class ColumnView {
 	public void transparentColumns() {
 		columnGroup.setMouseTransparent(true);
 	}
-	
-	public void hoverCircle(Color color, double xPos, double fallDepth){
+
+	public void hoverCircle(Color color, double xPos, double fallDepth) {
 		hoverCircle.setCenterX(xPos);
-		hoverCircle.setCenterY(fallDepth-hoverCircle.getRadius());
+		hoverCircle.setCenterY(fallDepth - hoverCircle.getRadius());
 		hoverCircle.setStroke(color);
-	}	
-	
-	public void clearHover(){
+	}
+
+	public void clearHover() {
 		hoverCircle.setStroke(Color.TRANSPARENT);
+	}
+
+	public Group getCircleGroup() {
+		return circleGroup;
+	}
+
+	public void colorWinRectangle(int team) {
+		someonewon = team;
+		switch (team) {
+		case 1:
+			winRectangle.setFill(Color.RED);
+			break;
+		case 2:
+			winRectangle.setFill(Color.BLUE);
+			break;
+		case 3:
+			winRectangle.setFill(Color.CYAN);
+			break;
+		case 4:
+			winRectangle.setFill(Color.GREEN);
+			break;
+		default:
+			break;
+		}
+		pause = false;
+		
+		idleSpawner.setMouseTransparent(false);
+	}
+
+
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+
+	public void setWidthSet(double widthSet) {
+		this.widthSet = widthSet;
+	}
+
+	public void setHeightSet(double heightSet) {
+		this.heightSet = heightSet;
 	}
 
 }

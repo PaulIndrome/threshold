@@ -1,5 +1,6 @@
 package rowOfFourGame;
 
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -28,6 +29,7 @@ public class ColumnModel {
 	private double rowHeight;
 	private double widthSet;
 	private double heightSet;
+	private double radius;
 
 	private Delta xm;
 	private Delta xmyp;
@@ -46,13 +48,11 @@ public class ColumnModel {
 		this.mode = mode;
 
 		// MATHS!! to discern width and height of single rectangle
-		//this.colWidth = 800 / width;
-		//this.rowHeight = 800 / height;
-		if(800/width < 800/height){
-			this.colWidth = 800/width;
+		if(960/width < 960/height){
+			this.colWidth = 960/width;
 			this.rowHeight = colWidth;
 		} else {
-			this.rowHeight = 800/height;
+			this.rowHeight = 960/height;
 			this.colWidth = rowHeight;
 		}
 
@@ -82,8 +82,11 @@ public class ColumnModel {
 		// initialize view
 		view = new ColumnView();
 		view.addGroups(root);
-		double radius = (colWidth < rowHeight) ? colWidth / 2 - 1 : rowHeight / 2 - 1;
-		view.generateHover(radius);
+		radius = (colWidth < rowHeight) ? colWidth / 2 - 1 : rowHeight / 2 - 1;
+		view.setWidthSet(widthSet);
+		view.setHeightSet(heightSet);
+		view.setRadius(radius);
+		view.generateHover();
 
 		// populate the window with rectangles and "buttons"
 		view.generateColumns(width, height, colWidth, rowHeight, margin);
@@ -129,9 +132,8 @@ public class ColumnModel {
 
 			// generate and provide data necessary to update view with new piece
 			double fallHeight = 20 + row * rowHeight;
-			double radius = (colWidth < rowHeight) ? colWidth / 2 - 1 : rowHeight / 2 - 1;
 			Color color = teamColors[currentTeam - 1];
-			view.addCircle(color, radius, actualCol * (colWidth + margin) + (colWidth / 2), fallHeight);
+			view.addCircle(color, actualCol * (colWidth + margin) + (colWidth / 2), fallHeight);
 
 			// check each direction (delta) in team array
 			for (Delta d : deltas) {
@@ -162,6 +164,7 @@ public class ColumnModel {
 				for (int f = 0; f < fallheights.length; f++) {
 					fallheights[f] = height;
 				}
+				view.colorWinRectangle(winningTeam);
 				return winningTeam;
 			} else {
 				clearDeltas();
@@ -239,6 +242,10 @@ public class ColumnModel {
 	public double getHeightSet() {
 		return heightSet;
 	}
+	
+	public Group getCircleGroup(){
+		return view.getCircleGroup();
+	}
 
 	public void calcHover(int col, boolean b) {
 		//calculate information necessary to color and position the hoverCircle
@@ -252,6 +259,10 @@ public class ColumnModel {
 				view.clearHover();
 			}
 		}
+	}
+
+	public double getRadius() {
+		return radius;
 	}
 
 }
