@@ -44,6 +44,8 @@ public class BackTrackControl {
 		try {
 			DocumentBuilder docBuild = docBuildFac.newDocumentBuilder();
 			knapsacks = docBuild.parse(getClass().getResourceAsStream("Knapsacks.xml"));
+			DOMConfiguration config = knapsacks.getDomConfig();
+			config.setParameter(name, value);
 			//knapsacks.normalize();
 		} catch (SAXException | IOException | ParserConfigurationException | RuntimeException e) {
 			e.printStackTrace();
