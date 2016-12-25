@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knapsacks>
+	<knapsack>
+		<item weight="10" value="2"/>
+		<item weight="8" value="4"/>
+		<item weight="12" value="12"/>
+		<item weight="23" value="15"/>
+	</knapsack>
+
+</knapsacks>
