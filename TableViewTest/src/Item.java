@@ -1,4 +1,3 @@
-package application;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -23,10 +22,6 @@ public class Item {
 		this.ratio = new SimpleDoubleProperty(shortDouble);
 	}
 
-	public boolean identifyItemByName(String name){
-		return this.name.getValue() == name;
-	}
-	
 	public String getName() {
 		return name.get();
 	}
