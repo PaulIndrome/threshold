@@ -34,9 +34,7 @@ public class NdList implements NodeList, Iterable<Node> {
         if (n.getNodeType() == Node.TEXT_NODE) {
             String val = n.getNodeValue();
             return val.trim().length() == 0;
-        } else if (n.hasAttributes()) {
-        	return false;
-        }else {
+        } else {
             return false;
         }
     }

@@ -51,17 +51,17 @@ public class ColumnControl {
 		idleSpawner.setFill(Color.TRANSPARENT);
 		idleSpawner.setMouseTransparent(true);
 		
-		idleSpawner.setOnMouseMoved(e->{
-			if(someonewon != -1 && System.currentTimeMillis()-lastTime>200){
-				double xPos = Math.random() * model.getWidthSet();
-				Circle idleC = new Circle(xPos, 0, model.getRadius(), Color.GREY);
-				model.getCircleGroup().getChildren().add(idleC);
-				model.check((int) (Math.random()*width));
-				fallDepths.add(heightSet - radius);
-				pause = false;
-				lastTime = System.currentTimeMillis();
-			}
-		});
+//		idleSpawner.setOnMouseMoved(e->{
+//			if(someonewon != -1 && System.currentTimeMillis()-lastTime>200){
+//				double xPos = Math.random() * model.getWidthSet();
+//				Circle idleC = new Circle(xPos, 0, model.getRadius(), Color.GREY);
+//				model.getCircleGroup().getChildren().add(idleC);
+//				model.check((int) (Math.random()*width));
+//				fallDepths.add(heightSet - radius);
+//				pause = false;
+//				lastTime = System.currentTimeMillis();
+//			}
+//		});
 	}
 
 	public void disableButtons() {
