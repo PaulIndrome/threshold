@@ -1,0 +1,24 @@
+package backtracking;
+
+import java.util.ArrayList;
+
+import application.Item;
+
+public class Knapsack {
+
+	private ArrayList<Item> items;
+	private int weightTotal = 0;
+	private int valueTotal = 0;
+	
+	public Knapsack(){
+		items = new ArrayList<Item>();
+	}
+	
+	public void add(Item i){
+		items.add(i);
+	}
+	
+	
+	
+	
+}

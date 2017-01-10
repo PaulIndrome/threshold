@@ -1,0 +1,15 @@
+1479401800823	Rename type 'GameLaunch'
+1479404520487	Rename field 'A'
+1479404527906	Rename field 'B'
+1479420522269	Rename field 'color'
+1479420545256	Rename method 'getColor'
+1479420552395	Rename method 'setColor'
+1479571192897	Copy compilation unit
+1479571338102	Copy compilation unit
+1479571529422	Rename local variable 'column'
+1479572784705	Rename local variable 'column'
+1479587968494	Move compilation units
+1479587984494	Copy compilation unit
+1479587992382	Rename type 'StaticGame'
+1479588015088	Copy compilation unit
+1479599677076	Rename local variable 'column'

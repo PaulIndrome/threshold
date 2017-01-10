@@ -1,0 +1,43 @@
+package ColumnBasedGame;
+
+import java.util.ArrayList;
+
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.scene.shape.Circle;
+
+public class CheckService {
+
+	private static Service<Boolean> check;
+	private static boolean pause;
+	private static boolean found = false;
+	private static boolean[][] teams;
+
+	public CheckService(int width, int height) {
+		teams = new boolean[width][height];
+		pause = false;
+		check = new Service<Boolean>() {
+			@Override
+			protected Task<Boolean> createTask() {
+				return new Task<Boolean>() {
+					protected Boolean call() throws Exception {
+						while (!found) {
+							
+						}
+						return true;
+					}
+				};
+			}
+		};
+		check.start();
+	}
+
+	public static void check(int col, int row, boolean team){
+		teams[col][row] = team;
+	}
+
+	public static void pause() {
+		pause = !pause;
+	}
+
+}

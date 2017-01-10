@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<stuff>
+	<stuffcollection listname="custom stuff collection 1">
+		<item name="item1" value="10" weight="10"/>
+		<item name="item1a" value="9" weight="10"/>
+		<item name="item1b" value="8" weight="10"/>
+		<item name="item1c" value="7" weight="10"/>
+		<item name="item2" value="10" weight="5"/>
+		<item name="item2a" value="11" weight="5"/>
+		<item name="item2b" value="12" weight="5"/>
+		<item name="item2c" value="13" weight="5"/>
+		<item name="item3" value="5" weight="20"/>
+		<item name="item3a" value="10" weight="20"/>
+		<item name="item3b" value="15" weight="20"/>
+		<item name="item3c" value="25" weight="20"/>
+		<item name="item4" value="17" weight="13"/>
+		<item name="item4a" value="13" weight="17"/>
+		<item name="item5" value="26" weight="7"/>
+		<item name="item5a" value="7" weight="26"/>
+		<item name="item6" value="21" weight="4"/>
+		<item name="item6a" value="4" weight="21"/>
+		<item name="item7" value="88" weight="9"/>
+		<item name="item7a" value="9" weight="88"/>
+		<item name="item8" value="43" weight="63"/>
+		<item name="item8a" value="63" weight="43"/>
+		<item name="item9" value="33" weight="23"/>
+		<item name="item9a" value="23" weight="33"/>
+		<item name="item10" value="7" weight="1"/>
+		<item name="item10a" value="1" weight="7"/>
+	</stuffcollection>
+	<stuffcollection listname="30 random stuff collection 2">
+		<item name="item 0" value="40" weight="8"/>
+		<item name="item 1" value="38" weight="14"/>
+		<item name="item 2" value="12" weight="24"/>
+		<item name="item 3" value="15" weight="22"/>
+		<item name="item 4" value="6" weight="12"/>
+		<item name="item 5" value="3" weight="16"/>
+		<item name="item 6" value="19" weight="25"/>
+		<item name="item 7" value="7" weight="25"/>
+		<item name="item 8" value="27" weight="24"/>
+		<item name="item 9" value="18" weight="5"/>
+		<item name="item 10" value="31" weight="6"/>
+		<item name="item 11" value="30" weight="5"/>
+		<item name="item 12" value="25" weight="23"/>
+		<item name="item 13" value="19" weight="9"/>
+		<item name="item 14" value="10" weight="6"/>
+		<item name="item 15" value="22" weight="30"/>
+		<item name="item 16" value="23" weight="4"/>
+		<item name="item 17" value="12" weight="2"/>
+		<item name="item 18" value="5" weight="15"/>
+		<item name="item 19" value="39" weight="4"/>
+		<item name="item 20" value="30" weight="6"/>
+		<item name="item 21" value="37" weight="28"/>
+		<item name="item 22" value="36" weight="12"/>
+		<item name="item 23" value="10" weight="4"/>
+		<item name="item 24" value="37" weight="25"/>
+		<item name="item 25" value="31" weight="6"/>
+		<item name="item 26" value="1" weight="19"/>
+		<item name="item 27" value="6" weight="14"/>
+		<item name="item 28" value="31" weight="30"/>
+		<item name="item 29" value="33" weight="25"/>
+	</stuffcollection>
+	<stuffcollection>
+		<item name="item 0" value="33" weight="13"/>
+		<item name="item 1" value="13" weight="10"/>
+		<item name="item 2" value="27" weight="6"/>
+		<item name="item 3" value="20" weight="27"/>
+		<item name="item 4" value="34" weight="15"/>
+		<item name="item 5" value="8" weight="25"/>
+		<item name="item 6" value="6" weight="4"/>
+		<item name="item 7" value="16" weight="27"/>
+		<item name="item 8" value="39" weight="16"/>
+		<item name="item 9" value="17" weight="22"/>
+		<item name="item 10" value="19" weight="16"/>
+		<item name="item 11" value="25" weight="18"/>
+		<item name="item 12" value="31" weight="18"/>
+		<item name="item 13" value="18" weight="13"/>
+		<item name="item 14" value="10" weight="1"/>
+		<item name="item 15" value="3" weight="27"/>
+		<item name="item 16" value="14" weight="9"/>
+		<item name="item 17" value="4" weight="4"/>
+		<item name="item 18" value="33" weight="21"/>
+		<item name="item 19" value="28" weight="24"/>
+		<item name="item 20" value="16" weight="25"/>
+		<item name="item 21" value="15" weight="5"/>
+		<item name="item 22" value="31" weight="5"/>
+		<item name="item 23" value="17" weight="9"/>
+		<item name="item 24" value="33" weight="10"/>
+		<item name="item 25" value="29" weight="10"/>
+		<item name="item 26" value="6" weight="25"/>
+		<item name="item 27" value="23" weight="9"/>
+		<item name="item 28" value="5" weight="28"/>
+		<item name="item 29" value="4" weight="27"/>
+		<item name="item 30" value="2" weight="1"/>
+		<item name="item 31" value="28" weight="17"/>
+		<item name="item 32" value="18" weight="15"/>
+		<item name="item 33" value="13" weight="24"/>
+		<item name="item 34" value="11" weight="17"/>
+		<item name="item 35" value="8" weight="29"/>
+		<item name="item 36" value="15" weight="1"/>
+		<item name="item 37" value="10" weight="28"/>
+		<item name="item 38" value="3" weight="21"/>
+		<item name="item 39" value="12" weight="14"/>
+		<item name="item 40" value="5" weight="6"/>
+		<item name="item 41" value="38" weight="26"/>
+		<item name="item 42" value="18" weight="9"/>
+		<item name="item 43" value="9" weight="15"/>
+		<item name="item 44" value="9" weight="8"/>
+		<item name="item 45" value="21" weight="25"/>
+		<item name="item 46" value="24" weight="3"/>
+		<item name="item 47" value="17" weight="8"/>
+		<item name="item 48" value="4" weight="26"/>
+		<item name="item 49" value="1" weight="14"/>
+		<item name="item 50" value="2" weight="3"/>
+		<item name="item 51" value="19" weight="14"/>
+		<item name="item 52" value="6" weight="26"/>
+		<item name="item 53" value="20" weight="12"/>
+		<item name="item 54" value="30" weight="12"/>
+		<item name="item 55" value="34" weight="22"/>
+		<item name="item 56" value="13" weight="15"/>
+		<item name="item 57" value="13" weight="11"/>
+		<item name="item 58" value="35" weight="18"/>
+		<item name="item 59" value="24" weight="29"/>
+		<item name="item 60" value="40" weight="20"/>
+		<item name="item 61" value="12" weight="27"/>
+		<item name="item 62" value="29" weight="18"/>
+		<item name="item 63" value="39" weight="28"/>
+		<item name="item 64" value="34" weight="21"/>
+		<item name="item 65" value="39" weight="20"/>
+		<item name="item 66" value="37" weight="7"/>
+		<item name="item 67" value="7" weight="7"/>
+		<item name="item 68" value="5" weight="8"/>
+		<item name="item 69" value="18" weight="19"/>
+		<item name="item 70" value="8" weight="30"/>
+		<item name="item 71" value="32" weight="6"/>
+		<item name="item 72" value="11" weight="11"/>
+		<item name="item 73" value="28" weight="7"/>
+		<item name="item 74" value="35" weight="6"/>
+		<item name="item 75" value="2" weight="14"/>
+		<item name="item 76" value="37" weight="5"/>
+		<item name="item 77" value="22" weight="17"/>
+		<item name="item 78" value="23" weight="22"/>
+		<item name="item 79" value="9" weight="13"/>
+		<item name="item 80" value="36" weight="7"/>
+		<item name="item 81" value="21" weight="1"/>
+		<item name="item 82" value="40" weight="26"/>
+		<item name="item 83" value="17" weight="14"/>
+		<item name="item 84" value="11" weight="25"/>
+		<item name="item 85" value="5" weight="8"/>
+		<item name="item 86" value="6" weight="16"/>
+		<item name="item 87" value="17" weight="25"/>
+		<item name="item 88" value="6" weight="25"/>
+		<item name="item 89" value="27" weight="17"/>
+		<item name="item 90" value="31" weight="15"/>
+		<item name="item 91" value="40" weight="24"/>
+		<item name="item 92" value="16" weight="21"/>
+		<item name="item 93" value="19" weight="7"/>
+		<item name="item 94" value="40" weight="8"/>
+		<item name="item 95" value="16" weight="2"/>
+		<item name="item 96" value="25" weight="11"/>
+		<item name="item 97" value="23" weight="10"/>
+		<item name="item 98" value="4" weight="12"/>
+		<item name="item 99" value="24" weight="23"/>
+	</stuffcollection>
+</stuff>

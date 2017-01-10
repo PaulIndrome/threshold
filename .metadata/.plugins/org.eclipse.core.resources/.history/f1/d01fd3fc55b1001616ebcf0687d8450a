@@ -1,0 +1,29 @@
+<?php
+#load config
+require ('config.php');
+require FUNCTIONS;
+
+$params = array_merge($_POST, $_GET, $_FILES);
+
+#bootstrapper
+if (empty($params)){
+    require (VIEW.DEFAULTPAGE);
+    exit();
+}
+
+debug(__FILE__,__LINE__,$params);
+
+switch($params[rtrim(QUERY_ELEMENT_ACTION,"=")]){
+    case ACTION_LIST:
+        require VIEW.LISTVIEW;
+        break;
+    case ACTION_UPLOAD:
+        require VIEW.UPLOAD;
+        break;
+    case ACTION_DELETE:
+        require VIEW.DELETE;
+        break;
+    default:
+        require VIEW.DEFAULTPAGE;
+}
+?>

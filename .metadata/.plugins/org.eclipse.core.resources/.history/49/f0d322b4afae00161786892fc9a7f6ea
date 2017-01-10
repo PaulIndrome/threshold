@@ -1,0 +1,43 @@
+package ColumnBasedGame;
+
+import javafx.scene.Group;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+
+public class GamePiece {
+
+	private Group holder;
+	private Circle circle;
+	private double radius;
+	private boolean team;
+	
+	public GamePiece(GameColumn column, boolean team) {
+		this.team = team;
+		column.pushPiece(this);
+		if(team){
+			this.circle = new Circle(radius, Color.GOLD);
+		} else {
+			this.circle = new Circle(radius, Color.BLUEVIOLET);
+		}
+		circle.setCenterX(column.getX()+(column.getColumnWidth()/2));
+		circle.setCenterY(50);
+		
+		new Thread(new Runnable(
+
+			@Override
+			public void run() {
+				int maxDepth = column.getRowHeight()*column.getFallDepth();
+				double current = 50;
+				while(circle.getCenterY()<maxDepth){
+					current+=column.getRowHeight();
+					circle.setCenterY(current+column.getRowHeight());
+				}
+			}{
+			
+		})).start();
+		
+	}
+	
+}

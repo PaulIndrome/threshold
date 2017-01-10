@@ -1,0 +1,5 @@
+package Pr_05_package;
+
+public class Cell extends vorgaben.praktikum5.Cell {
+
+}

@@ -1,0 +1,16 @@
+package backtracking;
+
+import java.util.ArrayList;
+
+public class Knapsack {
+
+	private ArrayList<Integer> steps;
+	
+	public Knapsack(){
+		steps = new ArrayList<Integer>(0);
+	}
+	
+	public void save(int s){
+		steps.add(s);
+	}
+}

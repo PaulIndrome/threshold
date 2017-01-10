@@ -1,0 +1,36 @@
+package stackimplementations;
+
+import javafx.scene.shape.Circle;
+
+public class CircleRow {
+
+	private int row;
+	private Circle circle;
+	private CircleRow next;
+	
+	public CircleRow(int row, Circle circle){
+		this.row = row;
+		this.circle = circle;
+	}
+	
+	public void setNext(CircleRow cr){
+		this.next = cr;
+	}
+	
+	public boolean hasNext(){
+		return next != null;
+	}
+
+	public CircleRow getNext() {
+		return next;
+	}
+	
+	public int getRow(){
+		return row;
+	}
+	
+	public Circle getCircle(){
+		return circle;
+	}
+	
+}

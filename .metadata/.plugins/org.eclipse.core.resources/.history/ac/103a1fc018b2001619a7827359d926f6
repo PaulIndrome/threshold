@@ -1,0 +1,10 @@
+<?php
+
+class ImageObject {
+	
+	public $filename = NULL;	#original Dateiname
+	
+}
+
+
+?>

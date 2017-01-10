@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;JavaNIO_Stream_Umgang-mit-Dateien&apos; to &apos;JavaNIO_ISOextraction&apos;&#x0D;&#x0A;- Original element: &apos;JavaNIO_Stream_Umgang-mit-Dateien&apos;&#x0D;&#x0A;- Renamed element: &apos;JavaNIO_Stream_Umgang-mit-Dateien&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;JavaNIO_Stream_Umgang-mit-Dateien&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=JavaNIO_Stream_Umgang-mit-Dateien" name="JavaNIO_ISOextraction" references="true" stamp="1463180847162" version="1.0"/>
+</session>

@@ -1,0 +1,23 @@
+package ColumnBasedGame;
+
+import javafx.scene.Group;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+public class PutButton {
+
+	private Rectangle icon;
+	private int column;
+
+	public PutButton(int columnWidth, int rowHeight,, int xPos int columNo, Group column2) {
+		this.column = columNo;
+		icon = new Rectangle(xPos, 0, columnWidth, rowHeight);
+		icon.setFill(Color.BLACK);
+		icon.setOnMouseClicked(e -> {
+			new GamePiece(ColumnGame.getColumn(this.column), ColumnGame.getTeam());
+		});
+		column2.getChildren().add(icon);
+	}
+
+}

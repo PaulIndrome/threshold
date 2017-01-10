@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;obsolete_classes_dump&apos; to &apos;_obsolete_classes_dump&apos;" description="Rename resource &apos;obsolete_classes_dump&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/obsolete_classes_dump" name="_obsolete_classes_dump" stamp="1480599182481" updateReferences="true"/>
+</session>

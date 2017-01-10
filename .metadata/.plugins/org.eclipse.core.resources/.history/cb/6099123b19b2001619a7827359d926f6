@@ -1,0 +1,14 @@
+<?php
+
+class ImageObject {
+	
+	public $filename = NULL;	#original Dateiname
+	public $mimetype = NULL;	# Multipurpose Internet Mail Extension
+	public $size = NULL;		# Dateigröße (bytes)
+	public $file = NULL;		# Dateiname im DATA-Ordner (08154711)
+	public $metafile = NULL;	# Metadaten XML
+		
+}
+
+
+?>

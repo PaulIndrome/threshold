@@ -1,0 +1,35 @@
+package ColumnBasedGame;
+
+import java.util.ArrayList;
+
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.scene.shape.Circle;
+
+public class CheckTask extends Task<Boolean>{
+	private final int col, row;
+	private final boolean team;
+	
+	public CheckTask(int col, int row, boolean team){
+		this.col = col;
+		this.row = row;
+		this.team = team;
+	}
+	
+	
+	@Override protected Boolean call() throws Exception {
+        int iterations = 0;
+        for (iterations = 0; iterations < totalIterations; iterations++) {
+            if (isCancelled()) {
+                updateMessage("Cancelled");
+                break;
+            }
+            updateMessage("Iteration " + iterations);
+            updateProgress(iterations, totalIterations);
+        }
+        return iterations;
+    }
+
+	
+
+}

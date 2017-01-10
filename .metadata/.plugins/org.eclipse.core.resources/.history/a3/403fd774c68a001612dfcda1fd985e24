@@ -1,0 +1,25 @@
+Vorlesung 1 - 16 10 05
+
+3-Schichten Modell
+	Präsentationsschicht
+		Erzeugung, Verwaltung grafischer Oberfläche
+		Interaktionselemente, Datenpräsentation
+	
+	Anwendungsschicht
+		Hauptsächliche Programmlogik
+		relevante Funktionen, Prozesse & Steuerungsmechanismen re Anwendungsziel
+		
+	Persistenzschicht
+		Dienste zur dauerhaften Ablage von Daten
+		(CRUD, RUDI, etc.)
+	
+modulare Programmierung
+	Aufteilung in logische Teilblöcke (Module)
+	Module können einzeln geplant, programmiert & getestet werden
+	universelle Module müssen nur einmal programmiert werden und können in anderen Proekten wiederverwendet werden (z.B. Bestandteil eines Frameworks)
+	striktere funktionale Trennung einzelner Module (tlw. auf Dateisystemebene):
+		Klassenmodule (Objekte, Objekteigenschaften & -methoden)
+		Unterprogramme (Funktionen)
+		Projektkonfiguration (Initialisierungsmodule, Verwaltung globaler Einstellungen)
+
+

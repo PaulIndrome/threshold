@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;NaiveSearch.java&apos; to &apos;Pr_07_package.NaiveSearch.java&apos;&#x0D;&#x0A;- Original project: &apos;WS16_AlgorithmenDatenstrukturen&apos;&#x0D;&#x0A;- Destination element: &apos;Pr_07_package.NaiveSearch.java&apos;&#x0D;&#x0A;- Original element: &apos;Pr_07_package.NaiveSearch.java&apos;" description="Copy compilation unit" destination="/Pr_07&lt;Pr_07_package{NaiveSearch.java" element1="/Pr_07&lt;Pr_07_package{NaiveSearch.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1481109992694" units="1" version="1.0"/>
+</session>
