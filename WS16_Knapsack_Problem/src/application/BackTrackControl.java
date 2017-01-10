@@ -18,6 +18,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
+import backtracking.Backtracking;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,6 +26,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldListCell;
@@ -53,9 +55,11 @@ public class BackTrackControl {
 	private Button randomStuffButton;
 	@FXML
 	private Button deleteStuffButton;
-
 	@FXML
 	private Button addStuffButton;
+	@FXML
+	private Button packStuffButton;
+
 	@FXML
 	private TextField nameField;
 	@FXML
@@ -64,6 +68,16 @@ public class BackTrackControl {
 	private TextField valueField;
 	@FXML
 	private TextField randomAmountField;
+	@FXML
+	private TextField randomMaxWeightField;
+	@FXML
+	private TextField randomMaxValueField;
+	@FXML
+	private TextField packCapacityField;
+	@FXML
+	private TextField packVersionField;
+	@FXML
+	private TextArea console;
 
 	private ArrayList<StuffCollection> allStuffCollections;
 
@@ -89,10 +103,9 @@ public class BackTrackControl {
 		weightCol.setCellValueFactory(new PropertyValueFactory<Item, Integer>("weight"));
 		valueCol.setCellValueFactory(new PropertyValueFactory<Item, Integer>("value"));
 		ratioCol.setCellValueFactory(new PropertyValueFactory<Item, Double>("ratio"));
-		
+
 		listview.setCellFactory(TextFieldListCell.forListView());
-		
-		
+
 	}
 
 	public void listViewClicked() {
@@ -113,7 +126,7 @@ public class BackTrackControl {
 			for (Item i : allStuffCollections.get(selectNo).getItems()) {
 				tableviewobslist.add(i);
 			}
-			//tableviewobslist = allStuffCollections.get(selectNo).getItems();
+			// tableviewobslist = allStuffCollections.get(selectNo).getItems();
 		} else {
 			tableviewobslist.clear();
 			currentSelectNo = -2;
@@ -142,7 +155,7 @@ public class BackTrackControl {
 		for (int i = 0; i < allStuff.getLength(); i++) {
 			String listname = allStuff.item(i).getAttributes().getNamedItem("listname").getNodeValue();
 			listviewobslist.add(listname);
-			//listviewobslist.add("stuff collection " + (i + 1));
+			// listviewobslist.add("stuff collection " + (i + 1));
 			allStuffCollections.add(new StuffCollection(allStuff.item(i), i));
 		}
 		listview.setItems(listviewobslist);
@@ -168,7 +181,8 @@ public class BackTrackControl {
 			valueField.selectAll();
 			break;
 		default:
-			// default case means validation on all three TextFields was successfull
+			// default case means validation on all three TextFields was
+			// successfull
 			allStuffCollections.get(currentSelectNo).addItem(new Item(name, weight, value));
 			updateTableviewobslist();
 			nameField.clear();
@@ -269,49 +283,128 @@ public class BackTrackControl {
 		}
 		return 0;
 	}
-	
-	public int validateRandomField(){
-		String text = randomAmountField.getText();
+
+	// check if the given TextField shows a valid number
+	public int validateNumberField(TextField field) {
+		String text = field.getText();
 		return (text != null && (Pattern.matches("^\\d+", text))) ? Integer.parseInt(text) : -1;
 	}
-	
-	public void randomStuff(){
-		int amount = validateRandomField();
-		String listname = "" + amount + " random stuff collection " + (listviewobslist.size() + 1);
-		listviewobslist.add(listname);
-		StuffCollection sc = new StuffCollection(listviewobslist.size(), listname);
-		if(amount>0){
-			for(int i = 0;i<amount;i++){
-				sc.addItem(new Item("L"+(listviewobslist.size())+" item "+i, ""+(int)(Math.random()*30+1), ""+(int)(Math.random()*40+1)));
+
+	// generates a collection containing random Items in the amount set by the
+	// corresponding TextField. The maximum weight and value of the items is
+	// also set via TextFields.
+	public void randomStuff() {
+		// get the needed numbers by validating the corresponding TextFields
+		int randomItemsAmount = validateNumberField(randomAmountField);
+		int randomMaxWeight = validateNumberField(randomMaxWeightField);
+		int randomMaxValue = validateNumberField(randomMaxValueField);
+
+		if (randomItemsAmount > 1) {
+			// construct parameters that make sense for random numbers
+			randomMaxWeight = (randomMaxWeight > 2) ? randomMaxWeight : 10;
+			randomMaxValue = (randomMaxValue > 2) ? randomMaxValue : 10;
+
+			
+			// create StuffCollection and fill it with random Items
+			StuffCollection sc = new StuffCollection(listviewobslist.size());
+			for (int i = 0; i < randomItemsAmount; i++) {
+				sc.addItem(new Item("L" + (listviewobslist.size()) + " item " + i,
+						"" + (int) (Math.random() * randomMaxWeight + 1),
+						"" + (int) (Math.random() * randomMaxValue + 1)));
 			}
+			// strip randomly generated duplicates for algorithm purposes
+			sc = killDuplicates(sc);
+
+			// listname reflects user input parameters
+			String listname = "" + randomItemsAmount + " ("+sc.getSize()+") randoms maxW: " + randomMaxWeight + " & maxV: "
+					+ randomMaxValue + " - " + (listviewobslist.size() + 1);
+			sc.setListName(listname);
+			
+			// put collection into application and show it
+			listviewobslist.add(listname);
+			allStuffCollections.add(sc);
+			tableviewobslist.clear();
+			listview.requestFocus();
+			currentSelectNo = listviewobslist.size() - 1;
+			listview.getSelectionModel().clearAndSelect(currentSelectNo);
+			updateTableviewobslist();
 		}
-		//killDuplicates(sc.getItems());
-		allStuffCollections.add(sc);
+	}
+
+	// deletes the selected StuffCollection from the application. This is done
+	// in both the ArrayList of all StuffCollections AND the observable list of
+	// Strings used for the ListView.
+	public void deleteStuff() {
+		int selected = listview.getSelectionModel().getSelectedIndex();
+		listview.getSelectionModel().clearSelection();
+		allStuffCollections.remove(selected);
+		listviewobslist.remove(selected);
 		tableviewobslist.clear();
-		listview.requestFocus();
-		currentSelectNo = listviewobslist.size() - 1;
-		listview.getSelectionModel().clearAndSelect(currentSelectNo);
-		updateTableviewobslist();
-	}
-	
-	public void deleteStuff(){
-		
-	}
-	
-	public ObservableList<Item> killDuplicates(ObservableList<Item> items){
-		for(Item item : items){
-			int counter = 0;
-			for(Item i : items){
-				if(item.getName() != i.getName()){
-					if(item.getWeight()==i.getWeight() && item.getValue()==i.getValue()){
-						items.remove(counter);
-						counter--;
-					}
-				}
-				counter++;
-			}
+		// in case the deleted collection is not the only one, the preceding
+		// collection is selected and the tableview filled accordingly
+		if (selected > 0) {
+			currentSelectNo = selected - 1;
+			listview.getSelectionModel().clearAndSelect(currentSelectNo);
+			updateTableviewobslist();
 		}
-		return items;
+	}
+
+	// deletes all duplicate items in a StuffCollections item list. A duplicate
+	// is determined via the Item's equals() method.
+	public StuffCollection killDuplicates(StuffCollection sc) {
+		ObservableList<Item> items = sc.getItems();
+		ObservableList<Item> individuals = FXCollections.observableArrayList();
+		for (Item i : items) {
+			if (!individuals.contains(i))
+				individuals.add(i);
+		}
+		sc.setItems(individuals);
+		return sc;
+	}
+
+	// method to create an iteration of the Backtracking class from the selected
+	// StuffCollection. This class then applies one of several variants of
+	// backtracking algorithms according to variables based on user input. The
+	// results of the specific algorithm pass are shown on the TextArea,
+	// formatted to be user readable.
+	// TODO: Output results and steps to completion as visually appealing
+	// graphics. (dynamically built tree or sump'n)
+	public void packStuff() {
+		StuffCollection sc = allStuffCollections.get(currentSelectNo);
+		int maxWeight = validateNumberField(packCapacityField);
+		int version = validateNumberField(packVersionField);
+		if (maxWeight > 0) {
+			Backtracking bt = new Backtracking(sc, maxWeight);
+			console.appendText("\n\t\t---- start of line ----\n");
+			console.appendText("\nStart of backtrack-packing a knapsack with maximum Weight of " + bt.getMaxWeight());
+			console.appendText("\n\nversion used:\t\t- " + getVersionDescription(version) + " -");
+			console.appendText("\nCollection used:\t\t \"" + listviewobslist.get(currentSelectNo) + "\"");
+			console.appendText("\nSize of collection used:\t" + sc.getSize());
+			console.appendText("\nOptimal value found:\t" + bt.startBacktrack(version));
+			console.appendText("\nElapsed time:");
+			console.appendText("\n\t\t(nanoseconds):\t" + bt.getLastElapsedTime());
+			console.appendText("\n\t\t(milliseconds):\t\t" + bt.getLastElapsedTime() / 1000000);
+			console.appendText("\n\t\t(seconds):\t\t" + bt.getLastElapsedTime() / 1000000000);
+			console.appendText("\nPacked items: " + bt.getPackedItems());
+			console.appendText("\n\n\t\t\t---- end of line ----\n");
+		}
+	}
+
+	// generates a short description of different versions of the backtracking
+	// algorithm
+	public String getVersionDescription(int version) {
+		switch (version) {
+		case 1:
+			return "weight & value via combined array[][]";
+		case 2:
+			return "weight & value via ArrayList<Item>";
+		case 3:
+			return "combined array, memorized states";
+		case 4:
+			return "greedy by ratio, full iteration";
+		default:
+			return "INVALID VERSION INTEGER";
+		}
 	}
 
 }

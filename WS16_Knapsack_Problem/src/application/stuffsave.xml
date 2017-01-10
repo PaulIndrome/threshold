@@ -29,4 +29,165 @@
 		<item name="item10a" value="1" weight="7"/>
 		<item name="Dose Bohnen" value="1" weight="5"/>
 	</stuffcollection>
+	<stuffcollection listname="stuff collection 2 (test with cap 5)">
+		<item name="item1" value="3" weight="2"/>
+		<item name="item2" value="4" weight="3"/>
+		<item name="item3" value="5" weight="4"/>
+		<item name="item4" value="6" weight="5"/>
+	</stuffcollection>
+	<stuffcollection listname="stuff collection 3 (test with cap 50)">
+		<item name="item1" value="10" weight="1"/>
+		<item name="item2" value="20" weight="1"/>
+		<item name="item3" value="30" weight="1"/>
+	</stuffcollection>
+	<stuffcollection listname="10 (10) randoms maxW: 20 &amp; maxV: 20 - 4">
+		<item name="L3 item 0" value="20" weight="9"/>
+		<item name="L3 item 1" value="18" weight="17"/>
+		<item name="L3 item 2" value="12" weight="14"/>
+		<item name="L3 item 3" value="16" weight="14"/>
+		<item name="L3 item 4" value="1" weight="6"/>
+		<item name="L3 item 5" value="18" weight="5"/>
+		<item name="L3 item 6" value="4" weight="5"/>
+		<item name="L3 item 7" value="12" weight="3"/>
+		<item name="L3 item 8" value="2" weight="11"/>
+		<item name="L3 item 9" value="7" weight="13"/>
+	</stuffcollection>
+	<stuffcollection listname="20 (20) randoms maxW: 20 &amp; maxV: 20 - 5">
+		<item name="L4 item 0" value="19" weight="10"/>
+		<item name="L4 item 1" value="19" weight="17"/>
+		<item name="L4 item 2" value="1" weight="14"/>
+		<item name="L4 item 3" value="1" weight="11"/>
+		<item name="L4 item 4" value="17" weight="9"/>
+		<item name="L4 item 5" value="8" weight="14"/>
+		<item name="L4 item 6" value="3" weight="15"/>
+		<item name="L4 item 7" value="8" weight="10"/>
+		<item name="L4 item 8" value="3" weight="20"/>
+		<item name="L4 item 9" value="4" weight="15"/>
+		<item name="L4 item 10" value="11" weight="9"/>
+		<item name="L4 item 11" value="20" weight="7"/>
+		<item name="L4 item 12" value="6" weight="8"/>
+		<item name="L4 item 13" value="19" weight="20"/>
+		<item name="L4 item 14" value="7" weight="9"/>
+		<item name="L4 item 15" value="19" weight="19"/>
+		<item name="L4 item 16" value="6" weight="11"/>
+		<item name="L4 item 17" value="18" weight="6"/>
+		<item name="L4 item 18" value="2" weight="10"/>
+		<item name="L4 item 19" value="16" weight="17"/>
+	</stuffcollection>
+	<stuffcollection listname="40 (39) randoms maxW: 20 &amp; maxV: 20 - 6">
+		<item name="L5 item 0" value="12" weight="4"/>
+		<item name="L5 item 1" value="4" weight="7"/>
+		<item name="L5 item 2" value="20" weight="2"/>
+		<item name="L5 item 3" value="13" weight="10"/>
+		<item name="L5 item 4" value="1" weight="15"/>
+		<item name="L5 item 5" value="1" weight="12"/>
+		<item name="L5 item 6" value="10" weight="10"/>
+		<item name="L5 item 7" value="20" weight="19"/>
+		<item name="L5 item 8" value="1" weight="10"/>
+		<item name="L5 item 9" value="14" weight="15"/>
+		<item name="L5 item 10" value="19" weight="12"/>
+		<item name="L5 item 11" value="10" weight="14"/>
+		<item name="L5 item 12" value="1" weight="13"/>
+		<item name="L5 item 13" value="18" weight="13"/>
+		<item name="L5 item 14" value="20" weight="13"/>
+		<item name="L5 item 15" value="17" weight="15"/>
+		<item name="L5 item 16" value="13" weight="14"/>
+		<item name="L5 item 17" value="3" weight="14"/>
+		<item name="L5 item 18" value="2" weight="3"/>
+		<item name="L5 item 19" value="8" weight="16"/>
+		<item name="L5 item 20" value="6" weight="11"/>
+		<item name="L5 item 21" value="10" weight="20"/>
+		<item name="L5 item 22" value="5" weight="15"/>
+		<item name="L5 item 23" value="7" weight="13"/>
+		<item name="L5 item 24" value="5" weight="2"/>
+		<item name="L5 item 25" value="8" weight="7"/>
+		<item name="L5 item 26" value="6" weight="9"/>
+		<item name="L5 item 27" value="4" weight="20"/>
+		<item name="L5 item 28" value="9" weight="5"/>
+		<item name="L5 item 29" value="10" weight="11"/>
+		<item name="L5 item 30" value="7" weight="3"/>
+		<item name="L5 item 31" value="13" weight="7"/>
+		<item name="L5 item 33" value="2" weight="19"/>
+		<item name="L5 item 34" value="6" weight="13"/>
+		<item name="L5 item 35" value="18" weight="20"/>
+		<item name="L5 item 36" value="17" weight="10"/>
+		<item name="L5 item 37" value="4" weight="13"/>
+		<item name="L5 item 38" value="15" weight="11"/>
+		<item name="L5 item 39" value="6" weight="14"/>
+	</stuffcollection>
+	<stuffcollection listname="80 (73) randoms maxW: 20 &amp; maxV: 20 - 7">
+		<item name="L6 item 0" value="1" weight="14"/>
+		<item name="L6 item 1" value="5" weight="12"/>
+		<item name="L6 item 2" value="8" weight="2"/>
+		<item name="L6 item 3" value="20" weight="5"/>
+		<item name="L6 item 4" value="12" weight="13"/>
+		<item name="L6 item 5" value="12" weight="7"/>
+		<item name="L6 item 6" value="12" weight="18"/>
+		<item name="L6 item 7" value="1" weight="3"/>
+		<item name="L6 item 8" value="14" weight="12"/>
+		<item name="L6 item 9" value="14" weight="16"/>
+		<item name="L6 item 10" value="11" weight="12"/>
+		<item name="L6 item 11" value="1" weight="11"/>
+		<item name="L6 item 12" value="5" weight="4"/>
+		<item name="L6 item 13" value="13" weight="7"/>
+		<item name="L6 item 14" value="6" weight="6"/>
+		<item name="L6 item 15" value="11" weight="18"/>
+		<item name="L6 item 16" value="18" weight="6"/>
+		<item name="L6 item 17" value="18" weight="18"/>
+		<item name="L6 item 18" value="13" weight="11"/>
+		<item name="L6 item 20" value="10" weight="14"/>
+		<item name="L6 item 21" value="2" weight="16"/>
+		<item name="L6 item 22" value="15" weight="9"/>
+		<item name="L6 item 23" value="14" weight="5"/>
+		<item name="L6 item 24" value="15" weight="11"/>
+		<item name="L6 item 25" value="20" weight="8"/>
+		<item name="L6 item 26" value="3" weight="18"/>
+		<item name="L6 item 27" value="7" weight="4"/>
+		<item name="L6 item 28" value="17" weight="1"/>
+		<item name="L6 item 29" value="14" weight="14"/>
+		<item name="L6 item 30" value="4" weight="16"/>
+		<item name="L6 item 31" value="6" weight="2"/>
+		<item name="L6 item 32" value="18" weight="13"/>
+		<item name="L6 item 33" value="5" weight="3"/>
+		<item name="L6 item 34" value="12" weight="8"/>
+		<item name="L6 item 35" value="17" weight="5"/>
+		<item name="L6 item 36" value="18" weight="9"/>
+		<item name="L6 item 37" value="9" weight="15"/>
+		<item name="L6 item 38" value="8" weight="17"/>
+		<item name="L6 item 39" value="16" weight="17"/>
+		<item name="L6 item 40" value="14" weight="4"/>
+		<item name="L6 item 41" value="8" weight="9"/>
+		<item name="L6 item 42" value="19" weight="1"/>
+		<item name="L6 item 43" value="16" weight="18"/>
+		<item name="L6 item 45" value="9" weight="1"/>
+		<item name="L6 item 46" value="6" weight="20"/>
+		<item name="L6 item 47" value="7" weight="10"/>
+		<item name="L6 item 48" value="10" weight="3"/>
+		<item name="L6 item 49" value="15" weight="3"/>
+		<item name="L6 item 50" value="12" weight="15"/>
+		<item name="L6 item 51" value="2" weight="3"/>
+		<item name="L6 item 52" value="18" weight="8"/>
+		<item name="L6 item 53" value="1" weight="5"/>
+		<item name="L6 item 54" value="2" weight="1"/>
+		<item name="L6 item 56" value="16" weight="16"/>
+		<item name="L6 item 57" value="5" weight="8"/>
+		<item name="L6 item 58" value="1" weight="7"/>
+		<item name="L6 item 59" value="20" weight="13"/>
+		<item name="L6 item 60" value="13" weight="12"/>
+		<item name="L6 item 61" value="7" weight="14"/>
+		<item name="L6 item 62" value="2" weight="14"/>
+		<item name="L6 item 63" value="18" weight="14"/>
+		<item name="L6 item 65" value="13" weight="14"/>
+		<item name="L6 item 66" value="10" weight="9"/>
+		<item name="L6 item 67" value="8" weight="1"/>
+		<item name="L6 item 68" value="11" weight="14"/>
+		<item name="L6 item 69" value="15" weight="15"/>
+		<item name="L6 item 70" value="17" weight="4"/>
+		<item name="L6 item 71" value="20" weight="18"/>
+		<item name="L6 item 72" value="7" weight="16"/>
+		<item name="L6 item 73" value="4" weight="5"/>
+		<item name="L6 item 74" value="16" weight="19"/>
+		<item name="L6 item 77" value="11" weight="1"/>
+		<item name="L6 item 79" value="17" weight="10"/>
+	</stuffcollection>
 </stuff>

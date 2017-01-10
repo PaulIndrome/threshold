@@ -12,8 +12,12 @@ public class StuffCollection {
 	private String listname;
 	private int index;
 
-	// constructor for new StuffCollection without an already existing NodeList
+	// constructors for new StuffCollection without an already existing NodeList
 	// of Items
+	public StuffCollection(int index) {
+		this.listname = listname;
+	}
+	
 	public StuffCollection(int index, String listname) {
 		this.listname = listname;
 		this.index = index;
@@ -23,7 +27,7 @@ public class StuffCollection {
 		// index is equal to the number of the occurrence of the instantiating
 		// stuffcollection-node in XML file
 		this.index = index;
-		
+
 		this.listname = parent.getAttributes().getNamedItem("listname").getNodeValue();
 
 		// generate modified NodeList of Items in Stuff
@@ -42,9 +46,10 @@ public class StuffCollection {
 		}
 	}
 
-	// add given item to the end of items list
+	// add given item to the end of items list if that item isn't already in the list
 	public void addItem(Item item) {
-		items.add(item);
+		if (!items.contains(item))
+			items.add(item);
 	}
 
 	// removes any item identifiable by the given name (can be multiple)
@@ -62,6 +67,11 @@ public class StuffCollection {
 		return items;
 	}
 
+	// sets a new list of items
+	public void setItems(ObservableList<Item> items){
+		this.items = items;
+	}
+	
 	// returns an item identified by its index in items list
 	public Item getItem(int itemIndex) {
 		return items.get(itemIndex);
@@ -89,13 +99,17 @@ public class StuffCollection {
 			return 1;
 		}
 	}
-	
-	public int getSize(){
+
+	public int getSize() {
 		return items.size();
 	}
-	
-	public String getListName(){
+
+	public String getListName() {
 		return listname;
+	}
+	
+	public void setListName(String listname){
+		this.listname = listname;
 	}
 
 }
