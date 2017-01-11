@@ -171,7 +171,7 @@ public class Backtracking {
 		 * knapsack in the individual method call's branch or not. What improves
 		 * the speed of this calculation is that every method call checks
 		 * whether or not its combination of amount of items and capacity left
-		 * has already been calculated.
+		 * (mapped in a two-dimensional array) has already been calculated.
 		 */
 		if (items[amount][0] <= capacity)
 			take = items[amount][1] + backtrackM(amount - 1, capacity - items[amount][0], items);
