@@ -100,7 +100,7 @@ public class Backtracking {
 		}
 	}
 
-	// TODO comment A and B
+	// TODO comment A so that the recursion is explained
 	public int backtrackA(int capacity, int[][] items, int amount) {
 		if (amount == 0 || capacity == 0)
 			return 0;
