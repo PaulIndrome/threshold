@@ -105,9 +105,14 @@ public class Backtracking {
 		if (amount == 0 || capacity == 0)
 			return 0;
 
+		// if the item doesn't fit into the knapsack, skip it
 		if (items[amount - 1][0] > capacity)
 			return backtrackA(capacity, items, amount - 1);
 		else
+			// this line basically starts building the binary tree for every
+			// item taken/not taken combination, which is then resolved from the
+			// bottom up by eliminating the combination that has lead to a
+			// lesser value (by dead-ending at full capacity)
 			return max(items[amount - 1][1] + backtrackA(capacity - items[amount - 1][0], items, amount - 1),
 					backtrackA(capacity, items, amount - 1));
 	}
@@ -167,7 +172,6 @@ public class Backtracking {
 		 * the speed of this calculation is that every method call checks
 		 * whether or not its combination of amount of items and capacity left
 		 * has already been calculated.
-		 * 
 		 */
 		if (items[amount][0] <= capacity)
 			take = items[amount][1] + backtrackM(amount - 1, capacity - items[amount][0], items);
@@ -183,7 +187,7 @@ public class Backtracking {
 		return matrix[amount][capacity];
 	}
 
-	// greedy knapsack packing based on weight-to-value ration
+	// greedy knapsack packing based on weight-to-value ratio.
 	// this finds a good approximation of the optimal value rather fast, but not
 	// necessarily the optimal value itself
 	// As this method is an iterative one, a list of packed items is easily made
@@ -219,7 +223,7 @@ public class Backtracking {
 	public int max(int a, int b) {
 		return (a >= b) ? a : b;
 	}
-	
+
 	public int getMaxWeight() {
 		return maxWeight;
 	}
@@ -232,7 +236,7 @@ public class Backtracking {
 		return packedItemsString;
 	}
 
-	// method to be called before backtracking with greedy-by-ratio
+	// method to be called before packing with greedy-by-ratio
 	// convenience method to make sure the itemsList is sorted by ratio in
 	// descending order
 	public void sortItemsByRatio() {
