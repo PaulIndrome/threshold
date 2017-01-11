@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Basic_Chess/images/Pawn.png&apos; to &apos;pawn.png&apos;" description="Rename resource &apos;Pawn.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="images/Pawn.png" name="pawn.png" stamp="1478383726966" updateReferences="true"/>
-</session>

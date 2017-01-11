@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;SkyProd_offline/counter&apos; to &apos;counter.pho&apos;" description="Rename resource &apos;counter&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="counter" name="counter.pho" stamp="1476253037639" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;SkyProd_offline/counter.pho&apos; to &apos;counter.php&apos;" description="Rename resource &apos;counter.pho&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="counter.pho" name="counter.php" stamp="1476253044026" updateReferences="true"/>
-</session>

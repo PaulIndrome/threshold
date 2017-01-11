@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Move &apos;counter.php&apos; to &apos;SkyProd_web&apos;" description="Move &apos;counter.php&apos; to &apos;SkyProd_web&apos;" destination="/SkyProd_web" element1="/SkyProd_offline/counter.php" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1476253759694" updateReferences="true"/>&#x0A;<refactoring comment="Move &apos;V1.txt&apos; to &apos;SkyProd_web&apos;" description="Move &apos;V1.txt&apos; to &apos;SkyProd_web&apos;" destination="/SkyProd_web" element1="/Basic_web/V1.txt" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1476253773900" updateReferences="true"/>
-</session>
