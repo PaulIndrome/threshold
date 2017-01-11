@@ -6,8 +6,6 @@ import java.util.Comparator;
 
 import application.Item;
 import application.StuffCollection;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 public class Backtracking {
 
@@ -17,9 +15,9 @@ public class Backtracking {
 	// private int[] values;
 	private double[] ratios;
 	private ArrayList<Item> itemsList;
-	private ArrayList<Knapsack> knapsacks;
 	private long elapsedTime;
 	private ArrayList<String> packedItems;
+	private String packedItemsString;
 	private int[][] matrix;
 	private int size;
 
@@ -34,6 +32,10 @@ public class Backtracking {
 		// check size of StuffCollection
 		size = sc.getSize();
 
+		// generate matrix for backtrackM
+		// this matrix saves the values of all weight states (0 to MaxWeight+1)
+		// for each item
+		// thus, all possible individual combinations can be saved/memorized
 		matrix = new int[size][MaxWeight + 1];
 		for (int i = 0; i < size; i++) {
 			for (int x = 0; x < MaxWeight + 1; x++) {
@@ -60,7 +62,10 @@ public class Backtracking {
 
 	}
 
+	// wrapper method to start backtracking with the version specified by a user
+	// input integer
 	public int startBacktrack(int backtrackVersion) {
+		packedItemsString = "";
 		long start;
 		long end;
 		int value;
@@ -119,12 +124,26 @@ public class Backtracking {
 					backtrackB(capacity, items, amount - 1));
 	}
 
+	// backtracking with memorized values of already calculated combinations of
+	// items -> matrix[itemIndex][capacity left]
 	public int backtrackM(int amount, int capacity, int[][] items) {
+		// take and dontTake are integers that are calculated to be incremented
+		// or not incremented based on whether or not an item fits into the
+		// knapsack and is taken or not taken
 		int take = 0, dontTake = 0;
 
+		// if the integer at the position of the method arguments is already
+		// set, this means the value of that combination has already been
+		// calculated
 		if (matrix[amount][capacity] != 0)
 			return matrix[amount][capacity];
 
+		// if the amount is zero, check if the very first item of the array (the
+		// last to be computed) still fits inside the capacity
+		// if that is the case, save the value in the matrix and return from the
+		// method call with it
+		// if not (item doesn't fit), write the matrix position of this method
+		// call as 0 and return with it
 		if (amount == 0) {
 			if (items[0][0] <= capacity) {
 				matrix[amount][capacity] = items[0][1];
@@ -135,36 +154,71 @@ public class Backtracking {
 			}
 		}
 
+		/*
+		 * This block is the bones of the calculation for take and dontTake.
+		 * Basically, this checks if an item can be added to the knapsack and
+		 * adds its value to the recursion if that is the case
+		 */
+		/*
+		 * The recursion of backtracking with memorized states branches out very
+		 * far. Every item is recursively checked whether it fits into the
+		 * knapsack in the individual method call's branch or not. What improves
+		 * the speed of this calculation is that every method call checks
+		 * whether or not its combination of amount of items and capacity left
+		 * has already been calculated.
+		 * 
+		 */
 		if (items[amount][0] <= capacity)
 			take = items[amount][1] + backtrackM(amount - 1, capacity - items[amount][0], items);
+
+		// the dontTake branch of the recursion is always expanded to ensure
+		// that every item is checked at least once (but never twice in a
+		// similar combination, f.e. vItem1 + vItem2 = vItem2 + vItem1
 		dontTake = backtrackM(amount - 1, capacity, items);
+
+		// the maximum of either branch is calculated and returned
+		// this resolves itself from the farthest leaf back to the root
 		matrix[amount][capacity] = max(take, dontTake);
 		return matrix[amount][capacity];
 	}
 
+	// greedy knapsack packing based on weight-to-value ration
+	// this finds a good approximation of the optimal value rather fast, but not
+	// necessarily the optimal value itself
+	// As this method is an iterative one, a list of packed items is easily made
 	public int backtrackG(int capacity, int[][] items) {
 		int currentWeight = 0;
 		int counter = 0;
 		int value = 0;
+		// iterative check whether the capacity has been reached and if the item
+		// on top of the unchecked part of the list still fits into the knapsack
+		// if said item still fits into the knapsack, prior sorting of the
+		// entire itemsList by decreasing ratio ensures that the item in
+		// question is the next best item by ratio
 		while (currentWeight <= capacity && counter < ratios.length) {
+			// if the item fills the capacity to max, return the collected value
 			if (currentWeight + items[counter][0] == capacity) {
+				packedItemsString += "\n" + names[counter];
 				return value += items[counter][1];
+				// if the item doesn't fill the capacity, add its value and its
+				// weight
 			} else if (currentWeight + items[counter][0] < capacity) {
+				packedItemsString += "\n" + names[counter];
+				currentWeight += items[counter][0];
 				value += items[counter][1];
 				counter++;
 				continue;
-			} else {
-				counter++;
-				continue;
 			}
+			counter++;
 		}
 		return value;
 	}
 
+	// convenience method to calculate the maximum of two values
 	public int max(int a, int b) {
 		return (a >= b) ? a : b;
 	}
-
+	
 	public int getMaxWeight() {
 		return maxWeight;
 	}
@@ -174,25 +228,25 @@ public class Backtracking {
 	}
 
 	public String getPackedItems() {
-		return packedItems.toString();
+		return packedItemsString;
 	}
 
+	// method to be called before backtracking with greedy-by-ratio
+	// convenience method to make sure the itemsList is sorted by ratio in
+	// descending order
 	public void sortItemsByRatio() {
-		for (Item i : itemsList) {
-			System.out.println(i.getRatio());
-		}
-		Comparator c = new Comparator<Item>() {
-			public int compare(Item i1, Item i2) {
-				Double i1r = i1.getRatio();
-				Double i2r = i1.getRatio();
-				return (int) Math.signum(i1r-i2r);
-			}
-		};
-		Collections.sort(itemsList, c);
-		for (Item i : itemsList) {
-			System.out.println(i.getRatio());
-		}
+		itemsList.sort(Comparator.comparing(Item::getRatio));
+		Collections.reverse(itemsList);
 
+		// refill arrays with appropriate values
+		int counter = 0;
+		for (Item i : itemsList) {
+			names[counter] = i.getName();
+			items[counter][0] = i.getWeight();
+			items[counter][1] = i.getValue();
+			ratios[counter] = i.getRatio();
+			counter++;
+		}
 	}
 
 }

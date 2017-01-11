@@ -377,7 +377,7 @@ public class BackTrackControl {
 			Backtracking bt = new Backtracking(sc, maxWeight);
 			console.appendText("\n\t\t---- start of line ----\n");
 			console.appendText("\nStart of backtrack-packing a knapsack with maximum Weight of " + bt.getMaxWeight());
-			console.appendText("\n\nversion used:\t\t- " + getVersionDescription(version) + " -");
+			console.appendText("\n\nversion used:\t\t\t- " + getVersionDescription(version) + " -");
 			console.appendText("\nCollection used:\t\t \"" + listviewobslist.get(currentSelectNo) + "\"");
 			console.appendText("\nSize of collection used:\t" + sc.getSize());
 			console.appendText("\nOptimal value found:\t" + bt.startBacktrack(version));
