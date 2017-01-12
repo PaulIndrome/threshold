@@ -82,19 +82,19 @@
 		cover="..//covers//cover_03.gif" mapstep="..//maps//map_02.gif">
 		<choice id="3a" score="-2" text="Leave him."
 			appendix="You close the lid of your flask of water and walk away from the body on the ground. Unable to afford either compassion with a dead man or pity on a stranger in need, you set your eyes back on the spire in the distance. You are sure that neither you nor anyone else would've been able to help."
-			nextchapter="3f"></choice>
+			nextchapter="4"></choice>
 		<choice id="3b" score="-5" text="Take his possessions."
 			appendix="You close the lid of your flask of water and walk towards the body on the ground. Slowly you kneel beside him and start searching for anything of use beneath the uniform's cloth. The man groans in barely conscious agony and your hands reflexively withdraw. After a couple of seconds, his breathing evens out again and you resume your search. 
 		&#xA; Suddenly, the man turns his body around and grabs your throat. In a kneejerk reaction, you push away from him with both hands pressing on his chest. His grip fails and you fall away from him as he begins coughing blood. With panic in his eyes, he holds his heaving chest with one hand and stretches the other toward you in a wordless plea for his life. 
 		After a couple of seconds of shock, however, you witness his body go limp. Spatters of blood cover the ground in front of his face. 
 		&#xA; Having found nothing but death in the man's possession you grab your satchel and start walking again."
-			nextchapter="3f"></choice>
+			nextchapter="4"></choice>
 		<choice id="3c" score="4" text="Try to help him."
 			appendix="Keeping the lid of your flask of water opened, you slowly approach the man lying on the ground. You try to wake him by carefully moving his body and speaking to him, yet it takes long moments before so much as a croak escapes the man's throat. You help him sit up against a nearby rock. 
 		Shaking from weakness and dehydration he silently takes from your water and looks at you with eyes already bereft of life. He swallows hard and finally barely manages to find his voice. It comes out raw and faint.
 		&#xA;&quot;Thank you, ... afflicted child.&quot;
 		&#xA;Before you can ask the man what he meant by that, his eyes lose focus and his body slackens against the rock. A slender stream of blood oozes from his open mouth and he is dead where he sits. You close the stranger's eyes for his final rest, get up, close the lid on your flask of water and resume your journey."
-			nextchapter="3f"></choice>
+			nextchapter="4"></choice>
 	</chapter>
 
 	<!-- around 16 chapters and three different endings are planned and easily 

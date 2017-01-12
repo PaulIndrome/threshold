@@ -78,17 +78,16 @@ public class MainController {
 		 * Credits are included after the epilogue in each final chapter's maintext.
 		 * For this version of the game, chapter 3 is treated like a final chapter
 		 */
-		if (chapnumber.equals("3") || chapnumber == "3"){
-			System.out.println("Hallo");
+		if (chapnumber.equals("3")){
 			currentChapter = new XMLchapter("3f", true);
 			appendTextInMaintext("\n\n\t\t\t\t\t" + currentChapter.getFlourishes().getAttribute("flourish1") + "\n\n" + evaluateScore() + "\n\n" + currentChapter.getMaintext(), true);
-		} else if (chapnumber.equals("12") || chapnumber == "12") {
+		} else if (chapnumber.equals("12")) {
 			currentChapter = new XMLchapter("12f", true);
 			appendTextInMaintext("\n\n\t\t\t\t\t" + currentChapter.getFlourishes().getAttribute("flourish1") + "\n\n" + evaluateScore() + "\n\n" + currentChapter.getMaintext(), true);
-		} else if (chapnumber.equals("15") || chapnumber == "15") {
+		} else if (chapnumber.equals("15")) {
 			currentChapter = new XMLchapter("15f", true);
 			appendTextInMaintext("\n\n\t\t\t\t\t" + currentChapter.getFlourishes().getAttribute("flourish1") + "\n\n" + evaluateScore() + "\n\n" + currentChapter.getMaintext(), true);
-		} else if (chapnumber.equals("16") || chapnumber == "16") {
+		} else if (chapnumber.equals("16")) {
 			currentChapter = new XMLchapter("16f", true);
 			appendTextInMaintext("\n\n\t\t\t\t\t" + currentChapter.getFlourishes().getAttribute("flourish1") + "\n\n" + evaluateScore() + "\n\n" + currentChapter.getMaintext(), true);
 			

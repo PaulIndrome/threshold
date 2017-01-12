@@ -81,7 +81,7 @@ public class XMLchapter {
 		DocumentBuilderFactory docBuildFac = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder docBuild = docBuildFac.newDocumentBuilder();
-			Document doc = docBuild.parse("material//affliction_book.xml");
+			Document doc = docBuild.parse("src//application//affliction_book.xml");
 			doc.normalize();
 			XPath book = XPathFactory.newInstance().newXPath();
 
