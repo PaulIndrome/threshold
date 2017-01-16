@@ -19,17 +19,24 @@ import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
 import backtracking.Backtracking;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldListCell;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 public class BackTrackControl {
 
@@ -77,7 +84,13 @@ public class BackTrackControl {
 	@FXML
 	private TextField packVersionField;
 	@FXML
-	private TextArea console;
+	private TextFlow versionsConsole;
+	@FXML
+	private TextFlow console;
+	@FXML
+	private ScrollPane scrollpane;
+	@FXML
+	private Canvas canvas;
 
 	private ArrayList<StuffCollection> allStuffCollections;
 
@@ -106,6 +119,23 @@ public class BackTrackControl {
 
 		listview.setCellFactory(TextFieldListCell.forListView());
 
+		scrollpane.vvalueProperty().bind(console.heightProperty());
+		console.setMouseTransparent(true);
+		console.focusedProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> arg0, Boolean arg1, Boolean arg2) {
+				if (arg2) {
+					scrollpane.requestFocus();
+				}
+			}
+		});
+
+		int i = 1;
+		versionsConsole.getChildren().add(new Text("Descriptions of versions:\n\n"));
+		while (getVersionDescription(i) != "IVI") {
+			versionsConsole.getChildren().add(new Text(" " + i + ":\t" + getVersionDescription(i) + "\n\n"));
+			i++;
+		}
 	}
 
 	public void listViewClicked() {
@@ -126,7 +156,6 @@ public class BackTrackControl {
 			for (Item i : allStuffCollections.get(selectNo).getItems()) {
 				tableviewobslist.add(i);
 			}
-			// tableviewobslist = allStuffCollections.get(selectNo).getItems();
 		} else {
 			tableviewobslist.clear();
 			currentSelectNo = -2;
@@ -304,7 +333,6 @@ public class BackTrackControl {
 			randomMaxWeight = (randomMaxWeight > 2) ? randomMaxWeight : 10;
 			randomMaxValue = (randomMaxValue > 2) ? randomMaxValue : 10;
 
-			
 			// create StuffCollection and fill it with random Items
 			StuffCollection sc = new StuffCollection(listviewobslist.size());
 			for (int i = 0; i < randomItemsAmount; i++) {
@@ -316,10 +344,10 @@ public class BackTrackControl {
 			sc = killDuplicates(sc);
 
 			// listname reflects user input parameters
-			String listname = "" + randomItemsAmount + " ("+sc.getSize()+") randoms maxW: " + randomMaxWeight + " & maxV: "
-					+ randomMaxValue + " - " + (listviewobslist.size() + 1);
+			String listname = "" + randomItemsAmount + " (" + sc.getSize() + ") randoms maxW: " + randomMaxWeight
+					+ " & maxV: " + randomMaxValue + " - " + (listviewobslist.size() + 1);
 			sc.setListName(listname);
-			
+
 			// put collection into application and show it
 			listviewobslist.add(listname);
 			allStuffCollections.add(sc);
@@ -375,18 +403,43 @@ public class BackTrackControl {
 		int version = validateNumberField(packVersionField);
 		if (maxWeight > 0) {
 			Backtracking bt = new Backtracking(sc, maxWeight);
-			console.appendText("\n\t\t---- start of line ----\n");
-			console.appendText("\nStart of backtrack-packing a knapsack with maximum Weight of " + bt.getMaxWeight());
-			console.appendText("\n\nversion used:\t\t\t- " + getVersionDescription(version) + " -");
-			console.appendText("\nCollection used:\t\t \"" + listviewobslist.get(currentSelectNo) + "\"");
-			console.appendText("\nSize of collection used:\t" + sc.getSize());
-			console.appendText("\nOptimal value found:\t" + bt.startBacktrack(version));
-			console.appendText("\nElapsed time:");
-			console.appendText("\n\t\t(nanoseconds):\t" + bt.getLastElapsedTime());
-			console.appendText("\n\t\t(milliseconds):\t\t" + bt.getLastElapsedTime() / 1000000);
-			console.appendText("\n\t\t(seconds):\t\t" + bt.getLastElapsedTime() / 1000000000);
-			console.appendText("\nPacked items: " + bt.getPackedItems());
-			console.appendText("\n\n\t\t\t---- end of line ----\n");
+			Text t1 = new Text("\n\t\t---- start of line ----\n");
+			Text t2 = new Text("\nVersion used:\t\t\t- " + getVersionDescription(version) + " -");
+			Text t3 = new Text("\nMaximum Weight of:\t " + bt.getMaxWeight());
+			t3.setFill(Color.RED);
+			Text t4 = new Text("\nCollection used:\t\t \"" + listviewobslist.get(currentSelectNo) + "\"");
+			Text t5 = new Text("\nSize of collection used:\t" + sc.getSize());
+			Text t6 = new Text("\nOptimal value found:\t" + bt.startBacktrack(version));
+			t6.setFill(Color.GREEN);
+			Text t7 = new Text("\nElapsed time:");
+			Text t8 = new Text("\n\t\t(nanoseconds):\t" + bt.getLastElapsedTime());
+			Text t9 = new Text("\n\t\t(milliseconds):\t\t" + bt.getLastElapsedTime() / 1000000);
+			Text t10 = new Text("\n\t\t(seconds):\t\t" + bt.getLastElapsedTime() / 1000000000);
+			Text t11 = new Text("\nPacked items: " + bt.getPackedItems());
+			Text t12 = new Text("\n\n\t\t\t---- end of line ----\n");
+			console.getChildren().addAll(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12);
+
+			// console.appendText("\n\t\t---- start of line ----\n");
+			// console.appendText("\nVersion used:\t\t\t- " +
+			// getVersionDescription(version) + " -");
+			// console.appendText("\nMaximum Weight of:\t " +
+			// bt.getMaxWeight());
+			// console.appendText("\nCollection used:\t\t \"" +
+			// listviewobslist.get(currentSelectNo) + "\"");
+			// console.appendText("\nSize of collection used:\t" +
+			// sc.getSize());
+			// console.appendText("\nOptimal value found:\t" +
+			// bt.startBacktrack(version));
+			// console.appendText("\nElapsed time:");
+			// console.appendText("\n\t\t(nanoseconds):\t" +
+			// bt.getLastElapsedTime());
+			// console.appendText("\n\t\t(milliseconds):\t\t" +
+			// bt.getLastElapsedTime() / 1000000);
+			// console.appendText("\n\t\t(seconds):\t\t" +
+			// bt.getLastElapsedTime() / 1000000000);
+			// console.appendText("\nPacked items: " + bt.getPackedItems());
+			// console.appendText("\n\n\t\t\t---- end of line ----\n");
+
 		}
 	}
 
@@ -399,11 +452,15 @@ public class BackTrackControl {
 		case 2:
 			return "weight & value via ArrayList<Item>";
 		case 3:
-			return "combined array, memorized states";
+			return "combined array[][], memorize matrix";
 		case 4:
 			return "greedy by ratio, full iteration";
+		case 5:
+			return "backtrack iterative (unreliable, work in progress)";
+		case 6:
+			return "bruteforce by binary (max n = 24)";
 		default:
-			return "INVALID VERSION INTEGER";
+			return "IVI";
 		}
 	}
 

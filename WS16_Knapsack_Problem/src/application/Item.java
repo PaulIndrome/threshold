@@ -1,11 +1,10 @@
 package application;
 
-import javafx.beans.binding.DoubleExpression;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class Item implements Comparable<Item> {
+public class Item implements Comparable<Item>{
 
 	private SimpleStringProperty name;
 	private SimpleIntegerProperty weight;
@@ -44,7 +43,7 @@ public class Item implements Comparable<Item> {
 	}
 
 	public double getRatio() {
-		return ratio.get();
+		return new Double(ratio.get());
 	}
 
 	@Override
@@ -61,5 +60,6 @@ public class Item implements Comparable<Item> {
 		else
 			return false;
 	}
+
 
 }

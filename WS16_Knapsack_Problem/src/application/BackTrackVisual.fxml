@@ -3,22 +3,23 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane prefHeight="846.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BackTrackControl">
 	<children>
-		<TableView fx:id="tableview" layoutX="766.0" layoutY="14.0" prefHeight="400.0" prefWidth="500.0">
+		<TableView fx:id="tableview" layoutX="792.0" layoutY="14.0" prefHeight="400.0" prefWidth="474.0">
 			<columns>
-				<TableColumn fx:id="itemCol" minWidth="200.0" prefWidth="75.0" text="item" />
-				<TableColumn fx:id="weightCol" prefWidth="75.0" text="weight" />
+				<TableColumn fx:id="itemCol" minWidth="200.0" prefWidth="250.0" text="item" />
+				<TableColumn fx:id="weightCol" text="weight" />
 				<TableColumn fx:id="valueCol" prefWidth="75.0" text="value" />
 				<TableColumn fx:id="ratioCol" prefWidth="75.0" text="ratio" />
 			</columns>
@@ -26,8 +27,8 @@
 				<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
 			</columnResizePolicy>
 		</TableView>
-		<ListView fx:id="listview" editable="true" layoutX="475.0" layoutY="14.0" onMouseClicked="#listViewClicked" prefHeight="400.0" prefWidth="273.0" />
-      <HBox alignment="CENTER" layoutX="766.0" layoutY="423.0" prefHeight="25.0" prefWidth="500.0" spacing="25.0">
+		<ListView fx:id="listview" editable="true" layoutX="509.0" layoutY="14.0" onMouseClicked="#listViewClicked" prefHeight="400.0" prefWidth="273.0" />
+      <HBox alignment="CENTER" layoutX="792.0" layoutY="423.0" prefHeight="25.0" prefWidth="474.0" spacing="25.0">
          <children>
             <TextField fx:id="nameField" promptText="item name" />
             <TextField fx:id="weightField" alignment="CENTER" prefHeight="25.0" prefWidth="106.0" promptText="weight" />
@@ -35,7 +36,7 @@
       		<Button fx:id="addStuffButton" mnemonicParsing="false" onAction="#addStuff" text="add item" />
          </children>
       </HBox>
-      <GridPane layoutX="475.0" layoutY="423.0" prefHeight="140.0" prefWidth="273.0">
+      <GridPane layoutX="509.0" layoutY="423.0" prefHeight="140.0" prefWidth="273.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="100.0" />
@@ -80,6 +81,11 @@
             </TextField>
          </children>
       </GridPane>
-      <TextArea fx:id="console" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="818.0" prefWidth="440.0" wrapText="true" />
+      <ScrollPane fx:id="scrollpane" layoutX="14.0" layoutY="14.0">
+         <content>
+            <TextFlow fx:id="console" prefHeight="818.0" prefWidth="483.0" style="-fx-background-color: #EEEEEE; -fx-border-color: lightgrey;" />
+         </content>
+      </ScrollPane>
+      <TextFlow fx:id="versionsConsole" layoutX="509.0" layoutY="575.0" prefHeight="260.0" prefWidth="760.0" />
 	</children>
 </AnchorPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="application.GameController">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Spiel">
+            <items>
+              <MenuItem fx:id="loadGame" mnemonicParsing="false" onAction="#loadBoard" text="Laden" />
+                  <MenuItem fx:id="newGame" mnemonicParsing="false" text="Neu anfangen" />
+                  <MenuItem fx:id="saveGame" mnemonicParsing="false" text="Spiel speichern" />
+                  <MenuItem fx:id="showSolution" mnemonicParsing="false" text="Lösung anzeigen" />
+                  <MenuItem fx:id="checkSolution" mnemonicParsing="false" text="Lösung kontrollieren" />
+                  <MenuItem fx:id="exitGame" mnemonicParsing="false" text="Beenden" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Hilfe">
+            <items>
+              <MenuItem fx:id="helpText" mnemonicParsing="false" text="Hilfetext" />
+                  <MenuItem fx:id="impressumText" mnemonicParsing="false" text="Impressum" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <GridPane fx:id="gameGrid" gridLinesVisible="true" layoutX="144.0" layoutY="44.0" prefHeight="512.0" prefWidth="512.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>
