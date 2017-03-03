@@ -29,5 +29,9 @@ public class GameController {
 	}
 	
 	
+	public void saveBoard(String filename){
+		for(row[] : board[][])
+	}
+	
 
 }

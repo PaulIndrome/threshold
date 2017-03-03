@@ -418,28 +418,6 @@ public class BackTrackControl {
 			Text t11 = new Text("\nPacked items: " + bt.getPackedItems());
 			Text t12 = new Text("\n\n\t\t\t---- end of line ----\n");
 			console.getChildren().addAll(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12);
-
-			// console.appendText("\n\t\t---- start of line ----\n");
-			// console.appendText("\nVersion used:\t\t\t- " +
-			// getVersionDescription(version) + " -");
-			// console.appendText("\nMaximum Weight of:\t " +
-			// bt.getMaxWeight());
-			// console.appendText("\nCollection used:\t\t \"" +
-			// listviewobslist.get(currentSelectNo) + "\"");
-			// console.appendText("\nSize of collection used:\t" +
-			// sc.getSize());
-			// console.appendText("\nOptimal value found:\t" +
-			// bt.startBacktrack(version));
-			// console.appendText("\nElapsed time:");
-			// console.appendText("\n\t\t(nanoseconds):\t" +
-			// bt.getLastElapsedTime());
-			// console.appendText("\n\t\t(milliseconds):\t\t" +
-			// bt.getLastElapsedTime() / 1000000);
-			// console.appendText("\n\t\t(seconds):\t\t" +
-			// bt.getLastElapsedTime() / 1000000000);
-			// console.appendText("\nPacked items: " + bt.getPackedItems());
-			// console.appendText("\n\n\t\t\t---- end of line ----\n");
-
 		}
 	}
 
@@ -460,7 +438,7 @@ public class BackTrackControl {
 		case 6:
 			return "bruteforce by binary (max n = 24)";
 		default:
-			return "IVI";
+			return "Invalid Version Integer";
 		}
 	}
 
