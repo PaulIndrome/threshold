@@ -29,7 +29,7 @@ public class StringWriterService {
 							} else if (!MainController.run && !MainController.jump){
 								Thread.sleep(500);
 							} else if (MainController.run && MainController.jump){
-									area.appendText(appender.substring(0));
+									area.appendText(appender.substring(i));
 									MainController.progress.set(1);
 									i = appender.length();
 							}

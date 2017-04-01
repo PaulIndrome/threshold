@@ -102,6 +102,7 @@ public class BackTrackControl {
 	private int currentSelectNo = -2;
 
 	public void initialize() {
+		System.out.println("Hello1");
 		// parsing of XML file is top priority
 		parseXML("stuffsave.xml");
 
@@ -132,10 +133,11 @@ public class BackTrackControl {
 
 		int i = 1;
 		versionsConsole.getChildren().add(new Text("Descriptions of versions:\n\n"));
-		while (getVersionDescription(i) != "IVI") {
+		while (getVersionDescription(i) != "Invalid Version Integer") {
 			versionsConsole.getChildren().add(new Text(" " + i + ":\t" + getVersionDescription(i) + "\n\n"));
 			i++;
 		}
+		System.out.println("Hello2");
 	}
 
 	public void listViewClicked() {
