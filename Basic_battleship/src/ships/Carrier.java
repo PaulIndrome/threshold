@@ -73,12 +73,10 @@ public class Carrier implements Ship {
 	}
 	
 	@Override
-	public void checkHit(int x, int y) {
-
-		if(x==bowX && y==bowY){
-			return true;
+	public boolean checkHit(int x, int y) {
+		for(int i=0; i <= size; i++){
+			
 		}
-
 	}
 
 }

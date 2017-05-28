@@ -1,0 +1,29 @@
+generating neighbours
+	
+	system 01: 	generate tile map without IDs first
+				iterate over all tiles
+				called tile bestows its ID on surrounding tiles
+				needs:	pre-prepared grid to answer geographic queries
+						"How many neighbors do I have?"
+						"Where are my neighboring tiles located in relation to myself?"
+						"How do I communicate my ID to those neighbors?"
+	
+	system 02:	generate neighbor relations on creation of tiles
+				discern direction of creation beforehand
+				iterate over ID and create tiles completely				
+				needs:	harsh mathematics to pre-discern IDs and geographic relations
+						pre-knowledge of board structure
+						more mathematics to allow for different board structures
+						IDs to exist before actual tile is created
+						
+	system 03:	generate entire tile map with IDs first
+				iterate again over all IDs and fill the neighbours array of each tile
+				discern direction of creation beforehand
+				called tile grabs neighbouring IDs (!!!)
+				needs:	okay mathematics to discern placement of tiles according to board structure
+						(row 1, skip no steps up to x, row 2, skip steps 3-4-5 and 8-9 up to x etc.)
+						clear data structure to enable tiles to "grab" IDs of neighbours
+						(graph structure, any node has exactly six edges)
+						
+	system 04:	bruteforce
+						

@@ -1,11 +1,17 @@
 package ships;
 
+/*
+ * Wrapper class for one of four directions, determined by a single integer beginning with 0 for north and incrementing clockwise
+ */
+
 public class Direction {
 
 	int xD;
 	int yD;
+	int id;
 
 	public Direction(int direction) {
+		id = direction;
 		switch (direction) {
 		case 0:
 			xD = 0;
