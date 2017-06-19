@@ -7,8 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
+import material.GameBoard;
 
 public class EventController {
 
@@ -21,12 +21,11 @@ public class EventController {
 
 		@Override
 		public void handle(Event event) {
-			if (event.getTarget() instanceof Node) {
-				Node target = (Node) event.getTarget();
-				while (target.getParent() != root) {
-					target = target.getParent();
-				}
-				target.toFront();
+			if (event.getTarget() instanceof Polygon) {
+				HexTile target = (HexTile) ((Node)event.getTarget()).getParent();
+				System.out.println(target.toString());
+			} else {
+				System.out.println(event.getTarget().toString());
 			}
 			event.consume();
 		}
@@ -34,17 +33,28 @@ public class EventController {
 
 	public void initialize() {
 		root.addEventFilter(MouseEvent.MOUSE_CLICKED, topHandler);
-		drawHexagonals();
+		//drawHexagonals();
+		
+		GameBoard gba = new GameBoard(root.getPrefWidth(), root.getPrefHeight(), 63,64,75,76,77,88,89);
+		root.getChildren().add(gba);
+		System.out.println(gba.toString());
+		
 	}
 
-	public void drawHexagonals() {
-		int radius = 24;
-		int row = 0;
-		int 
-		root.getChildren().add(new HexTile(50, 50, 24, Color.BURLYWOOD, 0));
-		for(int column = 1; i <8; i++){
-			root.getChildren().add(new HexTile(50+(i*radius*1.55f), 50+(i*radius*0.85f), radius, Color.BURLYWOOD, i));
-		}
-	}
+	
+
+	/*
+	 * Math to start next row lower left of first hex of previous row X previous
+	 * row first hex - i*radius*2*0.75f Y previous row first hex +
+	 * i*radius*2*0.43f
+	 */
+	/*
+	 * minimum hexes per row = 7 maximumx hexes per row = 13
+	 */
+	/*
+	 * Array of booleans 13 columns * 15 rows
+	 * iteration over array, true sets hex w id, false sets hex w/o id
+	 */
+	
 
 }
