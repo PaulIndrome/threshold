@@ -13,10 +13,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			FXMLLoader loader = new FXMLLoader(this.getClass().getResource("testboard.fxml"));
+			FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../gameSetup/StartScreen.fxml"));
 			AnchorPane root = loader.load();
-			
-			//root.getChildren().add(new Circle(root.getPrefWidth()*0.5f, root.getPrefHeight()*0.5f, 30, Color.BLACK));
 			
 			Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

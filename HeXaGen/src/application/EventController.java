@@ -1,6 +1,8 @@
 package application;
 
+import gameobjects.HexGrid;
 import gameobjects.HexTile;
+import gameobjects.Piece;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -8,16 +10,21 @@ import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Polygon;
-import material.GameBoard;
 
 public class EventController {
 
-	boolean pieceActive = false;
-
+	boolean activeTeam;
+	
+	boolean[] gridSetup;
+	
+	HexGrid gameBoard;
+	
+	Piece activePiece;
+	
 	@FXML
 	public AnchorPane root;
 
-	EventHandler<Event> topHandler = new EventHandler<Event>() {
+	EventHandler<Event> mainMouseEventHandler = new EventHandler<Event>() {
 
 		@Override
 		public void handle(Event event) {
@@ -32,29 +39,43 @@ public class EventController {
 	};
 
 	public void initialize() {
-		root.addEventFilter(MouseEvent.MOUSE_CLICKED, topHandler);
-		//drawHexagonals();
+		root.addEventFilter(MouseEvent.MOUSE_CLICKED, mainMouseEventHandler);
+	}
+	
+	public void initializeHexGrid(boolean[] gridSetup){
+		// create array of skipped IDs from deactivated tiles
+		int indexArraySize = 0;
+		for(boolean b : gridSetup){
+			if(!b)
+				indexArraySize++;
+		}
+		int[] skipsArray = new int[indexArraySize];
+		int index = 0;
+		int step = 0;
+		for(boolean b : gridSetup){
+			if(!b){
+				skipsArray[step] = index;
+				step++;
+				index++;
+			} else {
+				index++;
+			}
+		}
 		
-		GameBoard gba = new GameBoard(root.getPrefWidth(), root.getPrefHeight(), 63,64,75,76,77,88,89);
-		root.getChildren().add(gba);
-		System.out.println(gba.toString());
+		gameBoard = new HexGrid(root.getPrefWidth(), root.getPrefHeight(), skipsArray);
+		root.getChildren().add(gameBoard);
+		
+		spawnTestPiece();
 		
 	}
-
 	
-
-	/*
-	 * Math to start next row lower left of first hex of previous row X previous
-	 * row first hex - i*radius*2*0.75f Y previous row first hex +
-	 * i*radius*2*0.43f
-	 */
-	/*
-	 * minimum hexes per row = 7 maximumx hexes per row = 13
-	 */
-	/*
-	 * Array of booleans 13 columns * 15 rows
-	 * iteration over array, true sets hex w id, false sets hex w/o id
-	 */
+	public void spawnTestPiece(){
+		HexTile spawnTile = gameBoard.getHexTileByID(8);
+		double spawnY = spawnTile.getPolygon().getPoints().get(1);
+		double spawnX = (spawnTile.getPolygon().getPoints().get(0) + spawnTile.getPolygon().getPoints().get(6)) * 0.5;
+		Piece testPiece = new Piece(spawnX, spawnY, spawnTile.getRadius()*0.865, null);
+		spawnTile.getChildren().add(testPiece);
+	}
 	
 
 }

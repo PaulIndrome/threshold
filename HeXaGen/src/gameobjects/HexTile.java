@@ -1,5 +1,9 @@
 package gameobjects;
 
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
@@ -12,7 +16,6 @@ public class HexTile extends Pane {
 	boolean terrain = true;
 	int ID;
 	double radius;
-	int[] neighbourIDs = new int[6];
 	HexTile[] neighbours = new HexTile[6];
 
 	Polygon hex;
@@ -56,8 +59,6 @@ public class HexTile extends Pane {
 	private void setMouseBehavior() {
 		hex.setOnMouseEntered(e -> {
 			hex.setStroke(Color.BLACK);
-//			super.setBorder(new Border(
-//					new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, new CornerRadii(1), BorderStroke.THIN)));
 		});
 
 		hex.setOnMouseExited(e -> {
@@ -106,11 +107,20 @@ public class HexTile extends Pane {
 		}
 		super.getChildren().add(tx);*/
 	}
+	
+	public void mark(){
+		super.setBorder(new Border(
+				new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, new CornerRadii(1), BorderStroke.THIN)));
+	}
 
 	public void setTerrain(boolean terrain) {
 		this.terrain = terrain;
 	}
 
+	public boolean getTerrain(){
+		return terrain;
+	}
+	
 	public void swapTerrain() {
 		terrain = !terrain;
 	}
@@ -121,10 +131,23 @@ public class HexTile extends Pane {
 
 	@Override
 	public String toString() {
-		return "" + super.getTranslateX() + " " + ID;
+		String s = "";
+		s += neighbours[0].getID();
+		for(int n = 1; n<neighbours.length;n++)
+			s += "\t" + neighbours[n].getID();
+		
+		return s;
 	}
 
 	public int getID() {
 		return ID;
+	}
+	
+	public Polygon getPolygon(){
+		return hex;
+	}
+	
+	public double getRadius(){
+		return radius;
 	}
 }
